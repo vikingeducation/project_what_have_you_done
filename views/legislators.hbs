@@ -1,0 +1,37 @@
+<section>
+  <h2>{{zip}}</h2>
+</section>
+
+<section class="list">
+  <h1>House</h1>
+  <ul>
+    {{#each legislators.house as |leg|}}
+      <a href="/legislators/{{leg.bioguide_id}}">
+        <li>
+          <img class="list-portrait" src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg">
+          <div class="list-desc">
+            <div class="highlighted list-name highlight-shadow">{{leg.fullName}}</div>
+            <div class="list-party">{{leg.partyLong}}</div>
+          </div>
+        </li>
+      </a>
+    {{/each}}
+  </ul>
+</section>
+
+<section class="list padding-top">
+  <h1>Senate</h1>
+  <ul>
+    {{#each legislators.senate as |leg|}}
+      <a href="/legislators/{{leg.bioguide_id}}">
+        <li>
+          <img class="list-portrait" src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg">
+          <div class="list-desc">
+            <div class="highlighted list-name highlight-shadow">{{leg.fullName}}</div>
+            <div class="list-party">{{leg.partyLong}}</div>
+          </div>
+        </li>
+      </a>
+    {{/each}}
+  </ul>
+</section>
