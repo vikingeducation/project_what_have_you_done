@@ -21,19 +21,18 @@ router.get('/', (req, res, next) => {
                                   zip: zip });
     };
   });
-  
+
 });
 
 router.get('/:id', (req, res, next) => {
   let id = req.params.id;
   let bio_url = sunlight.bioUrl(id);
   let votes_url = sunlight.votesUrl(id);
-  let legislator;
 
   request(bio_url, (err, response, body) => {
     if (!err && response.statusCode == 200) {
       let leg = JSON.parse(body).results[0];
-      legislator = new Legislator(leg);
+      let legislator = new Legislator(leg);
 
       request(votes_url, (err, response, body) => {
         if (!err && response.statusCode == 200) {
