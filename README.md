@@ -13,3 +13,8 @@ Click on an individual to see his/her contact info and voting record.
 Click on a bill to go to its govtrack.us page for additional information.
 
 ![Screenshot](https://github.com/blackwright/project_what_have_you_done/screenshots/whyd3.jpg?raw=true)
+
+### Technical Notes
+
+- Written with Node.JS and Express
+- Fetches data through Sunlight Congress API request
