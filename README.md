@@ -16,5 +16,5 @@ Click on a bill to go to its govtrack.us page for additional information.
 
 ### Technical Notes
 
-- Written with Node.JS and Express
-- Fetches data through Sunlight Congress API request
+- Written with Node.JS and Express.
+- Fetches data through Sunlight Congress API request.
