@@ -1,0 +1,52 @@
+<section class="profile-header">
+  <a href="{{legislator.website}}">
+    <img src="https://theunitedstates.io/images/congress/225x275/{{legislator.bioguide_id}}.jpg">
+  </a>
+  <div class="padding-top">
+    <h1 class="highlighted profile-name highlight-shadow">
+      <a href="{{legislator.website}}">
+        {{legislator.fullName}}
+      </a>
+    </h1>
+    <div class="padding-top">{{legislator.desc}}</div>
+  </div>
+</section>
+
+<h4>Contact Information</h4>
+<section class="box margin-top">
+  <div class="profile-contact">
+    <div class="contact-item">
+      <div class="grayed">Phone Number</div>
+      <div class="contact-info">{{legislator.phone}}</div>
+    </div>
+    <div class="contact-item">
+      <div class="grayed">Website</div>
+      <div class="contact-info">
+        <a href="{{legislator.website}}">
+          {{legislator.website}}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h4>Recent Votes</h4>
+  <div class="padding-top">
+    <span style="color:green">Green: Yea</span>
+    /
+    <span style="color:red">Red: Nay</span>
+    /
+    Black: Not Voting</span>
+  </div>
+  <ul>
+    {{#each bills as |bill|}}
+      <li class="bill vote-{{bill.voteRecord}}">
+        <a href="{{bill.url}}">
+          <h3 class="highlighted highlight-shadow">{{bill.id}}</h3>
+        </a>
+        <p class="padding-top">{{bill.title}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>
