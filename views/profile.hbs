@@ -1,5 +1,30 @@
-Legislator: {{legislator.first_name}}
+<section class="profile-heading">
+  <div class="image">
+    <img src="https://theunitedstates.io/images/congress/225x275/{{legislator.bioguide_id}}.jpg" alt="profile_photo">
+  </div>
+  <h3>{{legislator.partyFull}}</h3>
+  <a href="/legislators/{{legislator.bioguide_id}}"><h2>{{legislator.first_name}} {{legislator.last_name}}</h2></a>
+</section>
+
+<section class="contact-info">
+  <h3>Contact Info</h3>
+  <div class="contact-box">
+    <p class="contact-name">Phone Number</p>
+    <p>{{legislator.phone}}</p>
+    <br>
+    <p class="contact-name">Website</p>
+    <p><a href="{{legislator.website}}" target="_blank">{{legislator.website}}</a></p>
+  </div>
+</section>
 <br>
-{{#each bills as |bill|}}
-  Bill: {{bill.title}}
-{{/each}}
+<section class="votes">
+  <h3>Recent Votes</h3>
+
+  {{#each bills as |bill|}}
+    <div class="vote vote-{{bill.vote}}">
+      <h2><a href="{{bill.url}}" target="_blank">{{bill.bill_id}}</a></h2>
+      <p>{{bill.title}}</p>
+    </div>
+  {{/each}}
+
+</section>

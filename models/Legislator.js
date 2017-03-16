@@ -6,7 +6,8 @@ class Legislator {
     this.last_name = leg.last_name;
     this.party = leg.party;
     this.website = leg.website;
-    this.email = leg.oc_email
+    this.email = leg.oc_email;
+    this.phone = leg.phone
   }
 
   get partyFull() {

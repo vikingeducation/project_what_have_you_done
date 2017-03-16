@@ -32,6 +32,7 @@ form {
   font-size: 1.5em;
 }
 
+
 input {
   display: block;
   margin: 10px auto;
@@ -84,17 +85,77 @@ input[type='submit'] {
   margin-bottom: 0;
 }
 
-.leg-info h3 {
+h3 {
   margin-top: 5px;
   font-weight: normal;
 }
 
-.leg-info a {
+.leg-info a,
+.profile-heading a {
   text-decoration: none;
   color: black;
   font-size: 1.5em;
 }
 
-.leg-info a :hover {
+a:hover {
   background-color: yellow;
+}
+
+.profile-heading {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.profile-heading .image {
+  margin: 0 auto;
+}
+
+.profile-heading h2 {
+  background-color: yellow;
+  display: inline-block;
+  margin-top: 0;
+  padding: 7px;
+}
+
+.contact-info h3,
+.votes h3 {
+  text-align: center;
+}
+
+.contact-box {
+  background-color: white;
+  border: 1px solid #bbb;
+  width: 300px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.contact-box p {
+  margin: 5px;
+}
+
+.contact-box a,
+.vote a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact-name {
+  color: grey;
+  margin: 0;
+}
+
+.vote {
+  border: 1px solid black;
+  padding: 5px 10px;
+  width: 500px;
+  margin: 7px auto;
+}
+
+.vote-yea {
+  border-color: green;
+}
+
+.vote-nay {
+  border-color: red;
 }
