@@ -37,8 +37,6 @@ class Sunlight {
     });
   };
 
-  
-
   profileOfLegislator(bioguide_id, callback) {
     const bio_url = `${baseUri}/legislators?bioguide_id=${bioguide_id}`;
     const votes_url = `${baseUri}/votes?voter_ids.${bioguide_id}__exists=true&fields=bill,question,voter_ids.${bioguide_id}`;
