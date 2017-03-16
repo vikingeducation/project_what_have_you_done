@@ -1,0 +1,36 @@
+<section class="zip">
+  <h2>{{zip}}</h2>
+  <p><a href="/">Change the zip code</a></p>
+</section>
+
+<section class="content">
+
+  <h1 class="chamber">House</h1>
+
+  {{#each legislators_house as |leg|}}
+    <div class="legislator">
+      <div class="image">
+        <img src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg" alt="profile_photo">
+      </div>
+      <div class="leg-info">
+        <h2><a href="/legislators/{{leg.bioguide_id}}">{{leg.first_name}} {{leg.last_name}}</a></h2>
+        <h3>{{leg.partyFull}}</h3>
+      </div>
+    </div>
+  {{/each}}
+
+  <h1 class="chamber">Senate</h1>
+
+  {{#each legislators_senate as |leg|}}
+    <div class="legislator">
+      <div class="image">
+        <img src="https://theunitedstates.io/images/congress/225x275/{{leg.bioguide_id}}.jpg" alt="profile_photo">
+      </div>
+      <div class="leg-info">
+        <h2><a href="/legislators/{{leg.bioguide_id}}">{{leg.first_name}} {{leg.last_name}}</a></h2>
+        <h3>{{leg.partyFull}}</h3>
+      </div>
+    </div>
+  {{/each}}
+
+</section>
