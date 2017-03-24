@@ -19,6 +19,23 @@ class Legislator {
     return "https://theunitedstates.io/images/congress/original/" + this.bioguide_id + ".jpg"
   }
 
+  get partyLong(){
+    switch(this.party){
+      case 'R':
+        return 'Republican';
+        break;
+      case 'D':
+        return 'Democrat';
+        break;
+      case 'I':
+        return 'Independent';
+        break;
+      case 'A':
+        return 'Anarchist';
+        break;
+    }
+  }
+
 
 }
 

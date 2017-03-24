@@ -18,7 +18,10 @@
   </div>
   <div class="bio col-md-8 col-sm-7 col-xs-9">
     <div class="legislator-name">
-      {{this.fullName}}
+      <a href="/legislators/{{this.bioguide_id}}">{{this.fullName}}</a>
+    </div>
+    <div class="legislator-party">
+      {{this.partyLong}}
     </div>
   </div>
 </div>
@@ -38,6 +41,9 @@
   <div class="bio col-md-8 col-sm-7 col-xs-9">
     <div class="legislator-name">
       {{this.fullName}}
+    </div>
+    <div class="legislator-party">
+      {{this.partyLong}}
     </div>
   </div>
 </div>
