@@ -1,29 +1,45 @@
-<div class="center">
-  <h1>What have you done?</h1>
-  <p class="subtext">{{ zip }}</p>
-  <div class="subheader">
-    House
+<div class="row text-center">
+  <div class="col-xs-6 col-xs-offset-3 colored">
+    <h1>What have you done?</h1>
+    <p class="subtext">{{ zip }}</p>
   </div>
-  <div class="legislator-group">
-    <ul>
-      {{#each reps}}
-        <li>{{this.fullName}}</li>
-      {{/each}}
-    </ul>
+</row>
+<row>
+  <div class="col-xs-12">
+    <div class="subheader">
+      House
+    </div>
   </div>
-
-  <div class="subheader">
-    Senate
+</row>
+{{#each reps}}
+<div class="legislator row text-left">
+  <div class="col-md-1 col-md-offset-3 col-sm-2 col-sm-offset-3 col-xs-3">
+    <img class="photo img-circle" src={{this.photo}} />
   </div>
-  <div class="legislator-group">
-    <ul>
-      {{#each senators}}
-        <li>{{this.fullName}}</li>
-      {{/each}}
-    </ul>
+  <div class="bio col-md-8 col-sm-7 col-xs-9">
+    <div class="legislator-name">
+      {{this.fullName}}
+    </div>
   </div>
-
-
 </div>
-
+{{/each}}
+<row>
+  <div class="col-xs-12">
+    <div class="subheader">
+      Senate
+    </div>
+  </div>
+</row>
+{{#each senators}}
+<div class="legislator row text-left">
+  <div class="col-md-1 col-md-offset-3 col-sm-2 col-sm-offset-3 col-xs-3">
+    <img class="photo img-circle" src={{this.photo}} />
+  </div>
+  <div class="bio col-md-8 col-sm-7 col-xs-9">
+    <div class="legislator-name">
+      {{this.fullName}}
+    </div>
+  </div>
+</div>
+{{/each}}
 

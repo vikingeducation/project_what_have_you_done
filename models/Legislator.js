@@ -15,6 +15,10 @@ class Legislator {
     return (this.first_name + ' ' + this.last_name);
   }
 
+  get photo(){
+    return "https://theunitedstates.io/images/congress/original/" + this.bioguide_id + ".jpg"
+  }
+
 
 }
 
