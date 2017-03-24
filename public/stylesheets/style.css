@@ -29,6 +29,7 @@ a:hover {
 .subheader {
   color: #7B7B7B;
   font-size: 3rem;
+  margin: 20px 0;
 }
 .photo  {
   /* make it responsive */

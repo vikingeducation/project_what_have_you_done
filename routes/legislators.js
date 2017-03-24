@@ -19,5 +19,11 @@ let sunlight = new SunlightApi;
     }
   });
 
+  /* GET legislators by zip. */
+  router.get('/:id', function(req, res, next) {
+    let id = req.params.id
+    res.render('legislatorDetail', { id: id })
+  });
+
 module.exports = router;
 
