@@ -1,2 +1,20 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="center">
+  <h1>What have you done?</h1>
+  <p>
+    Discover the <strong>voting records</strong><br>
+    of your <strong>local representatives</strong>
+  </p>
+  <p class="subtext">
+    Then pester their offices until their views reflect yours!
+  </p>
+  <div class="content-box">
+    <h2>Enter your zip code</h2>
+    {{#if error }}
+    <div class="error">{{ error }}</div>
+    {{/if}}
+    <form action="/legislators" method="get">
+      <input type="text" name="zip" placeholder="zip code" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

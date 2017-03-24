@@ -1,6 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #F5F5F5;
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 a {
@@ -9,4 +14,23 @@ a {
 
 .center {
   text-align: center;
+}
+
+.subtext {
+  color: #7B7B7B;
+  font-size: 0.8rem;
+}
+
+.subheader {
+  color: #7B7B7B;
+  font-size: 1.4rem;
+}
+
+.legislator-group {
+  text-align: left;
+}
+
+.error {
+  color: #D46A6A;
+  font-weight: bold;
 }

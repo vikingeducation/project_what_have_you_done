@@ -1,0 +1,29 @@
+<div class="center">
+  <h1>What have you done?</h1>
+  <p class="subtext">{{ zip }}</p>
+  <div class="subheader">
+    House
+  </div>
+  <div class="legislator-group">
+    <ul>
+      {{#each reps}}
+        <li>{{this.fullName}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="subheader">
+    Senate
+  </div>
+  <div class="legislator-group">
+    <ul>
+      {{#each senators}}
+        <li>{{this.fullName}}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+</div>
+
+
