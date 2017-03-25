@@ -1,13 +1,22 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #F5F5F5;
+  background: #F5F5F5!important;
 }
 
 p {
   font-size: 1.6rem;
 }
+.larger {
+  font-size:2rem;
+}
 
+.smaller {
+  font-size:1.2rem;
+}
+.error {
+  color: #c70039;
+}
 a {
   color: #00B7FF;
 }
@@ -21,9 +30,12 @@ a:hover {
   padding: 5px;
 }
 
+.margin-30 {
+  margin-top:30px;
+}
+
 .subtext {
   color: #7B7B7B;
-
 }
 
 .subheader {
@@ -54,4 +66,30 @@ a:hover {
 .legislator-party{
   font-size:1.6rem;
   padding-left: 2rem;
+}
+
+.contact-content {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 15px;
+}
+
+.contact-content  .subtext {
+  margin-top:15px;
+  margin-bottom: 0;
+}
+
+.vote-box {
+  text-align: left;
+  background: #fff;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.color-Yea {
+  border: 1px solid green;
+}
+
+.color-Nay {
+  border: 1px solid red;
 }

@@ -1,5 +1,7 @@
 const request = require('request')
 const Legislator = require('../models/Legislator');
+let _ = require('lodash');
+
 
 class SunlightApi {
   constructor(){
@@ -30,7 +32,17 @@ class SunlightApi {
           })
           callback(legislators)
         } else if (type === 'votes' ){
-          callback(JSON.parse(body).results)
+          let bills = []
+          JSON.parse(body).results.map( (data) => {
+            if (data.bill && !_.isEmpty(data.voter_ids)){
+              bills.push({
+                id: data.bill.bill_id,
+                title: data.bill.official_title,
+                vote: Object.values(data.voter_ids)[0]
+              })
+            }
+          })
+          callback(bills)
         }
       }
     })
