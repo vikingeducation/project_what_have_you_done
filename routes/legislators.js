@@ -16,8 +16,6 @@ var cache = require('memory-cache');
         let reps = _.filter(leg, ['chamber', 'house']);
         let senators = _.filter(leg, ['chamber', 'senate']);
         cache.put('leg', leg)
-
-
         res.render('legislators', { zip: zip, reps: reps, senators: senators })
       })
     }
@@ -28,12 +26,12 @@ var cache = require('memory-cache');
     let id = req.params.id
     let legislator = null;
     cache.get('leg').forEach(function(leg){
-      if (leg.bioguide_id == id){
-        legislator = leg
-      }
+      if (leg.bioguide_id == id) legislator = leg
     })
-    console.log("Specific Legislator: ", legislator);
-    res.render('legislatorDetail', { id: id })
+    sunlight.getVotes(id, function(votes){
+      legislator.votes = votes
+      res.render('legislatorDetail', { legislator: legislator })
+    });
   });
 
 module.exports = router;
