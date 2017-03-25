@@ -37,7 +37,7 @@ class SunlightApi {
               bills.push({
                 id: data.bill.bill_id,
                 title: data.bill.official_title,
-                vote: Object.values(data.voter_ids)[0]
+                vote: _.values(data.voter_ids)[0]
               })
             }
           })
