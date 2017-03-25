@@ -1,0 +1,26 @@
+<div class="row text-center">
+  <div class="col-sm-6 col-sm-offset-3 colored col-xs-12">
+    <h1>What have you done?</h1>
+    <p class="larger">
+      Discover the <strong>voting records</strong><br>
+      of your <strong>local representatives</strong>
+    </p>
+    <p class="subtext">
+      Then pester their offices until their views reflect yours!
+    </p>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-sm-4 col-sm-offset-4 colored col-xs-6 col-xs-offset-3">
+    <div class="content-box">
+      <p class="larger">Enter your zip code</p>
+      {{#if error }}
+        <div class="error">{{ error }}</div>
+      {{/if}}
+      <form class="form-group" action="/legislators" method="get">
+        <input class="form-control" type="text" name="zip" placeholder="zip code" />
+        <button class="btn btn-default" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

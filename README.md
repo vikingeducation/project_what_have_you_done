@@ -1,2 +1,5 @@
-# project_what_have_you_done
-Build an application to help track the legislative activities of your local representatives.
+# What have you done?
+
+A Node/Express project from Viking Code School (www.vikingcodeschool.com) by [tim5046](http://github.com/tim5046)
+
+[View Demo](https://intense-reef-79864.herokuapp.com/)
