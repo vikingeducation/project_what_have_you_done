@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -7,16 +8,7 @@ body {
 p {
   font-size: 1.6rem;
 }
-.larger {
-  font-size:2rem;
-}
 
-.smaller {
-  font-size:1.2rem;
-}
-.error {
-  color: #c70039;
-}
 a {
   color: #00B7FF;
 }
@@ -34,6 +26,18 @@ a:hover {
   margin-top:30px;
 }
 
+.larger {
+  font-size:2rem;
+}
+
+.smaller {
+  font-size:1.2rem;
+}
+
+.error {
+  color: #c70039;
+}
+
 .subtext {
   color: #7B7B7B;
 }
@@ -43,31 +47,36 @@ a:hover {
   font-size: 3rem;
   margin: 20px 0;
 }
+
 .photo  {
-  /* make it responsive */
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 
+/* Legislator list page styles */
 .legislator{
   margin-bottom: 30px;
 }
+
 .legislator-name{
   font-weight: bold;
   font-size: 2.5rem;
   margin-top: 1.2rem;
   padding-left: 2rem;
 }
+
 .legislator-name a,.legislator-name a:hover {
   text-decoration: none;
   color: inherit;
 }
+
 .legislator-party{
   font-size:1.6rem;
   padding-left: 2rem;
 }
 
+/* Legislator Detail Page */
 .contact-content {
   background: #fff;
   border: 1px solid #000;

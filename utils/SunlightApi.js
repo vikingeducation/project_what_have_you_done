@@ -2,7 +2,6 @@ const request = require('request')
 const Legislator = require('../models/Legislator');
 let _ = require('lodash');
 
-
 class SunlightApi {
   constructor(){
     this.baseUrl = 'https://congress.api.sunlightfoundation.com';
@@ -47,8 +46,6 @@ class SunlightApi {
       }
     })
   }
-
 }
-
 
 module.exports = SunlightApi;
