@@ -93,12 +93,13 @@ a:hover {
   background: #fff;
   padding: 5px;
   margin: 5px 0;
+  border: 1px solid #E6C229;
 }
 
 .color-Yea {
-  border: 1px solid green;
+  border: 1px solid #226F54;
 }
 
 .color-Nay {
-  border: 1px solid red;
+  border: 1px solid #D11149;
 }
