@@ -1,16 +1,32 @@
-<h1>These are the zipcode results for your search</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REPRESENTED</title>
 
-<section>
-  {{#each representatives as |representative|}}
-    <ul>
-      <li>
-        <a href="/representatives/{{representative.name}}">{{representative.name}}</a>
-      </li>
-      <!-- <div>
-          <div>
-            <p>{{project.shortDesc}}</p>
-          </div>
-      </div> -->
-    </ul>
-  {{/each}}
-</section>
+  </head>
+
+  <body>
+    <header>
+      <h1>REPRESENTED</h1>
+    </header>
+
+    <h2>We found the following representatives for your zip code:</h2>
+
+    <section>
+      <ul>
+      {{#each representatives as |representative|}}
+          <li>
+            <h3><a href="/representatives/{{representative.name}}">{{representative.name}} ({{representative.party}}, {{representative.chamber}})</a></h3>
+          </li>
+      {{/each}}
+      </ul>
+    </section>
+
+    <footer>
+      <p>REPRESENTED app by <a href=https://github.com/Throw22>Nicholas Romeo</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,13 +1,42 @@
-<h1>Representative page for {{representative.name}}</h1>
-<h2>{{representative.party}} {{representative.chamber}}</h2>
-<h3>{{representative.phone}}</h3>
-<h3>{{representative.website}}</h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REPRESENT - {{representative.name}}</title>
 
-{{#each votes as |vote|}}
-  <div>
-      <a href='{{vote.billURL}}'>{{vote.billID}}</a>
-      <h4>{{vote.billTitle}}<h4>
-      <h4>Vote: {{vote.repVote}}</h4>
-      <!-- <a href="/representatives/{{representative.name}}">{{representative.name}}</a> -->
-  </div>
-{{/each}}
+  </head>
+
+  <body>
+    <header>
+      <h1>REPRESENTED</h1>
+    </header>
+
+    <section>
+      <h2>{{representative.name}} ({{representative.party}}, {{representative.chamber}})</h2>
+      <h3>Contact:</h3>
+      <h4>{{representative.phone}}</h4>
+      <h4><a href={{representative.website}}>{{representative.website}}</a></h4>
+    </section>
+
+    <section>
+      <h3>Recent votes:</h3>
+      {{#each votes as |vote|}}
+        <div>
+            <p>---------------<p>
+            <h4>Bill <a href='{{vote.billURL}}'>{{vote.billID}}</a><h4>
+            <p>{{vote.billTitle}}<p>
+            <p>Representative's vote: {{vote.repVote}}<p>
+        </div>
+      </section>
+    {{/each}}
+
+    <footer>
+      <p>REPRESENTED app by <a href=https://github.com/Throw22>Nicholas Romeo</a></p>
+    </footer>
+  </body>
+
+
+
+</html>
