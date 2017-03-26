@@ -1,0 +1,64 @@
+  <div class="center">
+    <h1>
+      <a href="/">
+        What Have You Done?
+      </a>
+    </h1>
+  </div>
+
+  <div class="legislator-heading">
+    <div class="photo">
+      <img src="https://theunitedstates.io/images/congress/original/{{legId}}.jpg" alt="" />
+    </div>
+
+    <div class="legislator-party-name">
+      Chamber: {{legislator.chamber}} - Party: {{legislator.party}}
+    </div>
+
+    <div class="legislator-name">
+      <a href="/legislators/{{legId}}">
+        {{legislator.first_name}} {{legislator.middle_name}}
+          
+            {{legislator.last_name}}
+      </a>
+    </div>
+
+  </div>
+
+
+  <h3 class="center content-box-title">Contact Info</h3>
+  <div class="content-box">
+    <div class="contact-name">Phone Number</div>
+    <div class="contact-value">{{legislator.phone}}</div>
+    <br>
+    <div class="contact-name">Website</div>
+    <div class="contact-value">
+      <a href="{{legislator.website}}" target="_blank">
+         {{legislator.website}}
+        </a>
+      </div>
+  </div>
+
+  <br>
+
+  <h3 class="center content-box-title">Recent Votes</h3>
+  
+  {{#each votes as |vote|}}
+
+      <div class="vote">
+        <div class="bill-name">
+            <a href="https://www.govtrack.us/congress/bills/{{vote.congress}}/{{vote.bill.bill_type}}{{vote.bill.number}}" target="_blank">
+            {{vote.roll_id}}
+            </a>
+        </div>
+        <p class="bill-description">
+          {{vote.question}}
+        </p>
+        <div class="bill-name">
+            Voted: 
+            {{vote.answer}}
+        </div>
+      </div>
+
+  {{/each}}
+ 

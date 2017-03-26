@@ -1,0 +1,46 @@
+<div class="center">
+    <h1>What Have You Done?</h1>
+</div>
+
+<a href="/">
+  <div class="zip-code">
+    
+      <div class="zip-box">{{zipcode}}</div>
+    
+    <div class="change-zip">Change Zip</div>
+  </div>
+</a>
+
+<div class="content">
+    <h2 class="body-name">Legislators</h2>
+
+  {{#each legislators as |legislator|}}
+    <div class="legislator">
+      <div class="photo">
+        <img src="https://theunitedstates.io/images/congress/original/{{legislator.bioguide_id}}.jpg" alt=""/>
+      </div>
+
+      <div class="legislator-info">
+        <div class="name">
+          <a href="/legislators/{{legislator.bioguide_id}}">
+            {{legislator.first_name}} {{legislator.middle_name}}
+            
+            {{legislator.last_name}}
+          </a>
+        </div>
+
+        <div class="party-chamber">
+          <div class="party-name">
+            {{legislator.chamber}} - 
+          </div>
+          <div class="party-name">
+            {{legislator.party}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  {{/each}}
+
+
+</div>
