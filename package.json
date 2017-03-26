@@ -1,11 +1,15 @@
 {
   "name": "project-what-have-you-done",
   "version": "0.0.0",
+  "engines": {
+    "node": "6.10.0",
+    "npm": "3.10.x"
+  },
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
-  },
+  }
 }
   },
   "dependencies": {
