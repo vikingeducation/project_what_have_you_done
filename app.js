@@ -1,5 +1,5 @@
 const request = require('request');
-
+const port = process.env.PORT || '3000';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,6 +11,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var representatives = require('./routes/representatives');
 var zipcoderesults = require('./routes/zipcoderesults');
+
 
 var app = express();
 
@@ -49,9 +50,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function () {
-  // This function is run when the app starts up.
-  console.log('Server is listening on 3000')
-})
+app.listen(port);
 
 module.exports = app;
