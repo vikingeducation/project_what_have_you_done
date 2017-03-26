@@ -1,0 +1,16 @@
+<h1>These are the zipcode results for your search</h1>
+
+<section>
+  {{#each representatives as |representative|}}
+    <ul>
+      <li>
+        <a href="/representatives/{{representative.name}}">{{representative.name}}</a>
+      </li>
+      <!-- <div>
+          <div>
+            <p>{{project.shortDesc}}</p>
+          </div>
+      </div> -->
+    </ul>
+  {{/each}}
+</section>

@@ -1,0 +1,13 @@
+<h1>Representative page for {{representative.name}}</h1>
+<h2>{{representative.party}} {{representative.chamber}}</h2>
+<h3>{{representative.phone}}</h3>
+<h3>{{representative.website}}</h3>
+
+{{#each votes as |vote|}}
+  <div>
+      <a href='{{vote.billURL}}'>{{vote.billID}}</a>
+      <h4>{{vote.billTitle}}<h4>
+      <h4>Vote: {{vote.repVote}}</h4>
+      <!-- <a href="/representatives/{{representative.name}}">{{representative.name}}</a> -->
+  </div>
+{{/each}}

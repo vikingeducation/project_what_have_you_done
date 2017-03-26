@@ -7,13 +7,12 @@ class Representative {
     this.phone = phone;
     this.website = website;
   }
-}
+};
 
 var representatives = [
-
-]
+];
 
 module.exports = {
   Representative,
   representatives
-}
+};
