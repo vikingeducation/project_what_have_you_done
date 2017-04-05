@@ -1,0 +1,17 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <p><strong>Bill ID:</strong> {{bill_id}}</p>
+      <p><strong>Title:</strong> {{bill.official_title}}</p>
+      <p><strong>House Status</strong> {{bill.history.house_passage_result}}</p>
+      <p><strong>Senate Status</strong> {{bill.history.senate_passage_result}}</p>
+      <p><strong>Signed:</strong>{{bill.awaiting_signature}}</p>
+      <p><strong>Enacted at:</strong> {{bill.history.enacted_at}}</p>
+      <p><a href="{{bill.last_version.urls.html}}">Bill Text</a></p>
+      <p><strong>Sponsor:</strong> <a href="/legislators/bioguide/{{bill.sponsor_id}}">{{bill.sponsor.title}} {{bill.sponsor.first_name}} {{bill.sponsor.last_name}}</a></p>
+    </div>
+  </div>
+
+</div>

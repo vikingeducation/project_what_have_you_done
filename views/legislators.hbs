@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            <br>
+            <p class="h4">Your federal legislators for zip: {{zip}}</p>
+            <br>
+          </div>
+      </div>
+
+            {{#each legislators as |legislator|}}
+            <div class="row">
+                <div class="col-xs-7">
+                    <div class="legislator">
+                      <p class="h5">{{legislator.title}} {{legislator.first_name}} {{legislator.middle_name}} {{legislator.last_name}}
+                          <a href="/legislators/bioguide/{{legislator.bioguide_id}}" class="voting-record">Voting Record</a></p>
+                      <p>Phone: {{legislator.phone}} </p>
+                      <p>Email: <a href="mailto:{{legislator.oc_email}}">{{legislator.oc_email}}</a></p>
+                      <p>Term Start: {{legislator.term_start}}  </p>
+                      <p>Term End: {{legislator.term_end}}</p>
+                      <p>Twitter: <a href="https://twitter.com/{{legislator.twitter_id}}">@{{legislator.twitter_id}}</a></p>
+                      <p>Facebook: <a href="https://www.facebook.com/{{legislator.facebook_id}}">{{legislator.facebook_id}}</a></p>
+                      <p><a href="{{legislator.website}}">{{legislator.website}}</a></p>
+                    </div>
+                    </div>
+                    <div class="col-xs-5">
+                                <img class="img-responsive img-rounded" src="https://theunitedstates.io/images/congress/225x275/{{legislator.bioguide_id}}.jpg" alt="">
+                    </div>
+
+
+              </div>
+                <hr>
+                  {{/each}}
+
+
+</div>
