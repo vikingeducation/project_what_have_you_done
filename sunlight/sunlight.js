@@ -46,10 +46,62 @@ var congress = {
             voteResult.bill_id = aVote.bill_id;
             voteResult.question = aVote.question;
             voteResult.result = aVote.result;
-            voteResult.url = aVote.url;
+            switch (aVote.result) {
+              case 'Passed':
+                voteResult.passed = true;
+                voteResult.failed = false;
+                break;
+              case 'Bill Passed':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Nomination Confirmed':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Cloture Motion Agreed to':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Joint Resolution Passed':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Resolution of Ratification Agreed to':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Motion to Proceed Agreed to':
+                  voteResult.passed = true;
+                  voteResult.failed = false;
+                  break;
+              case 'Failed':
+                voteResult.passed = false;
+                voteResult.failed = true;
+                break;
+              default:
+                voteResult.passed = false;
+                voteResult.failed = false;
+            }
+            voteResult.url = aVote.urls;
             voteResult.voted_at = aVote.voted_at;
             voteResult.vote = aVote.voters[bioguide].vote;
+            switch (voteResult.vote) {
+              case 'Yea':
+                voteResult.yea = true;
+                voteResult.nay = false;
+                break;
+              case 'Nay':
+                voteResult.yea = false;
+                voteResult.nay = true;
+                break;
+              default:
+                voteResult.yea = false;
+                voteResult.nay = false;
+
+            }
             voteResult.breakdown = aVote.breakdown.total;
+            voteResult.breakdown.notVoting = aVote.breakdown.total['Not Voting'];
             recentVotes.push(voteResult);
             voteResult = {};
           })

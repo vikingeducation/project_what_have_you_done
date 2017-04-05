@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+
+            <h2>{{legislator.title}} {{legislator.last_name}} Recent Voting Record</h2>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-7 legislator">
+            <p class="h5">{{legislator.title}} {{legislator.first_name}} {{legislator.middle_name}} {{legislator.last_name}}</p>
+            <p>Phone: {{legislator.phone}} </p>
+            <p>Email: <a href="mailto:{{legislator.oc_email}}">{{legislator.oc_email}}</a></p>
+            <p>Term Start: {{legislator.term_start}} </p>
+            <p>Term End: {{legislator.term_end}}</p>
+            <p>Twitter: <a href="https://twitter.com/{{legislator.twitter_id}}">@{{legislator.twitter_id}}</a></p>
+            <p>Facebook: <a href="https://www.facebook.com/{{legislator.facebook_id}}">{{legislator.facebook_id}}</a></p>
+            <p><a href="{{legislator.website}}">{{legislator.website}}</a></p>
+        </div>
+        <div class="col-xs-5">
+          <img class="img-responsive img-rounded" src="https://theunitedstates.io/images/congress/225x275/{{legislator.bioguide_id}}.jpg" alt="">
+        </div>
+        <hr>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 a-vote">
+
+            <table class="table table-striped">
+                <thead>
+                    <th>Roll Call ID</th>
+                    <th>Question</th>
+                    <th>Bill ID</th>
+                    <th>Vote Outcome</th>
+                    <th>Your Rep Vote</th>
+                </thead>
+                {{#each votes as |vote|}}
+                    <tr>
+                        <td>{{vote.roll_id}}</td>
+                        <td>{{vote.question}}</td>
+                        <td> <a href="/bill/{{vote.bill_id}}" target="_blank">{{vote.bill_id}}</a> </td>
+                        {{#if vote.passed}}
+                            <td class="success">{{vote.result}}
+                                <ul>
+                                    <li>Yea: {{vote.breakdown.Yea}}</li>
+                                    <li>Nay: {{vote.breakdown.Nay}}</li>
+                                    <li>Not Voting: {{vote.breakdown.notVoting}}</li>
+                                    <li>Present: {{vote.breakdown.Present}}</li>
+                                </ul>
+                            </td>
+                        {{else}} {{#if vote.failed}}
+                        <td class="danger">{{vote.result}}
+                            <ul>
+                                <li>Yea: {{vote.breakdown.Yea}}</li>
+                                <li>Nay: {{vote.breakdown.Nay}}</li>
+                                <li>Not Voting: {{vote.breakdown.notVoting}}</li>
+                                <li>Present: {{vote.breakdown.Present}}</li>
+                            </ul>
+                        </td>
+                        {{else }}
+
+
+                            <td>{{vote.result}}
+                                <ul>
+                                    <li>Yea: {{vote.breakdown.Yea}}</li>
+                                    <li>Nay: {{vote.breakdown.Nay}}</li>
+                                    <li>Not Voting: {{vote.breakdown.notVoting}}</li>
+                                    <li>Present: {{vote.breakdown.Present}}</li>
+                                </ul>
+                            </td>
+                        {{/if}}{{/if}}
+                        {{#if vote.yea}}
+                        <td class="success">{{vote.vote}}</td>
+                        {{else}} {{#if vote.nay}}
+                        <td class="danger">{{vote.vote}}</td>
+                        {{else}} <td>{{vote.vote}}</td>
+                        {{/if}}{{/if}}
+                    </tr>
+                {{/each}}
+            </table>
+
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
