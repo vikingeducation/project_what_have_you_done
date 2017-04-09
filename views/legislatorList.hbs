@@ -1,0 +1,8 @@
+<h2>Zipcode: {{zip}}</h2>
+
+{{#each legislators as |legislator|}}
+    <h5>{{legislator.chamber}}</h5>
+    <img src={{legislator.img}} alt={{legislator.name}} />
+    <h3>{{legislator.name}}</h3>
+    <h4>{{legislator.party}}</h4>
+{{/each}}
