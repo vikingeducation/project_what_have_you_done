@@ -1,0 +1,32 @@
+<div class="container-fluid card-container">
+    <div class="card single">
+        <div class="inner-container">
+            <p class="chamber">{{legislator.chamber}}</p>
+            <img class="img-reponsive" src={{legislator.img}} alt={{legislator.name}} />
+            <div class="inner-card">
+                <h3>{{legislator.name}}</h3>
+                <p>{{legislator.party}}</p>
+                <hr/>
+                <p>Phone Number: {{legislator.phone}}</p>
+                <p>Website: <a class="website" href={{legislator.website}} target="_blank">{{legislator.website}}</a></p>
+
+        </div>
+    </div>
+
+    <div class="recent-votes">
+        <h3>Recent Votes</h3>
+    </div>
+    {{#each votes as |bill|}}
+        <a href={{bill.url}} target="_blank">
+            <div class="well">
+                <h3>{{bill.bill_id}}</h3>
+                <p>{{bill.official_title}}</p>
+                <div class="vote-result">
+                    <p>Vote: {{bill.vote}}</p>
+                </div>
+            </div>
+        </a>
+    {{/each}}
+    
+
+</div>

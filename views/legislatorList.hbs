@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    {{#each legislators as |legislator|}}
+        <div class="card">
+            <a href="legislators/{{legislator.id}}">
+                <div class="inner-container">
+                    <p class="chamber">{{legislator.chamber}}</p>
+                    <img class="img-responsive" src={{legislator.img}} alt={{legislator.name}} />
+                    <div class="inner-card">
+                        <h3>{{legislator.name}}</h3>
+                        <p>{{legislator.party}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {{/each}}
+</div>
