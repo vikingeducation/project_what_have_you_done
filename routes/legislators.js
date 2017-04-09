@@ -12,6 +12,13 @@ router.get('/:id', function(req, res, next) {
     let votes = sunlightAPI.getRecentVotesByID(id)
 
     Promise.all([legislator, votes])
+        .then((results) => {
+            let legislatorObj = {
+                legislator: results[0],
+                votes: results[1]
+            }
+            return legislatorObj
+        })
         .then(results => res.send(results))
         .catch((err) => {
             console.error(err)
