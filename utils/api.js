@@ -31,7 +31,9 @@ const addLegislator = (legislator) => {
         `https://theunitedstates.io/images/congress/original/${legislator.bioguide_id}.jpg`,
         `${legislator.first_name} ${legislator.last_name}`,
         capitalize(legislator.chamber),
-        formatParty(legislator.party)
+        formatParty(legislator.party),
+        legislator.phone,
+        legislator.website
     )
 }
 
