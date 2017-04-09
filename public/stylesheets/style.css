@@ -2,11 +2,18 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  color: #000;
+  text-decoration: none; }
+  a:hover {
+    color: #000;
+    text-decoration: none; }
 
 .results {
   display: inline-flex;
   width: 100%; }
+
+.card-container {
+  text-align: center; }
 
 .card {
   background-color: #fff;
@@ -26,6 +33,14 @@ a {
     margin: 10px;
     color: #aaa;
     font-size: 16px; }
+  .card .website {
+    color: #8aacb8; }
+
+.single {
+  display: inline; }
+
+.recent-votes {
+  margin-top: 50px; }
 
 .inner-card {
   padding: 2px 16px; }
@@ -36,5 +51,9 @@ a {
   text-align: center; }
   .form-card form {
     margin-top: 50px; }
+
+.vote-result {
+  color: #aaa;
+  font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */

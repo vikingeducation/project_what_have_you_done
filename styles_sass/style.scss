@@ -4,12 +4,21 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #000;
+  text-decoration: none;
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
 }
 
 .results {
     display: inline-flex;
     width: 100%;
+}
+
+.card-container {
+    text-align: center;
 }
 
 .card {
@@ -34,6 +43,18 @@ a {
         color: #aaa;
         font-size: 16px;
     }
+    
+    .website {
+        color: #8aacb8;
+    }
+}
+
+.single {
+    display: inline;
+}
+
+.recent-votes {
+    margin-top: 50px;
 }
 
 .inner-card {
@@ -47,4 +68,9 @@ a {
     form {
         margin-top: 50px;
     }
+}
+
+.vote-result {
+    color: #aaa;
+    font-size: 18px;
 }

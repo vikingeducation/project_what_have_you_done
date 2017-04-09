@@ -1,20 +1,32 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <img class="img-profile img-reponsive img-thumbnail" src={{legislator.img}} alt={{legislator.name}} />
+<div class="container-fluid card-container">
+    <div class="card single">
+        <div class="inner-container">
+            <p class="chamber">{{legislator.chamber}}</p>
+            <img class="img-reponsive" src={{legislator.img}} alt={{legislator.name}} />
+            <div class="inner-card">
+                <h3>{{legislator.name}}</h3>
+                <p>{{legislator.party}}</p>
+                <hr/>
+                <p>Phone Number: {{legislator.phone}}</p>
+                <p>Website: <a class="website" href={{legislator.website}} target="_blank">{{legislator.website}}</a></p>
+
         </div>
     </div>
+
+    <div class="recent-votes">
+        <h3>Recent Votes</h3>
+    </div>
+    {{#each votes as |bill|}}
+        <a href={{bill.url}} target="_blank">
+            <div class="well">
+                <h3>{{bill.bill_id}}</h3>
+                <p>{{bill.official_title}}</p>
+                <div class="vote-result">
+                    <p>Vote: {{bill.vote}}</p>
+                </div>
+            </div>
+        </a>
+    {{/each}}
+    
+
 </div>
-
-<h5>{{legislator.chamber}}</h5>
-<h1>{{legislator.name}}</h1>
-<h4>{{legislator.party}}</h4>
-
-<p>Phone Number: {{legislator.phone}}</p>
-<p>Website: <a href={{legislator.website}} target="_blank">{{legislator.website}}</a></p>
-
-<h3>Recent Votes</h3>
-{{#each votes as |bill|}}
-    <h4>{{bill.bill_id}}</h4>
-    <p>{{bill.official_title}}</p>
-{{/each}}
