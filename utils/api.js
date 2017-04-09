@@ -39,8 +39,8 @@ const sunlightAPI = {
     getLegistlatorByZip: (zip) => {
         return new Promise((resolve, reject) => {
             if (!(/^\d{5}(?:[-\s]\d{4})?$/.test(zip))) {
-+                reject('Not a valid zip!')
-+            }
+                reject('Not a valid zip!')
+            }
             let options = {
                 url: `${URI}/legislators/locate?zip=${zip}`,
                 headers: {
