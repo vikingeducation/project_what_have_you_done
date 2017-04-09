@@ -1,0 +1,13 @@
+<img src={{legislator.img}} alt={{legislator.name}} />
+<h5>{{legislator.chamber}}</h5>
+<h1>{{legislator.name}}</h1>
+<h4>{{legislator.party}}</h4>
+
+<p>Phone Number: {{legislator.phone}}</p>
+<p>Website: <a href={{legislator.website}} target="_blank">{{legislator.website}}</a></p>
+
+<h3>Recent Votes</h3>
+{{#each votes as |bill|}}
+    <h4>{{bill.bill_id}}</h4>
+    <p>{{bill.official_title}}</p>
+{{/each}}
