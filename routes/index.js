@@ -4,12 +4,12 @@ var router = express.Router();
 const sunlightAPI = require('../utils/api')
 const Legistlator = require('../models/legislators')
 
-/* GET legislator by zip */
-router.get('/:zip?', function(req, res, next) {
-    if (!req.query.zip) {
-      next()
+router.post('/', function(req, res, next) {
+    if (!(/^\d{5}(?:[-\s]\d{4})?$/.test(req.body.zip))) {
+      console.log('error out')
+      res.render('index')
     } else {
-      const zip = req.query.zip
+      const zip = req.body.zip
 
       sunlightAPI.getLegistlatorByZip(zip)
           .then((legislators) => {
@@ -22,8 +22,8 @@ router.get('/:zip?', function(req, res, next) {
     }      
 });
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log('error?')
   res.render('index', {title: 'Express'});
 });
 

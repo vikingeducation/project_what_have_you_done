@@ -1,8 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
+  color: #00B7FF; }
+
+.results {
+  display: inline-flex;
+  width: 100%; }
+
+.card {
+  background-color: #fff;
+  display: inline-flex;
+  margin: 50px;
+  width: 300px;
+  height: 480px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .card img {
+    width: 300px;
+    height: 365px; }
+  .card .chamber {
+    text-align: center;
+    margin: 10px;
+    color: #aaa;
+    font-size: 16px; }
+
+.inner-card {
+  padding: 2px 16px; }
+
+.form-card {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center; }
+  .form-card form {
+    margin-top: 50px; }
+
+/*# sourceMappingURL=style.css.map */
