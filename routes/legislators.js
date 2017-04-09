@@ -19,7 +19,9 @@ router.get('/:id', function(req, res, next) {
             }
             return legislatorObj
         })
-        .then(results => res.send(results))
+        .then((results) => {
+            res.render('legislator', {legislator: results.legislator, votes: results.votes})
+        })
         .catch((err) => {
             console.error(err)
         }) 

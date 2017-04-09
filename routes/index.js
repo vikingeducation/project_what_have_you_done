@@ -12,7 +12,9 @@ router.get('/:zip?', function(req, res, next) {
       const zip = req.query.zip
 
       sunlightAPI.getLegistlatorByZip(zip)
-          .then((legislators) => res.send(legislators))
+          .then((legislators) => {
+            res.render('legislatorList', {legislators: legislators, zip: zip});
+          })
           .catch((err) => {
               console.error(err)
               res.send(err)
@@ -22,7 +24,7 @@ router.get('/:zip?', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', {title: 'Express'});
 });
 
 module.exports = router;
