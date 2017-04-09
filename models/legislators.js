@@ -1,5 +1,6 @@
 class Legistlator {
-  constructor(img, name, chamber, party, votes) {
+  constructor(id, img, name, chamber, party, votes) {
+    this.id = id
     this.img = img
     this.name = name
     this.chamber = chamber
