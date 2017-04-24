@@ -1,7 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<header>
+  <h1>What Have <em>You</em> Done?</h1>
+</header>
 
-<form action="/" method="get">
-  Zip Code <input type="text" name="zipCode">
-  <input type="submit" value="Submit">
-</form>
+<main>
+  <img class="front-page-logo" src="/images/team.svg" alt="vector image of crowd">
+
+  <div class="search-form">
+    <form action="/" method="get">
+      My ZIP Code is... <input type="text" name="zipCode" placeholder="eg... '20004'" maxlength="5"><br>
+      <input type="submit" value="Search!">
+    </form>
+  </div>
+</main>

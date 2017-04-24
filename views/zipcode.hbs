@@ -1,7 +1,21 @@
-{{#each legislators as |legislator|}}
-  <h2>
-    <a href="/legislators/{{legislator.bioguide_id}}">
-      {{legislator.first_name}} {{legislator.last_name}}
-    </a>
-  </h2>
-{{/each}}
+<header>
+  <h1>Congress Members in {{zipcode}}</h1>
+</header>
+
+<main>
+
+  <h2 class="results-header">Congress Members found in {{zipcode}}...</h2>
+  <ul class="search-results">
+    {{#each legislators as |legislator|}}
+    <li>
+      <img src="https://theunitedstates.io/images/congress/original/{{legislator.bioguide_id}}.jpg" alt="photo of congress member" class="search-pic">
+      <h3>
+        <a href="/legislators/{{legislator.bioguide_id}}">
+          {{legislator.first_name}} {{legislator.last_name}}
+        </a>
+      </h3>
+      <p>Chamber: <span class="chamber">{{legislator.chamber}}</span></p>
+    </li>
+    {{/each}}
+  </ul>
+</main>

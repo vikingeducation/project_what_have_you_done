@@ -6,13 +6,14 @@ var CongressAPI = require('../models/congress-api-wrapper');
 router.get('/', function(req, res, next) {
   // renders the standard index page when there are no queries
   if (JSON.stringify(req.query) === "{}"){
-    res.render('index', { title: 'Express' });
+    res.render('index');
   } else {
     let zipcode = req.query.zipCode;
     let congressAPI = new CongressAPI();
     congressAPI.getLegislatorsByZip(zipcode, function(data) {
       res.render('zipcode', {
         title: 'Express',
+        zipcode: zipcode,
         legislators: data
       });
     });
