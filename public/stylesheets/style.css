@@ -1,0 +1,162 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #EEE;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 21px;
+  line-height: 1.618em;
+}
+
+main {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+h1 {
+  padding: .6em 0em;
+  color: white;
+  background-color: #01567B;
+  display: block;
+  text-align: center;
+}
+
+img.front-page-logo {
+  margin: 1.5em 0em;
+  max-height: 250px;
+}
+
+.search-form {
+  margin-top: .3em;
+  text-align: center;
+  font-size: 2em;
+}
+
+.search-form input {
+  font-size: 1em;
+}
+
+.search-form input[type="submit"]{
+  background-color: #FF8700;
+  color: white;
+  padding: .2em 0em;
+  margin-top: 1em;
+  width: 70%;
+}
+
+a {
+  color: #0BA7EB;
+  transition: color .5s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF8700;
+}
+
+img.profile-pic {
+  margin-top: 2em;
+  max-height: 200px;
+  border-radius: 10px;
+  border: solid 2px black;
+}
+
+address {
+  font-style: normal;
+  font-size: .8em;
+  width: 50%;
+  margin-left: 25%;
+  border: solid 2px black;
+  background-color: rgba(0, 0, 0, .8);
+  color: white;
+}
+
+a.bill-link {
+  text-decoration: none;
+  color: #222;
+}
+
+ul.search-results {
+  list-style: none;
+}
+
+li {
+  clear: left;
+}
+
+h2.results-header {
+  text-align: center;
+  border-bottom: solid 3px black;
+  width: 80%;
+  margin: 1em 0em 2em 10%;
+}
+
+img.search-pic {
+  margin-right: 30px;
+  margin-bottom: 1em;
+  border-radius: 20px;
+  max-height: 150px;
+  float: left;
+  border: solid 2px black;
+}
+
+span.chamber {
+  text-transform: capitalize;
+}
+
+section.profile-info {
+  text-align: center;
+}
+
+li.bill-item {
+  background-color: #FDFEFF;
+  list-style: none;
+  margin-top: 2em;
+  border: solid 2px black;
+  transition: background-color .5s ease;
+  cursor: pointer;
+}
+
+li.bill-item:hover {
+  background-color: #FFCC93;
+}
+
+li.bill-item * {
+  box-sizing: border-box;
+  padding: 0px 20px 0px 20px;
+}
+
+.bill-list-header {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1.2em;
+}
+
+.my-vote {
+  margin-top: 1em;
+}
+
+.vote-yay {
+  color: green;
+}
+
+.vote-nay {
+  color: red;
+}
+
+.bill-id {
+  text-transform: uppercase;
+}
+
+footer {
+  clear: left;
+  margin-top: 2em;
+  text-align: center;
+  font-size: .5em;
+}
+
+footer a {
+  color: black;
+}
