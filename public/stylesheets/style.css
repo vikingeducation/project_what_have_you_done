@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+img.profile-pic {
+  max-height: 200px;
+  border-radius: 10px;
+  border: solid 2px black;
+}
+a.bill-link {
+  text-decoration: none;
+  color: #222;
+}
+.vote-yay {
+  background-color: green;
+}
+
+.vote-nay {
+  background-color: red;
+}
+
+.bill-id {
+  text-transform: uppercase;
+}

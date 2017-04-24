@@ -1,0 +1,22 @@
+<h1>{{profile.first_name}} {{profile.middle_name}} {{profile.last_name}}</h1>
+
+<img class="profile-pic" src="https://theunitedstates.io/images/congress/original/{{profile.bioguide_id}}.jpg" alt="">
+<p>Party: <span class="political-party">{{profile.party}}</span></p>
+<address>
+  <p>Email: <a href="mailto:{{profile.oc_email}}">{{profile.oc_email}}</a></p>
+  <p>Facebook: <a href="https://www.facebook.com/{{profile.facebook_id}}">{{profile.facebook_id}}</a></p>
+  <p>Twitter: <a href="https://twitter.com/{{profile.twitter_id}}">{{profile.twitter_id}}</a></p>
+  <p>Phone Number: {{profile.phone}}</p>
+  <p>Website: <a href="{{profile.website}}">{{profile.website}}</a></p>
+</address>
+
+
+{{#each bills as |bill|}}
+  <article>
+      <a class="bill-link" href="{{bill.bill.urls.govtrack}}"> 
+        <h2 class="bill-id">{{bill.bill_id}}</h2>
+        <h4>{{bill.bill.official_title}}</h4>
+        <p>I Voted: <span class="my-vote">{{bill.my_vote}}</span></p>
+      </a>
+  </article>
+{{/each}}

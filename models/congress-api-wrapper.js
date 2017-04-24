@@ -8,13 +8,15 @@ class SunlightCongress {
     this._sendRequest(path, callback);
   }
 
+  // Searches by congress member's id, and filters only 'passage'-related
+  // votes. Returns info about bill, and main question being addressed.
   getLegislatorVoteDetails(id, callback) {
-    var path = `votes?voter_ids.${id}__exists=true&fields=voter_ids,bill_id,result,bill`;
+    var path = `votes?voter_ids.${id}__exists=true&vote_type=passage&fields=voter_ids,bill_id,bill,question&per_page=1000`;
     this._sendRequest(path, callback);
   }
 
-  getDetailsOfVote(id, callback) {
-    var path = `votes?voter_ids.${id}__exists=true&fields=voter_ids,bill_id,result,bill`;
+  getLegislatorProfile(id, callback) {
+    var path = `legislators?bioguide_id=${id}`;
     this._sendRequest(path, callback);
   }
 
@@ -32,17 +34,4 @@ class SunlightCongress {
 
 const legislatorAPI = new SunlightCongress();
 
-
-// legislatorAPI.getLegislatorVoteDetails('M001169', function(data) {
-//   data.forEach(function(element) {
-//     if (element.hasOwnProperty('bill_id')) {
-//       console.log(element);
-//     }
-//   });
-// });
-
 module.exports = SunlightCongress;
-// So we need these functions:
-// 1. getLegislatorByZip
-// 2. getVotesByLegislator
-// 3. getDetailsOfVote

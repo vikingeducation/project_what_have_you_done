@@ -20,11 +20,15 @@ router.get('/:id', function(req, res, next) {
   const legislatorID = req.params.id;
   const congressAPI = new CongressAPI();
 
-  congressAPI.getLegislatorVoteDetails(legislatorID, function (data) {
-    const bills = filterBills(data, legislatorID);
-    res.render('legislators', {
-      bills: bills,
-      title: 'What Have You Done?'
+  congressAPI.getLegislatorVoteDetails(legislatorID, function (allBills) {
+    congressAPI.getLegislatorProfile(legislatorID, function(profile){
+      const bills = filterBills(allBills, legislatorID);
+      console.log(profile);
+      res.render('myvotes', {
+        profile: profile[0],
+        bills: bills,
+        title: 'What Have You Done?'
+      });
     });
   });
 });
