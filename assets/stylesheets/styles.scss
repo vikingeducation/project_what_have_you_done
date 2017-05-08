@@ -1,0 +1,80 @@
+$root-font-size: 16px;
+$secondary-color: #DCD9CD;
+$highlight-color: #FFFF68;
+$border-color: #ccc;
+$primary-font-color: #333;
+
+// Normalize
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $root-font-size;
+  display: flex;
+  justify-content: center;
+}
+
+section, div, h1, h2, h3, h4, p {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: $primary-font-color;
+}
+
+// Utilities
+.hide {
+  display: none;
+}
+
+// Button
+.btn {
+  background-color: $highlight-color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: .3rem 1rem;
+}
+
+// Zip
+.zip__container {
+  border: 1px solid $border-color;
+  background-color: $secondary-color;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zip__numbers__list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: .5rem;
+}
+
+.zip__numbers__item {
+  border: 1px solid $border-color;
+  background-color: white;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.zip__number {
+  border: none;
+  height: 1.5rem;
+  width: 1.5rem;
+}

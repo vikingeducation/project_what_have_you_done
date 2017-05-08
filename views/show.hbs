@@ -1,0 +1,33 @@
+<h1 class="page__title">
+  {{legislator.name}}
+</h1>
+
+<section class="contact__container">
+  <h2 class="section__title">
+    Contact Info
+  </h2>
+
+  <article>
+    <h4>Phone Number</h4>
+    <p>{{legislator.phone}}</p>
+
+    <h4>Website</h4>
+    <p>{{legislator.website}}</p>
+  </article>
+</section>
+
+<section class="bills__container">
+  <h2 class="section__title">
+    Recent Votes
+  </h2>
+
+  <ul class="bills__list">
+    {{#each bills}}
+      <li class="bills_item">
+        <p>{{id}}</p>
+        <p>{{description}}</p>
+        <p>{{vote}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>

@@ -1,0 +1,33 @@
+<h1 class="page__title">
+  What have you done?
+</h1>
+
+<div class="zip">
+  {{zip}}
+</div>
+
+<section class="legislators">
+  <h2>Legislators</h2>
+
+  <h3>Senate</h3>
+
+  <ul class="legislators__list">
+    {{#each senateMembers}}
+      <li class="legislator__item">
+        <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
+        <p class="legislator__attr">{{party}}</p>
+      </li>
+    {{/each}}
+  </ul>
+
+  <h3>House</h3>
+
+  <ul class="legislators__list">
+    {{#each houseMembers}}
+      <li class="legislator__item">
+        <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
+        <p class="legislator__attr">{{party}}</p>
+      </li>
+    {{/each}}
+  </ul>
+</section>
