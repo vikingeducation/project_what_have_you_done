@@ -1,20 +1,30 @@
 $root-font-size: 16px;
-$secondary-color: #DCD9CD;
-$highlight-color: #FFFF68;
-$border-color: #ccc;
+$primary-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 $primary-font-color: #333;
+
+$primary-color: #F5F5F5;
+$secondary-color: #FEFFF8;
+$highlight-color: #EBFF00;
+$border-color: #ccc;
 
 // Normalize
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: $primary-font-color;
+  font-family: $primary-font-family;
+  font-weight: normal;
 }
 
 body {
   font-size: $root-font-size;
-  display: flex;
-  justify-content: center;
+  background-color: $primary-color;
+  padding: 2rem;
+}
+
+main {
+  width: 500px;
 }
 
 section, div, h1, h2, h3, h4, p {
@@ -30,9 +40,41 @@ a:link, a:visited, a:active {
   color: $primary-font-color;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 // Utilities
 .hide {
   display: none;
+}
+
+.highlight {
+  background-color: $highlight-color;
+}
+
+.callout {
+  opacity: .5;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+// Page
+.page__title {
+  text-align: center;
+  font-weight: bold;
 }
 
 // Button
@@ -62,8 +104,9 @@ a:link, a:visited, a:active {
 .zip__numbers__item {
   border: 1px solid $border-color;
   background-color: white;
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 2.6rem;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,6 +118,8 @@ a:link, a:visited, a:active {
 
 .zip__number {
   border: none;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2.5rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
