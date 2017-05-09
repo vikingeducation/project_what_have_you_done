@@ -2,6 +2,8 @@ const Bill = require('./bill');
 const SunlightCongress = require('../lib/sunlight_congress_wrapper');
 const api = new SunlightCongress
 
+const photoUrlBase = 'https://theunitedstates.io/images/congress/225x275'
+
 module.exports = class Legislator {
   constructor(attributes = {}) {
     this.id = attributes.id;
@@ -10,7 +12,9 @@ module.exports = class Legislator {
     this.website = attributes.website;
     this.chamber = attributes.chamber;
     this.party = attributes.party;
+    this.photo = attributes.photo;
   }
+
 
   bills() {
     return api.billsByLegislator(this.id, bills => {
@@ -27,6 +31,14 @@ module.exports = class Legislator {
     });
   }
 
+  static get photoUrlBase() {
+    return photoUrlBase;
+  }
+
+  static photo(bioguide_id) {
+    return `${photoUrlBase}/${bioguide_id}.jpg`
+  }
+
   static findByZip(zip) {
     return api.legislatorsByLocale(zip, legislators => {
       return legislators.map(legislator => {
@@ -36,7 +48,8 @@ module.exports = class Legislator {
           phone: legislator.phone,
           website: legislator.website,
           chamber: `${legislator.chamber}`,
-          party: `${legislator.party}`
+          party: `${legislator.party}`,
+          photo: Legislator.photo(legislator.bioguide_id)
         })
       });
     });
@@ -50,7 +63,8 @@ module.exports = class Legislator {
         phone: legislator.phone,
         website: legislator.website,
         chamber: `${legislator.chamber}`,
-        party: `${legislator.party}`
+        party: `${legislator.party}`,
+        photo: Legislator.photo(legislator.bioguide_id)
       })
     });
   }

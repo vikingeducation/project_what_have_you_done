@@ -1,33 +1,41 @@
-<h1 class="page__title">
-  What have you done?
-</h1>
+<head>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css" />
+</head>
 
-<div class="zip">
-  {{zip}}
-</div>
+<main class="center text-align--center">
+  <h1 class="page__title highlight">
+    What have you done?
+  </h1>
 
-<section class="legislators">
-  <h2>Legislators</h2>
+  <div class="zip">
+    {{zip}}
+  </div>
 
-  <h3>Senate</h3>
+  <section class="legislators">
+    <h2 class="hide">Legislators</h2>
 
-  <ul class="legislators__list">
-    {{#each senateMembers}}
-      <li class="legislator__item">
-        <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
-        <p class="legislator__attr">{{party}}</p>
-      </li>
-    {{/each}}
-  </ul>
+    <h3 class="callout">Senate</h3>
 
-  <h3>House</h3>
+    <ul class="legislators__list">
+      {{#each senateMembers}}
+        <li class="legislator__item">
+          <img src="{{photo}}">
+          <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
+          <p class="legislator__attr">{{party}}</p>
+        </li>
+      {{/each}}
+    </ul>
 
-  <ul class="legislators__list">
-    {{#each houseMembers}}
-      <li class="legislator__item">
-        <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
-        <p class="legislator__attr">{{party}}</p>
-      </li>
-    {{/each}}
-  </ul>
-</section>
+    <h3 class="callout">House</h3>
+
+    <ul class="legislators__list">
+      {{#each houseMembers}}
+        <li class="legislator__item">
+          <img src="{{photo}}">
+          <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
+          <p class="legislator__attr">{{party}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>
