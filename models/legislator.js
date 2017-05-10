@@ -1,5 +1,5 @@
 const Bill = require('./bill');
-const SunlightCongress = require('../lib/sunlight_congress_wrapper');
+const SunlightCongress = require('../services/sunlight_congress_wrapper');
 const api = new SunlightCongress
 
 const photoUrlBase = 'https://theunitedstates.io/images/congress/225x275'
@@ -48,7 +48,7 @@ module.exports = class Legislator {
           phone: legislator.phone,
           website: legislator.website,
           chamber: `${legislator.chamber}`,
-          party: `${legislator.party}`,
+          party: Legislator.partyFullName(legislator.party),
           photo: Legislator.photo(legislator.bioguide_id)
         })
       });
@@ -63,10 +63,14 @@ module.exports = class Legislator {
         phone: legislator.phone,
         website: legislator.website,
         chamber: `${legislator.chamber}`,
-        party: `${legislator.party}`,
+        party: Legislator.partyFullName(legislator.party),
         photo: Legislator.photo(legislator.bioguide_id)
       })
     });
+  }
+
+  static partyFullName(partyShortName) {
+    return partyShortName === 'D' ? 'Democrat' : 'Republican';
   }
 
   static filterForSenate(legislators) {
