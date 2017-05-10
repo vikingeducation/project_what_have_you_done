@@ -19,9 +19,15 @@
     <ul class="legislators__list">
       {{#each senateMembers}}
         <li class="legislator__item">
-          <img src="{{photo}}">
-          <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
-          <p class="legislator__attr">{{party}}</p>
+          <img src="{{photo}}" alt="{{name}}" class="legislator__photo">
+
+          <div class="legislator__info">
+            <a href="/legislators/{{id}}" class="legislator__name">
+              {{name}}
+            </a>
+
+            <p class="legislator__attr">{{party}}</p>
+          </div>
         </li>
       {{/each}}
     </ul>
@@ -31,9 +37,15 @@
     <ul class="legislators__list">
       {{#each houseMembers}}
         <li class="legislator__item">
-          <img src="{{photo}}">
-          <a href="/legislators/{{id}}" class="legislator__name">{{name}}</a>
-          <p class="legislator__attr">{{party}}</p>
+          <img src="{{photo}}" alt="{{name}}" class="legislator__photo">
+
+          <div class="legislator__info">
+            <a href="/legislators/{{id}}" class="legislator__name">
+              {{name}}
+            </a>
+
+            <p class="legislator__attr">{{party}}</p>
+          </div>
         </li>
       {{/each}}
     </ul>
