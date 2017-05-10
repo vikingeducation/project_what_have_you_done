@@ -13,8 +13,6 @@ app.get('/', (req, res, next) => {
 
 app.use('/legislators', legislators);
 
-
-
 app.listen(3000, () => {
   console.log('success!');
 });
