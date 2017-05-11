@@ -1,0 +1,53 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css" />
+</head>
+
+<main class="center text-align--center">
+  <h1 class="page__title highlight">
+    What have you done?
+  </h1>
+
+  <div class="zip">
+    {{zip}}
+  </div>
+
+  <section class="legislators">
+    <h2 class="hide">Legislators</h2>
+
+    <h3 class="callout">Senate</h3>
+
+    <ul class="legislators__list">
+      {{#each senateMembers}}
+        <li class="legislator__item">
+          <img src="{{photo}}" alt="{{name}}" class="legislator__photo">
+
+          <div class="legislator__info">
+            <a href="/legislators/{{id}}" class="legislator__name">
+              {{name}}
+            </a>
+
+            <p class="legislator__attr">{{party}}</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+    <h3 class="callout">House</h3>
+
+    <ul class="legislators__list">
+      {{#each houseMembers}}
+        <li class="legislator__item">
+          <img src="{{photo}}" alt="{{name}}" class="legislator__photo">
+
+          <div class="legislator__info">
+            <a href="/legislators/{{id}}" class="legislator__name">
+              {{name}}
+            </a>
+
+            <p class="legislator__attr">{{party}}</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>

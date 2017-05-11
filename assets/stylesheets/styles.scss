@@ -1,0 +1,172 @@
+$root-font-size: 16px;
+$primary-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+$primary-font-color: #333;
+
+$primary-color: #F5F5F5;
+$secondary-color: #FEFFF8;
+$highlight-color: #EBFF00;
+$border-color: #ccc;
+
+// Normalize
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $primary-font-color;
+  font-family: $primary-font-family;
+  font-weight: normal;
+}
+
+body {
+  font-size: $root-font-size;
+  background-color: $primary-color;
+  padding: 2rem;
+}
+
+main {
+  width: 500px;
+}
+
+section, div, h1, h2, h3, h4, p {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: $primary-font-color;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Utilities
+.hide {
+  display: none;
+}
+
+.highlight {
+  background-color: $highlight-color;
+}
+
+.callout {
+  opacity: .5;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.text-align--center {
+  text-align: center;
+}
+
+// Components
+.card {
+  border: 1px solid $border-color;
+  background-color: white;
+  padding: 1rem;
+  text-align: start;
+  margin-bottom: .5rem;
+
+  &.card--red {
+    border-color: red;
+  }
+
+  &.card--green {
+    border-color: green;
+  }
+}
+
+// Page
+.page__title {
+  text-align: center;
+  font-weight: bold;
+}
+
+// Button
+.btn {
+  background-color: $highlight-color;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: .3rem 1rem;
+}
+
+// Zip
+.zip__container {
+  border: 1px solid $border-color;
+  background-color: $secondary-color;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zip__numbers__list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: .5rem;
+}
+
+.zip__numbers__item {
+  border: 1px solid $border-color;
+  background-color: white;
+  height: 3rem;
+  width: 2.6rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.zip__number {
+  border: none;
+  height: 2.5rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.zip {
+  margin-bottom: 2rem;
+}
+
+// Legislator
+.legislators__list {
+  text-align: start;
+}
+
+.legislator__item {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.legislator__photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-right: 1.5rem;
+}
+
+.legislator__info {
+  align-self: center;
+}
+
+.legislator__name {
+  font-size: 1.3rem;
+  font-weight: bold;
+}

@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css" />
+</head>
+
+<main class="center text-align--center">
+  <h1 class="page__title highlight">
+    What have you done?
+  </h1>
+
+  <img
+    src="{{legislator.photo}}"
+    alt="{{legislator.name}}"
+    class="legislator__photo">
+
+  <h1 class="page__title">
+    {{legislator.name}}
+  </h1>
+
+  <section class="contact__container">
+    <h2 class="section__title">
+      Contact Info
+    </h2>
+
+    <article class="card">
+      <h4 class="callout">Phone Number</h4>
+      <p>{{legislator.phone}}</p>
+
+      <h4 class="callout">Website</h4>
+      <p>{{legislator.website}}</p>
+    </article>
+  </section>
+
+  <section class="bills__container">
+    <h2 class="section__title">
+      Recent Votes
+    </h2>
+
+    <ul class="bills__list">
+      {{#each bills}}
+        <li class="bills_item card js-vote-{{vote}}">
+          <p>{{id}}</p>
+          <p>{{description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>
+<script src="../javascripts/scripts.js"></script>
