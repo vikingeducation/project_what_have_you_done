@@ -1,35 +1,48 @@
-<img src="{{legislator.photo}}">
+<head>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css" />
+</head>
 
-<h1 class="page__title">
-  {{legislator.name}}
-</h1>
+<main class="center text-align--center">
+  <h1 class="page__title highlight">
+    What have you done?
+  </h1>
 
-<section class="contact__container">
-  <h2 class="section__title">
-    Contact Info
-  </h2>
+  <img
+    src="{{legislator.photo}}"
+    alt="{{legislator.name}}"
+    class="legislator__photo">
 
-  <article>
-    <h4>Phone Number</h4>
-    <p>{{legislator.phone}}</p>
+  <h1 class="page__title">
+    {{legislator.name}}
+  </h1>
 
-    <h4>Website</h4>
-    <p>{{legislator.website}}</p>
-  </article>
-</section>
+  <section class="contact__container">
+    <h2 class="section__title">
+      Contact Info
+    </h2>
 
-<section class="bills__container">
-  <h2 class="section__title">
-    Recent Votes
-  </h2>
+    <article class="card">
+      <h4 class="callout">Phone Number</h4>
+      <p>{{legislator.phone}}</p>
 
-  <ul class="bills__list">
-    {{#each bills}}
-      <li class="bills_item">
-        <p>{{id}}</p>
-        <p>{{description}}</p>
-        <p>{{vote}}</p>
-      </li>
-    {{/each}}
-  </ul>
-</section>
+      <h4 class="callout">Website</h4>
+      <p>{{legislator.website}}</p>
+    </article>
+  </section>
+
+  <section class="bills__container">
+    <h2 class="section__title">
+      Recent Votes
+    </h2>
+
+    <ul class="bills__list">
+      {{#each bills}}
+        <li class="bills_item card js-vote-{{vote}}">
+          <p>{{id}}</p>
+          <p>{{description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</main>
+<script src="../javascripts/scripts.js"></script>

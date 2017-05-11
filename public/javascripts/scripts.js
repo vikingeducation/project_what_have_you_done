@@ -8,6 +8,25 @@ doc.onreadystatechange = function () {
 
 const _initApplication = () => {
   _registerListeners();
+  _updateUi();
+}
+
+const _updateUi = () => {
+  _updateBillsUi();
+}
+
+const _updateBillsUi = () => {
+  const bills = doc.querySelectorAll("[class*=js-vote-]")
+
+  Array.from(bills).forEach(bill => {
+    let classList = bill.classList;
+
+    if(classList.contains('js-vote-Nay')) {
+      classList.add('card--red');
+    } else if(classList.contains('js-vote-Yea')) {
+      classList.add('card--green');
+    }
+  });
 }
 
 const _registerListeners = () => {
