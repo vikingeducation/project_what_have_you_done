@@ -1,0 +1,16 @@
+
+<header class="text-center">
+  <img src="../images/US Capitol-96.png">
+</header>
+
+<h2 class="text-center">Representatives for zip code {{zipcode}}:</h2>
+
+<section class="text-center">
+
+  {{#each representatives as |representative|}}
+      <div>
+        <h3><a href="/representatives/{{representative.name}}">{{representative.name}} ({{representative.party}}, {{representative.chamber}})</a></h3>
+      </div>
+  {{/each}}
+
+</section>
