@@ -6,7 +6,7 @@ It's more important than ever to make your voice heard, and to make sure the peo
 
 Check it out [here](https://enigmatic-harbor-79584.herokuapp.com/)!
 
-## Built With
+## Built with
 
 * [Express](https://github.com/expressjs/express) - Web framework
 * [Bootstrap](http://getbootstrap.com/) - Styling
