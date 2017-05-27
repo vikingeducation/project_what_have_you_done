@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>REPRESENTED</title>
 
-  </head>
+<header class="text-center">
+  <img src="../images/US Capitol-96.png">
+</header>
 
-  <body>
-    <header>
-      <h1>REPRESENTED</h1>
-    </header>
+<h2 class="text-center">Representatives for zip code {{zipcode}}:</h2>
 
-    <h2>We found the following representatives for your zip code:</h2>
+<section class="text-center">
 
-    <section>
-      <ul>
-      {{#each representatives as |representative|}}
-          <li>
-            <h3><a href="/representatives/{{representative.name}}">{{representative.name}} ({{representative.party}}, {{representative.chamber}})</a></h3>
-          </li>
-      {{/each}}
-      </ul>
-    </section>
+  {{#each representatives as |representative|}}
+      <div>
+        <h3><a href="/representatives/{{representative.name}}">{{representative.name}} ({{representative.party}}, {{representative.chamber}})</a></h3>
+      </div>
+  {{/each}}
 
-    <footer>
-      <p>REPRESENTED app by <a href=https://github.com/Throw22>Nicholas Romeo</a></p>
-    </footer>
-  </body>
-</html>
+</section>

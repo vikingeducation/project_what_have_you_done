@@ -1,8 +1,21 @@
 body {
-  padding: 50px;
+  height: 100%;
+  /*margin: 0;*/
+  padding: 0px 0px 20px 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  padding-bottom:45px;
 }
 
 a {
   color: #00B7FF;
+}
+
+
+.footer,
+.push {
+  height: 20px;
 }

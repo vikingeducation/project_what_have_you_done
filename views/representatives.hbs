@@ -1,42 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>REPRESENT - {{representative.name}}</title>
 
-  </head>
+<header class="text-center">
+  <img src="../images/US Capitol-96.png">
+</header>
 
-  <body>
-    <header>
-      <h1>REPRESENTED</h1>
-    </header>
+<section class="text-center">
+  <h2>{{representative.name}} ({{representative.party}}, {{representative.chamber}})</h2>
+  <h3>Contact:</h3>
+  <h4>{{representative.phone}}</h4>
+  <h4><a href={{representative.website}}>{{representative.website}}</a></h4>
+</section>
 
-    <section>
-      <h2>{{representative.name}} ({{representative.party}}, {{representative.chamber}})</h2>
-      <h3>Contact:</h3>
-      <h4>{{representative.phone}}</h4>
-      <h4><a href={{representative.website}}>{{representative.website}}</a></h4>
-    </section>
-
-    <section>
-      <h3>Recent votes:</h3>
-      {{#each votes as |vote|}}
-        <div>
-            <p>---------------<p>
-            <h4>Bill <a href='{{vote.billURL}}'>{{vote.billID}}</a><h4>
-            <p>{{vote.billTitle}}<p>
-            <p>Representative's vote: {{vote.repVote}}<p>
+<section style="margin-left: auto; margin-right: auto; width: 60%;">
+  <h3>Recent votes:</h3>
+  {{#each votes as |vote|}}
+    {{#if vote.repVote}}
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><img src="../images/Thumb Up-50.png" width="30px" height="30px"> Bill <a href='{{vote.billURL}}' style="text-decoration: underline">{{vote.billID}}</a></h3>
         </div>
-      </section>
-    {{/each}}
-
-    <footer>
-      <p>REPRESENTED app by <a href=https://github.com/Throw22>Nicholas Romeo</a></p>
-    </footer>
-  </body>
-
-
-
-</html>
+        <div class="panel-body">
+          {{vote.billTitle}}
+        </div>
+      </div>
+    {{else}}
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title"><img src="../images/Thumbs Down-50.png" width="30px" height="30px"> Bill <a href='{{vote.billURL}}' style="text-decoration: underline">{{vote.billID}}</a></h3>
+        </div>
+        <div class="panel-body">
+          {{vote.billTitle}}
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+  </section>
