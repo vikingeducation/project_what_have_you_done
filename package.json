@@ -4,6 +4,7 @@
   "description": "Build an application to help track the legislative activities of your local representatives.",
   "main": "index.js",
   "dependencies": {
+    "promise": "^7.3.0",
     "request": "^2.81.0"
   },
   "devDependencies": {},

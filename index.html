@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
   <title>What have you done</title>
 </head>
 <body>
@@ -23,12 +23,17 @@
       </section>
       <section class="main">
         <h2>Enter Your <strong>Zip</strong> Code</h2>
-        <form>
-          <input class="numput" type="text" maxlength="1" requred="true" />
-          <input class="numput" type="text" maxlength="1" requred="true" />
-          <input class="numput" type="text" maxlength="1" requred="true" />
-          <input class="numput" type="text" maxlength="1" requred="true" />
-          <input class="numput" type="text" maxlength="1" requred="true" />
+        <form action="/listings" method="post">
+          <div>
+            <input name="a" class="numput" type="text" maxlength="1" required />
+            <input name="b" class="numput" type="text" maxlength="1" required />
+            <input name="c" class="numput" type="text" maxlength="1" required />
+            <input name="d" class="numput" type="text" maxlength="1" required />
+            <input name="e" class="numput" type="text" maxlength="1" required />
+          </div>
+          <div>
+            <input type="submit" value="Go" onclick="checkReq()" />
+          </div>
         </form>
       </section>
     </div>
