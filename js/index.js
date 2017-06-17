@@ -6,7 +6,9 @@ Promise = require("promise");
 
 var zip = "";
 var legislators = [];
-var house = "<p>";
+var house = "<h2>House</h2><p>";
+var senate = "<h2>Senate</h2><p>";
+var total = "";
 
 function parse(data) {
   var data = JSON.parse(data).results;
@@ -22,11 +24,17 @@ function parse(data) {
     if(legislators[i][2] == "house") {
       house += legislators[i][0] + " ";
       house += legislators[i][1] + "<br />";
+    } else {
+      senate += legislators[i][0] + " ";
+      senate += legislators[i][1] + "<br />";
     }
   }
   house += "</p>";
+  senate += "</p>";
+  total += house;
+  total += senate;
   console.log("done");
-  return house;
+  return total;
 }
 
 function byZip(error, response, body){
@@ -94,7 +102,7 @@ var server = http.createServer(function(req, response){
             fs.readFile("listings.html", "utf8", function(err, data){
               response.writeHead(200, {"Content-Type" : "text/html"});
               data = data.replace(/{{ZIP}}/, zip);
-              data = data.replace(/{{CONTENT}}/, msg)
+              data = data.replace(/{{CONTENT}}/, msg);
               response.write(data);
               console.log("Success");
               response.end();
