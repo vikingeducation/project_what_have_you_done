@@ -10,7 +10,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node js/index.js"
+    "start": "node js/index",
+    "web": "node js/index"
   },
   "repository": {
     "type": "git",
