@@ -74,7 +74,7 @@ var server = http.createServer(function(req, response){
         console.log("Success");
       });
       break;
-    case "":
+    case "/":
       fs.readFile("index.html", "utf8", function(err, data){
         response.writeHead(200, {"Content-Type" : "text/html"});
         response.write(data);
