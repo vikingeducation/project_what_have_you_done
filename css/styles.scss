@@ -1,0 +1,38 @@
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 100px;
+}
+.container {
+  width: 100%;
+}
+.content {
+  width: 75%;
+  margin: auto;
+}
+.main {
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+.black-on-yellow {
+  background-color: yellow;
+  font-variant: small-caps;
+  color: black;
+}
+.numput {
+  text-align: center;
+  width: 30px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.req{
+  color: red;
+}
