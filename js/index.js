@@ -122,8 +122,8 @@ var options = {
   }
 };
 var url = {
-  host: "localhost",
-  port: "3000",
+  host: "https://aqueous-thicket-29653.herokuapp.com/",
+  port: "80",
 }
 
 server.listen(url, function(){
