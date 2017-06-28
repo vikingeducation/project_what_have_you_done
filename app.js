@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const legislators = require('./models/legislators')
 const bills = require('./models/bills')
+const port = process.env.PORT || '3000'
 
 var show = require('./routes/show')
 var legislator = require('./routes/legislators')
@@ -22,6 +23,4 @@ app.get('/', function(req, res){
 app.use('/show', show);
 app.use('/legislators', legislator)
 
-app.listen(3000, function() {
-  console.log('Listening on localhost')
-})
+app.listen(port)
