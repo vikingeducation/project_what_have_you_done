@@ -1,1 +1,47 @@
-{{test}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesislators for {{zip}}</title>
+    <link rel=stylesheet href='../static/css/styles.css'>
+    <link rel=stylesheet href='../static/css/show.css'>
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <h1>What have you done</h1>
+      </div>
+    </header>
+    <main class='flex-col'>
+      <div class="house flex-col">
+        <h2>House</h2>
+        <div class='houseReps flex-row'>
+          <img src={{house.image}}>
+          <div class='flex-col center'>
+            <a href="/legislators/{{house.id}}">{{house.name}}</a></br>
+            <p>{{house.party}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="senate">
+        <h2>Senate</h2>
+        <div class=flex-col>
+          <div class='senateReps flex-row'>
+            <img src={{senate1.image}}>
+            <div class='flex-col center'>
+              <a href="/legislators/{{senate1.id}}">{{senate1.name}}</a></br>
+              <p>{{senate1.party}}</p>
+            </div>
+          </div>
+          <div class='senateReps flex-row'>
+            <img src={{senate2.image}}>
+            <div class='flex-col center'>
+              <a href="/legislators/{{senate2.id}}">{{senate2.name}}</a></br>
+              <p>{{senate2.party}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

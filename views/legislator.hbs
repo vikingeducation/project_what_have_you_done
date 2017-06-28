@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{legislator.name}}</title>
+    <link rel='stylesheet' href='../static/css/styles.css'>
+    <link rel='stylesheet' href='../static/css/legislator.css'>
+  </head>
+
+  <body>
+      <!--Legislator personal information  -->
+    <header class='flex-col'>
+
+      <!--Photo and name  -->
+      <div class='flex-row photo-name'>
+        <img src={{legislator.image}}>
+        <div class='legislator-info flex-col'>
+          <h1>{{legislator.name}}</h1>
+          <hr>
+          <p>{{legislator.chamber}} {{legislator.party}}</p>
+        </div>
+      </div>
+      <!--End photo and name -->
+
+      <!--Contact info-->
+      <div class='flex-col contact-info'>
+        <h2>Contact info</h2>
+        <div class=flex-col>
+          <h3>{{legislator.phone}}</h3>
+          <h3>{{legislator.email}}</h3>
+          <div><a href={{legislator.facebook}}>{{legislator.facebook}}<a></div>
+          <div><a href={{legislator.website}}>{{legislator.website}}<a></div>
+          <div>{{#if legislator.twitter}}
+            <a href={{legislator.twitter}}>
+              <img src="/images/twitter.jpg" style="width: 50px;height: 50px">
+            </a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <!--End contact info  -->
+
+    </header>
+    <!--End of personal Info  -->
+
+    <main class='flex-col'>
+
+      <div class='bill-table'>
+        <table>
+
+          <thead>
+            <tr>
+              <th>Bill Id</th>
+              <th colspan="3">Question</th>
+              <th colspan="5">Description</th>
+              <th colspan="1">Voted</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each bills as |bill|}}
+              {{#if bill.votedYes}}
+                  <tr class="voted-yes">
+                {{else}}
+                  <tr class="voted-no">
+                {{/if}}
+                    <td colspan="1"><a href={{link}}>{{bill.bill.bill_id}}</a></td>
+                    <td colspan="3"><p>{{bill.question}}</p></td>
+                    <td colspan="5"><p>{{bill.bill.official_title}}</p></td>
+                    <td colspan="1"><p>{{bill.vote}}</p></td>
+                  </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,42 @@
+h2 {
+  font-size: 30px;
+  text-align: center;
+  color:gray;
+}
+
+main {
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  font-size: 47px;
+  margin-top: 75px;
+}
+
+img {
+  height:150px;
+  border-radius:20px;
+}
+
+p {
+  font-size:20px;
+}
+
+a {
+  font-size:25px;
+  padding-left:20px;
+}
+
+.house {
+  margin: 20px;
+}
+
+.houseReps {
+  margin: 10px;
+}
+
+.senateReps {
+  margin:10px;
+}
