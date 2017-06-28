@@ -1,14 +1,17 @@
 <html>
   <head>
     <title>Politician thing</title>
+    <link rel='stylesheet' href='../static/css/styles.css'>
+    <link rel='stylesheet' href='../static/css/index.css'>
   </head>
   <body>
-    <h1>What Have You Done</h1>
-    <form action="/show" method='get'>
-      <input type="text" name="zip">Zip<br>
-      <input type="submit" value="Submit">
-    </form>
-    {{id}}
-    {{test}}
+    <main class='flex-col center'>
+      <h1>What Have You Done</h1>
+      <form action="/show" method='get' class='flex-col center'>
+        <input type="text" name="zip">
+        <span>Enter your zip code</span>
+        <input type="submit" value="Submit">
+      </form>
+    </main>
   </body>
 </html>
