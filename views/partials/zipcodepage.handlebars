@@ -1,0 +1,41 @@
+<div class="jumbotron">
+<header class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>What Have You Done?</h1>
+    </div>
+  </div>
+</header>
+<article class="container">
+  <div class="row">
+    <div class="col-lg-12 house">
+      <h3>House</h3>
+      {{#each houseLegs}}
+      <article class="legislator" id={{this.bioguide_id}}>
+        <img src={{this.picture}} style="width:170px;height:200px;" />
+        <div class="legislator-info">
+          <h4>{{this.first_name}} {{this.last_name}}</h4>
+          <h5>{{this.party}}</h5>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+
+    <div class="col-lg-12 senate">
+      <h3>Senate</h3>
+      {{#each senateLegs}}
+      <article class="legislator">
+        <img src={{this.picture}} style="width:170px;height:200px;" />
+        <div class="legislator-info">
+          <h4>
+            {{this.first_name}} {{this.last_name}}
+            <a href="./legislator"></a> 
+          </h4>
+          <h5>{{this.party}}</h5>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</article>
+</div>
