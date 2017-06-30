@@ -20,12 +20,13 @@ class YourReps {
     this._sendRequest("legislators/locate?zip=" + zipCode.toString(), callback)
   }
 
-  repsVotes(callback) {
-    this._sendRequest("mostviewed", callback)
+  repsID(callback, repToFind) {
+    this._sendRequest("legislators?query=" + repToFind.toString(), callback)
   }
 
-  mostShared(callback) {
-    this._sendRequest("mostshared", callback)
+  repsVotes(callback,repID) {
+    console.log("votes?voter_ids." + repID.toString() + "__exists=true");
+    this._sendRequest("votes?voter_ids." + repID.toString() + "__exists=true", callback)
   }
 
   _sendRequest(type, callback) {
@@ -40,56 +41,48 @@ class YourReps {
 }
 
 const reps = new YourReps;
-
- prompt.get(['zipcode'], function (err, result) {
-   if (err) { return onErr(err); }
-   console.log('  Zipcode: ' + result.zipcode);
- var zip = result.zipcode;
-
- reps.repsInZip(function(data) {
- for(var i=0; i < data.length; i++) {
-   console.log(data[i].first_name + data[i].last_name);
- }
-
-  }, zip);
-
-
-})
-
-
-
-
-
-//   var prompt = require('prompt');
-// var GitHub = require('github-api');
-// var github = new GitHub({
+var repIDNumber = 0;
+//  prompt.get(['zipcode'], function (err, result) {
+//    if (err) { return onErr(err); }
+//    console.log('  Zipcode: ' + result.zipcode);
+//  var zip = result.zipcode;
 //
-//     // optional
-//     debug: true,
-//     protocol: "https",
-//     host: "api.github.com", // should be api.github.com for GitHub
-//     pathPrefix: "/api/v3", // for some GHEs; none for GitHub
-//     headers: {
-//         "user-agent": "My-Cool-GitHub-App" // GitHub is happy with a unique user agent
-//     },
+//  reps.repsInZip(function(data) {
+//  for(var i=0; i < data.length; i++) {
+//    console.log(data[i].bioguide_id);
 //
-//     followRedirects: false, // default: true; there's currently an issue with non-get redirects, so allow ability to disable follow-redirects
-//     timeout: 5000
-// });
+//  }
+//
+//   }, zip);
 //
 //
+// })
+  prompt.get(['repLastName'], function (err, result) {
+    if (err) { return onErr(err); }
+    console.log('  repLastName: ' + result.repLastName);
+  var rep = result.repLastName;
+
+  reps.repsID(function(data) {
+console.log(data[0].bioguide_id);
+repIDNumber = data[0].bioguide_id;
+reps.repsVotes( function(data2) {
+  for(var j=0; j < data2.length; j++) {
+ //    console.log(data[i].bioguide_id);
+  console.log(data2[j].roll_id)} }, repIDNumber)
+
+
+   }, rep);
+
+
+ })
+
+// prompt.get(['repLastName'], function (err, result) {
+//     if (err) { return onErr(err); }
+//     console.log('  repLastName: ' + result.repLastName);
 //
+//   var rep = result.repLastName;
 //
-// prompt.get(['username'], function (err, result) {
-//   if (err) { return onErr(err); }
-//   console.log('  Username: ' + result.username);
-// var me = github.getUser(result.username);
-//
-// me.listRepos(function(err, repos) {
-//    // look at all the starred repos!
-//    console.log("First Repo: " + repos[1].name);
-//
-//  });
-//
-//
-// });
+// reps.repsID(function(data) {
+//   console.log(data[0].bioguide_id);
+//   reps.repsVotes(function(data2) {  console.log(data2);},data[0].bioguide_id)
+// }, rep);}
