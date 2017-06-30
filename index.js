@@ -42,21 +42,21 @@ class YourReps {
 
 const reps = new YourReps;
 var repIDNumber = 0;
-//  prompt.get(['zipcode'], function (err, result) {
-//    if (err) { return onErr(err); }
-//    console.log('  Zipcode: ' + result.zipcode);
-//  var zip = result.zipcode;
-//
-//  reps.repsInZip(function(data) {
-//  for(var i=0; i < data.length; i++) {
-//    console.log(data[i].bioguide_id);
-//
-//  }
-//
-//   }, zip);
-//
-//
-// })
+ prompt.get(['zipcode'], function (err, result) {
+   if (err) { return onErr(err); }
+   console.log('  Zipcode: ' + result.zipcode);
+ var zip = result.zipcode;
+
+ reps.repsInZip(function(data) {
+ for(var i=0; i < data.length; i++) {
+   console.log(data[i].bioguide_id);
+
+ }
+
+  }, zip);
+
+
+})
   prompt.get(['repLastName'], function (err, result) {
     if (err) { return onErr(err); }
     console.log('  repLastName: ' + result.repLastName);
@@ -75,6 +75,22 @@ reps.repsVotes( function(data2) {
 
 
  })
+ exports.hello = function() {
+   return "Hello";
+ }
+ var ZipCodeSearch = function(){
+
+   reps.repsInZip(function(data) {
+   for(var i=0; i < data.length; i++) {
+     console.log(data[i].bioguide_id);
+
+   }
+
+    }, document.getElementById("zipBox").value); 
+
+ }
+
+
 
 // prompt.get(['repLastName'], function (err, result) {
 //     if (err) { return onErr(err); }

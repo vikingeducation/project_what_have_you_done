@@ -1,0 +1,10 @@
+
+li{
+list-style-type: none;
+
+
+}
+li:active{
+list-style-type: none;
+
+}
