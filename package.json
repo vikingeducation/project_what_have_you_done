@@ -4,7 +4,8 @@
   "description": "an awesome project cus I'm awesome",
   "main": "app.js",
   "scripts": {
-    "test": "app.js"
+    "test": "app.js",
+    "start": "app.js"
   },
   "repository": {
     "type": "git",
