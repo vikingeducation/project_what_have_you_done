@@ -63,4 +63,6 @@ app.get('/legislator', function(req, res) {
 });
 
 
-app.listen(port);
+app.listen(app.get("port"), () => {
+  console.log("Express started on http://localhost:" + app.get("port"));
+});
