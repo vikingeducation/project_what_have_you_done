@@ -1,3 +1,9 @@
+.nav-first-page {
+  float: right;
+  font-size: 16px;
+  color: orange;
+}
+
 header{
   h1 {
     text-align: center;
@@ -53,8 +59,9 @@ article .input-box {
 
 article{
   h3 {
-    font-size: 20px;
+    font-size: 36px;
     color: gray;
+    font-weight: bold;
     text-align: center;
   }
 }
@@ -62,6 +69,7 @@ article{
 .legislator {
   clear: left;
   padding: 10px;
+  margin-left: 350px;
 
   .legislator-info{
     float: left;
@@ -81,5 +89,47 @@ article{
   }
   img {
     float: left;
+    border-radius: 25px;
+  }
+}
+
+header {
+  img {
+    border-radius: 25px;
+    float: left;
+  }
+
+  h3 {
+    font-size: 36px;
+    float: left;
+    padding: 10px;
+  }
+
+  article {
+
+    h4 {
+      font-size: 24px;
+      clear: left;
+      font-weight: bold;
+    }
+
+    h5 {
+      font-size: 16px;
+      clear: left;
+      font-weight: bold;
+    }
+
+    p {
+      clear: left;
+      font-size: 16px;
+    }
+  }
+}
+
+.votes-headline {
+  h3 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
   }
 }

@@ -1,3 +1,8 @@
+.nav-first-page {
+  float: right;
+  font-size: 16px;
+  color: orange; }
+
 header h1 {
   text-align: center;
   font-weight: bold;
@@ -34,13 +39,15 @@ article .input-box {
     border: solid gray 1px; }
 
 article h3 {
-  font-size: 20px;
+  font-size: 36px;
   color: gray;
+  font-weight: bold;
   text-align: center; }
 
 .legislator {
   clear: left;
-  padding: 10px; }
+  padding: 10px;
+  margin-left: 350px; }
   .legislator .legislator-info {
     float: left; }
     .legislator .legislator-info h4 {
@@ -53,6 +60,31 @@ article h3 {
       clear: left;
       padding: 5px 0 0 10px; }
   .legislator img {
-    float: left; }
+    float: left;
+    border-radius: 25px; }
+
+header img {
+  border-radius: 25px;
+  float: left; }
+header h3 {
+  font-size: 36px;
+  float: left;
+  padding: 10px; }
+header article h4 {
+  font-size: 24px;
+  clear: left;
+  font-weight: bold; }
+header article h5 {
+  font-size: 16px;
+  clear: left;
+  font-weight: bold; }
+header article p {
+  clear: left;
+  font-size: 16px; }
+
+.votes-headline h3 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold; }
 
 /*# sourceMappingURL=styles.css.map */
