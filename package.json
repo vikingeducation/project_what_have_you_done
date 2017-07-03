@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/Alex-Willenbrink/project_what_have_you_done#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
     "lodash": "^4.17.4",
     "request": "^2.81.0"
   }
