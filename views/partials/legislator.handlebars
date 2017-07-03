@@ -1,0 +1,53 @@
+<header class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>What Have You Done?</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <img src={{legislator.picture}} style="width:170px;height:200px;"></img>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>{{legislator.first_name}} {{legislator.last_name}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>Contact Info</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <article>
+        <h5>Phone Number</h5>
+        <p>{{legislator.phone}}</p>
+        <h5>Website</h5>
+        <p>{{legislator.website}}</p>
+      </article>
+    </div>
+  </div>
+</header>
+
+<section class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Recent Votes</h3>
+    </div>
+  </div>
+
+  {{#each bills}}
+  <article class="row">
+    <div class="col-lg-12">
+      <a href={{this.website}}>
+        <h4 class="billNum">{{this.bill_id}}</h4>
+      </a>
+      <h5>Vote: {{this.vote}}</h5>
+      <p class="billSummary">{{this.official_title}}</p>
+    </div>
+  </article>
+  {{/each}}
+
+</section>

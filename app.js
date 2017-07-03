@@ -22,23 +22,13 @@ app.get('/', function(req, res) {
   res.render("partials/homepage");
 });
 
-// General middleware usage. This will execute regardless of URL
-/*
-app.use(function(req, res, next) {
-  console.log("Looking for URL: " + req.url);
-  console.log("testing!!!!");
-  next();
-});
-*/
-
 app.get("/zipcodepage", function(req, res) {
   const zipcode = req.query.zipcode;
-  console.log("zipcode found: " + zipcode);
+  //console.log("zipcode found: " + zipcode);
   leg_api.legislatorInfoByZipCode(zipcode)
   .then((data) => {
     let house = data[0];
     let senate = data[1];
-    console.log(data[0][0]);
     res.render("partials/zipcodepage", {
       houseLegs: house,
       senateLegs: senate
@@ -47,8 +37,29 @@ app.get("/zipcodepage", function(req, res) {
 });
 
 
+app.use("/legislator", function(req, res, next) {
+  app.locals.bioguide_id = req.query.bioguideID;
+  leg_api.legislatorInfo(app.locals.bioguide_id)
+  .then((legislatorInfo) => {
+    app.locals.legislator = legislatorInfo;
+    next();
+  });
+});
+
+app.use("/legislator", function(req, res, next) {
+  leg_api.billInfoRequest(app.locals.bioguide_id)
+  .then((result) => {
+    app.locals.bills = result;
+    next();
+  });
+})
+
+
 app.get('/legislator', function(req, res) {
-  res.render("partials/legislator");
+    let legislator = app.locals.legislator;
+    let bills = app.locals.bills;
+
+    res.render("partials/legislator", {legislator, bills});
 });
 
 
