@@ -12,7 +12,7 @@ const handlebars  = require("express-handlebars").create({defaultLayout:'main'})
 // Set handlebars framework on top of express
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
-app.set("port", process.env.PORT || 3000);
+app.set("port", (process.env.PORT || 3000));
 
 // Set up static content directory (set to '/public')
 app.use(express.static(__dirname + '/public'));
@@ -63,6 +63,6 @@ app.get('/legislator', function(req, res) {
 });
 
 
-app.listen(app.get("port"), () => {
-  console.log("Express started on http://localhost:" + app.get("port"));
+app.listen(app.get("port"), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
