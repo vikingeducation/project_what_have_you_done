@@ -1,0 +1,135 @@
+.nav-first-page {
+  float: right;
+  font-size: 16px;
+  color: orange;
+}
+
+header{
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    border: 0px;
+  }
+
+  .top-header-text {
+    p {
+      text-align: center;
+      font-size: 30px;
+      margin: 0px;
+    }
+  }
+
+  .pester-me {
+    p {
+      text-align: center;
+      font-size: 12px;
+      color: gray;
+      margin: 10px 0px 10px 0px;
+    }
+  }
+}
+
+article .input-box {
+  width: 400px;
+  height: 170px;
+  background-color: white;
+  margin: 10px calc(50% - 200px);
+  border: solid gray 1px;
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  input {
+    height: 30px;
+    width: 200px;
+    margin: 0px auto;
+    text-align: center;
+  }
+
+  button {
+    margin: 20px auto;
+    margin-left: auto;
+    background-color: yellow;
+    border: solid gray 1px;
+  }
+}
+
+article{
+  h3 {
+    font-size: 36px;
+    color: gray;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.legislator {
+  clear: left;
+  padding: 10px;
+  margin-left: 350px;
+
+  .legislator-info{
+    float: left;
+
+    h4 {
+      font-size: 24px;
+      font-weight: bold;
+      float: left;
+      padding: 10px 0 5px 10px;
+    }
+
+    h5 {
+      font-size: 16px;
+      clear: left;
+      padding: 5px 0 0 10px;
+    }
+  }
+  img {
+    float: left;
+    border-radius: 25px;
+  }
+}
+
+header {
+  img {
+    border-radius: 25px;
+    float: left;
+  }
+
+  h3 {
+    font-size: 36px;
+    float: left;
+    padding: 10px;
+  }
+
+  article {
+
+    h4 {
+      font-size: 24px;
+      clear: left;
+      font-weight: bold;
+    }
+
+    h5 {
+      font-size: 16px;
+      clear: left;
+      font-weight: bold;
+    }
+
+    p {
+      clear: left;
+      font-size: 16px;
+    }
+  }
+}
+
+.votes-headline {
+  h3 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+  }
+}

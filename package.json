@@ -1,0 +1,31 @@
+{
+  "name": "project_what_have_you_done",
+  "version": "1.0.0",
+  "description": "an awesome project cus I'm awesome",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-Willenbrink/project_what_have_you_done.git"
+  },
+  "keywords": [
+    "awesome",
+    "crazy-cool",
+    "api-awesomeness"
+  ],
+  "author": "Alex Willenbrink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-Willenbrink/project_what_have_you_done/issues"
+  },
+  "homepage": "https://github.com/Alex-Willenbrink/project_what_have_you_done#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  }
+}
