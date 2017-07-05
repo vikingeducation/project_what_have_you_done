@@ -7,7 +7,7 @@ const baseUrl = 'https://congress.api.sunlightfoundation.com/';
 
 const sunlight = {
 
-  getLegislators: function(zipCode) {
+  getLegislators: function(zipCode, callback) {
 
     // return the legislators for a given zip code 
 
@@ -24,15 +24,15 @@ const sunlight = {
           legislators.push(sunlight.parseLegislator(legislator));
         });
 
-       console.log(legislators);
+       callback(null, legislators);
       })
       .catch(function(error) {
-        console.log(error);
+        callback(error);
       });
 
   },
 
-  getVotes: function(legislator) {
+  getVotes: function(legislator, callback) {
 
     // return the votes of a given legislator
 
@@ -75,11 +75,11 @@ const sunlight = {
           }
         })
 
-        console.log(polVotes);
+        callback(null, polVotes);
 
       })
       .catch(function(error) {
-        console.log(error);
+        callback(error);
       })
 
   },
