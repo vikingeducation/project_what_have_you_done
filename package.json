@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thebopshoobop/project_what_have_you_done#readme",
   "dependencies": {
+    "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.4"
   }

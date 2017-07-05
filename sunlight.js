@@ -1,7 +1,7 @@
 'use strict';
 
 const rp = require('request-promise-native');
-const _ = require('lodash');
+const moment = require('moment');
 
 const baseUrl = 'https://congress.api.sunlightfoundation.com/';
 
@@ -54,18 +54,22 @@ const sunlight = {
 
         response.results.forEach(function(vote) {
           if (vote.voters[legislator]) {
+
             // grab our legislator's details from a vote
             if (!polVotes.legislator) {
               let ourPol = vote.voters[legislator].voter;
               polVotes.legislator = sunlight.parseLegislator(ourPol);
             }
-
             // parse vote
             let currentVote = {
-              'title': vote.question,
-              'id': vote.roll_id,
-              'time': vote.voted_at,
-              'vote': voteConverter[vote.voters[legislator].vote]
+              title: vote.question,
+              id: vote.roll_id,
+              vote: voteConverter[vote.voters[legislator].vote]
+            }
+            currentVote.date = moment(vote.voted_at).format('M/D/YY');
+
+            if (currentVote.vote === undefined) {
+              return;
             }
             polVotes.votes.push(currentVote);
           }
