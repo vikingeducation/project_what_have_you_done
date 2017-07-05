@@ -8,20 +8,54 @@ const sunlight = require('../lib/sunlight');
 router.get('/', function(req, res, next) {
 
   if (req.query.zip) {
+
+    // we have a zipcode, attempt to display pols
     sunlight.getLegislators(req.query.zip, function(err, legislators) {
       if (err) {
         console.log(err);
       } else {
-        res.render('index', {
+
+        // prepare options
+        const options = {
           title: title,
           zip: req.query.zip,
           legislators: legislators
-        });
+        }
+
+        //render template
+        res.render('index', options);
       }
-    })
+    });
+
   } else {
-    res.render('index', { title: title, zip: req.query.zip});
+    // no zipcode show the form
+    res.render('index', {title: title});
   }
 });
+
+/* GET legislator */
+router.get('/pol/:id', function(req, res, next) {
+
+  // attempt to get votes
+  sunlight.getVotes(req.params.id, function(err, polVotes) {
+    if (err) {
+      console.log(err);
+    } else {
+
+      // prepare options
+      let options = {
+        title: title,
+        pol: polVotes.legislator,
+        votes: polVotes.votes
+      }
+      if (req.query.zip) {
+        options.zip = req.query.zip;
+      }
+
+      // render template
+      res.render('votes', options);
+    }
+  });
+})
 
 module.exports = router;
