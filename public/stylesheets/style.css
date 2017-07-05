@@ -1,3 +1,7 @@
 body {
   padding-top: 75px;
 }
+
+img {
+  max-height: 100px;
+}
