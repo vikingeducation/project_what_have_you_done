@@ -34,10 +34,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET legislator */
-router.get('/pol/:id', function(req, res, next) {
+router.get('/:chamber/:id', function(req, res, next) {
 
   // attempt to get votes
-  sunlight.getVotes(req.params.id, function(err, polVotes) {
+  sunlight.getVotes(req.params.id, req.params.chamber, function(err, polVotes) {
     if (err) {
       console.log(err);
     } else {

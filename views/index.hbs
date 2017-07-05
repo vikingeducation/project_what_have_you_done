@@ -21,7 +21,7 @@
     </section>
     <section class="panel-body row">
       {{#each legislators.senate as |pol|}}
-      <a href="/pol/{{pol.id}}?zip={{../zip}}">
+      <a href="/senate/{{pol.id}}?zip={{../zip}}">
         <article class="col-sm-6">
           <div class="row">
             <section class="col-xs-8">
@@ -46,7 +46,7 @@
     </section>
     <section class="panel-body">
       {{#each legislators.house as |pol|}}
-       <a href="/pol/{{pol.id}}?zip={{../zip}}">
+       <a href="/house/{{pol.id}}?zip={{../zip}}">
         <article class="col-sm-6">
           <div class="row">
             <section class="col-xs-8">
