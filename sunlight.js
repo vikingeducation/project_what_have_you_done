@@ -11,67 +11,19 @@ const sunlight = {
 
     // return the legislators for a given zip code 
 
-    const fields = [
-          'bioguide_id',
-          'chamber',
-          'facebook_id',
-          'nickname',
-          'first_name',
-          'middle_name',
-          'last_name',
-          'name_suffix',
-          'party',
-          'phone',
-          'oc_email',
-          'website',
-          'twitter_id',
-          'youtube_id'
-        ]
-
-    const url = baseUrl + 'legislators/locate?zip=' + zipCode + '&fields=' + fields.join(',');
+    const url = baseUrl + 'legislators/locate?zip=' + zipCode;
     const options = {
       uri: url,
       json: true
     };
     rp(options)
       .then(function(response) {
-        let legislators = {
-          house: [],
-          senate: []
-        };
-        const partyConverter = {
-          'D': 'Democrat',
-          'R': 'Republican',
-          'I': 'Independant'
-        }
-        _.each(response.results, function(legislator) {
-          let currentPol = {
-            id: legislator.bioguide_id,
-            party: partyConverter[legislator.party],
-            phone: legislator.phone,
-            email: legislator.oc_email,
-            website: legislator.website,
-            twitter: legislator.twitter_id,
-            youtube: legislator.youtube_id
-          };
 
-          // parse name
-          let name = '';
-          if (legislator.nickname) {
-            name += legislator.nickname;
-          } else {
-            name += legislator.first_name;
-          }
-          _.each(['middle_name', 'last_name', 'name_suffix'], function(subName) {
-            if (legislator[subName]) {
-              name += ' ' + legislator[subName];
-            }
-          });
-          currentPol.name = name;
+        let legislators = [];
+        response.results.forEach(function(legislator) {
+          legislators.push(sunlight.parseLegislator(legislator));
+        });
 
-          legislators[legislator.chamber].push(currentPol);
-
-        })
        console.log(legislators);
       })
       .catch(function(error) {
@@ -97,7 +49,7 @@ const sunlight = {
           'Nay': false,
         }
 
-        _.each(response.results, function(vote) {
+        response.results.forEach(function(vote) {
           if (vote.voters[legislator]) {
             
             let currentVote = {
@@ -116,6 +68,63 @@ const sunlight = {
       .catch(function(error) {
         console.log(error);
       })
+
+  },
+
+  parseLegislator: function(legislator) {
+    const partyConverter = {
+      'D': 'Democrat',
+      'R': 'Republican',
+      'I': 'Independant'
+    };
+    const titleConverter = {
+      'house': 'Representative',
+      'senate': 'Senator'
+    };
+    const nameOptions = [
+      'middle_name',
+      'last_name',
+      'name_suffix'
+    ];
+    const contactOptions = {
+      phone: 'phone',
+      email: 'oc_email',
+      website: 'website',
+      twitter: 'twitter_id',
+      youtube: 'youtube_id',
+    };
+
+    // basics
+    let pol = {
+      id: legislator.bioguide_id,
+      party: partyConverter[legislator.party],
+      chamber: legislator.chamber,
+      title: titleConverter[legislator.chamber],
+      contact: {}
+    };
+
+    // name
+    let name = legislator.first_name;;
+    if (legislator.nickname) {
+      name = legislator.nickname;
+    }
+
+    nameOptions.forEach(function(subName) {
+      if (legislator[subName]) {
+        name += ' ' + legislator[subName];
+      }
+    });
+
+    pol.name = name;
+
+    // contact
+    for (let method in contactOptions) {
+      if (legislator[contactOptions[method]]) {
+        pol.contact[method] = legislator[contactOptions[method]];
+      }
+    }
+
+    return pol;
 
   }
 
