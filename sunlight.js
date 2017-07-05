@@ -35,7 +35,44 @@ const sunlight = {
     };
     rp(options)
       .then(function(response) {
-       console.log(response.results);
+        let legislators = {
+          house: [],
+          senate: []
+        };
+        const partyConverter = {
+          'D': 'Democrat',
+          'R': 'Republican',
+          'I': 'Independant'
+        }
+        _.each(response.results, function(legislator) {
+          let currentPol = {
+            id: legislator.bioguide_id,
+            party: partyConverter[legislator.party],
+            phone: legislator.phone,
+            email: legislator.oc_email,
+            website: legislator.website,
+            twitter: legislator.twitter_id,
+            youtube: legislator.youtube_id
+          };
+
+          // parse name
+          let name = '';
+          if (legislator.nickname) {
+            name += legislator.nickname;
+          } else {
+            name += legislator.first_name;
+          }
+          _.each(['middle_name', 'last_name', 'name_suffix'], function(subName) {
+            if (legislator[subName]) {
+              name += ' ' + legislator[subName];
+            }
+          });
+          currentPol.name = name;
+
+          legislators[legislator.chamber].push(currentPol);
+
+        })
+       console.log(legislators);
       })
       .catch(function(error) {
         console.log(error);
@@ -54,21 +91,26 @@ const sunlight = {
     }
     rp(options)
       .then(function(response) {
-        let billz = [];
+        let votes = [];
+        const voteConverter = {
+          'Yea': true,
+          'Nay': false,
+        }
 
-        _.each(response.results, function(bill) {
-          if (bill.voters[legislator]) {
-            let currentBill = {
-              'title': bill.question,
-              'id': bill.roll_id,
-              'time': bill.voted_at,
-              'vote': bill.voters[legislator].vote
+        _.each(response.results, function(vote) {
+          if (vote.voters[legislator]) {
+            
+            let currentVote = {
+              'title': vote.question,
+              'id': vote.roll_id,
+              'time': vote.voted_at,
+              'vote': voteConverter[vote.voters[legislator].vote]
             }
-            billz.push(currentBill);
+            votes.push(currentVote);
           }
         })
 
-        console.log(billz);
+        console.log(votes);
 
       })
       .catch(function(error) {
