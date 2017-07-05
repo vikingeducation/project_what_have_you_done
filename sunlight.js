@@ -43,7 +43,10 @@ const sunlight = {
     }
     rp(options)
       .then(function(response) {
-        let votes = [];
+        let polVotes = {
+          votes: [],
+          legislator: null
+        }
         const voteConverter = {
           'Yea': true,
           'Nay': false,
@@ -51,18 +54,24 @@ const sunlight = {
 
         response.results.forEach(function(vote) {
           if (vote.voters[legislator]) {
-            
+            // grab our legislator's details from a vote
+            if (!polVotes.legislator) {
+              let ourPol = vote.voters[legislator].voter;
+              polVotes.legislator = sunlight.parseLegislator(ourPol);
+            }
+
+            // parse vote
             let currentVote = {
               'title': vote.question,
               'id': vote.roll_id,
               'time': vote.voted_at,
               'vote': voteConverter[vote.voters[legislator].vote]
             }
-            votes.push(currentVote);
+            polVotes.votes.push(currentVote);
           }
         })
 
-        console.log(votes);
+        console.log(polVotes);
 
       })
       .catch(function(error) {
