@@ -39,7 +39,7 @@ module.exports = {
 
 cleanupLegislators = function(legislators) {
 	legislators = legislators.results.map(function (legislator) {
-		return {
+		cleanLegislator  = {
 			id: legislator.bioguide_id,
 			name: {
 				firstName: legislator.first_name,
@@ -48,8 +48,6 @@ cleanupLegislators = function(legislators) {
 				middleName: legislator.middleName,
 				nameSuffix: legislator.name_suffix
 			},
-			chamber: legislator.chamber,
-			party: legislator.party,
 			state: legislator.state_name,
 			contact: {
 				phone: legislator.phone,
@@ -57,6 +55,38 @@ cleanupLegislators = function(legislators) {
 				website: legislator.website
 			}
 		};
+
+		switch (legislator.party) {
+			case "R":
+				cleanLegislator.party = "Republican";
+				break;
+			case "D":
+				cleanLegislator.party = "Democrat";
+				break;
+			case "I":
+				cleanLegislator.party = "Independent";
+				break;
+			case "G":
+				cleanLegislator.party = "Green Party";
+				break;
+			default:
+				cleanLegislator.party = "";
+				break;
+		};
+
+		switch (legislator.chamber) {
+			case "senate":
+				cleanLegislator.title = "Senator";
+				break;
+			case "house":
+				cleanLegislator.title = "Representative";
+				break;
+			default:
+				cleanLegislator.title = "";
+				break;
+		}
+
+		return cleanLegislator;
 	});
 
 	return legislators;
