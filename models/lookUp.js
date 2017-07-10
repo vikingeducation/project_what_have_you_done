@@ -61,13 +61,14 @@ cleanupLegislators = function(legislators) {
 				cleanLegislator.party = "Republican";
 				break;
 			case "D":
-				cleanLegislator.party = "Democrat";
+				cleanLegislator.party = "Democratic";
 				break;
 			case "I":
 				cleanLegislator.party = "Independent";
 				break;
 			case "G":
 				cleanLegislator.party = "Green Party";
+
 				break;
 			default:
 				cleanLegislator.party = "";
@@ -79,7 +80,7 @@ cleanupLegislators = function(legislators) {
 				cleanLegislator.title = "Senator";
 				break;
 			case "house":
-				cleanLegislator.title = "Representative";
+				cleanLegislator.title = "Congressperson";
 				break;
 			default:
 				cleanLegislator.title = "";
