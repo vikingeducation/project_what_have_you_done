@@ -18,6 +18,6 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "routes/index.js"
+        "start": "node routes/index.js"
     }
 }
