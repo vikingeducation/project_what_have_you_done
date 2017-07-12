@@ -4,7 +4,7 @@ const request = require('request');
 const fs = require('fs');
 app.set('view engine', 'hbs');
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
   console.log("listening at port 3000");
 })
 
