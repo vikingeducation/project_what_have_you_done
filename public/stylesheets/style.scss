@@ -1,39 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 
 
-.center {
-  width: 100%;
-  text-align: center;
-  h1 {
-    margin: 20px 0;
-  }
-  h3 {
-    margin: 0 0;
-  }
-  h5 {
-    margin: 20px 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: "Bree Serif", "Times New Roman", sans-serif;
 }
-.select-state {
-  display: block;
-  width: 250px;
-  margin: 0 auto;
-  text-align: center;
-  h6 {
 
-  }
-  .letter {
-    width: 100px;
-    height: 150px;
-    border: 1px solid grey;
-    border-radius: 10%;
-    .letter-text {
-      font-size: 60px;
+body {
+  background: #9699D2;
+  .center {
+    margin: 50px 0;
+    width: 100%;
+    text-align: center;
+    h1 {
+      font-weight: bold;
+      font-size: 70px;
+      margin: 20px 0;
+    }
+    #big-header:hover {
+      color: white;
+      cursor: pointer;
+    }
+    h3 {
+      font-size: 40px;
+      margin: 0 0;
+      span {
+        text-decoration: underline;
+      }
+    }
+    h5 {
+      font-size: 20px;
+      margin: 20px 0;
     }
   }
-  .active {
-
+  .select-state {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    padding: 10px 25px;
+    border: 3px solid black;
+    text-align: center;
+    h6 {
+      font-size: 30px;
+    }
+    .letter {
+      display: block;
+      float: left;
+      width: 123px;
+      height: 150px;
+      border: 1px solid black;
+      border-radius: 10%;
+      .letter-text {
+        font-size: 100px;
+      }
+    }
+    .active-div {
+      background: #D4F77D;
+    }
+    .submit {
+      display: none;
+      background: #00A000;
+      width: 100px;
+      height: 24px;
+      margin: 20px auto;
+      padding: 15px;
+      color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+    .submit:hover {
+      background: #008000;
+      cursor: pointer;
+    }
   }
-  .submit {
-
+  .info-container {
+    .info {
+      width: 70%;
+      text-align: center;
+      border: 3px solid black;
+      border-radius: 10px;
+      margin: 20px 15%;
+      background: white;
+      span {
+        color: orange;
+      }
+    }
   }
 }

@@ -1,5 +1,63 @@
+<!DOCTYPE html>
+
+
 <html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>State Legislatures</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/javascripts/mystate.js"></script>
+</head>
 
-
-
-<h1>{{state.legislature_name}}</h1>
+  <body>
+    <div class="center">
+      <h1 id="big-header">Your State Legislature .com</h1>
+      <h1>{{meta.name}}</h1>
+      <h3>{{meta.legislature_name}}</h3>
+      <h5>{{meta.legislature.legislature_url}}
+      <select>View:
+        <option>Legislators</option>
+        <option>Bills</option>
+        <option>Committees</option>
+        <option>Past Sessions</option>
+      </select>
+    </div>
+    <div class="info-container">
+      {{#each meta.session_details as |sess|}}
+      <div class="info" id="sessions">
+        <h4><span>Session:</span> <br>{{sess.display_name}}</h4>
+        <h6><span>Type:</span> <br>{{sess.type}}</h6>
+      </div>
+      {{/each}}
+      {{#each bills as |bill|}}
+      <div class="info" id="bills">
+        <h4><span>Title:</span> <br>{{bill.title}}</h4>
+        <h6><span>Chamber:</span> <br>{{bill.chamber}}</h6>
+        <h6><span>Created at:</span> <br>{{bill.created_at}}</h6>
+        <h6><span>Session:</span> <br>{{bill.session}}</h6>
+        <h6><span>Subjects:</span> <br>{{bill.subjects}}</h6>
+        <h6><span>Bill ID:</span> <br>{{bill.bill_id}}</h6>
+      </div>
+      {{/each}}
+      {{#each legislators as |legi|}}
+      <div class="info" id="legislators">
+        <img src={{legi.photo_url}}>
+        <h4><span>Name:</span> <br>{{legi.full_name}}</h4>
+        <h6><span>Chamber:</span> <br>{{legi.chamber}}</h6>
+        <h6><span>District:</span> <br>{{legi.district}}</h6>
+        <h6><span>Party:</span> <br>{{legi.party}}</h6>
+        <h6><span>Offices:</span> <br>{{#each legi.offices as |o|}}{{o.name}}{{/each}}</h6>
+        <h6><span>Website:</span> <br>{{legi.url}}</h6>
+      </div>
+      {{/each}}
+      {{#each committees as |comm|}}
+      <div class="info" id="committees">
+        <h4><span>Name:</span> <br>{{comm.committee}}</h4>
+        <h6><span>Chamber:</span> <br>{{comm.chamber}}</h6>
+      </div>
+      {{/each}}
+    </div>
+  </body>
+</html>

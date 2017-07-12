@@ -1,27 +1,72 @@
-.center {
-  width: 100%; }
-  .center h1 {
-    text-align: center;
-    margin: 20px 0; }
-  .center h3 {
-    text-align: center;
-    margin: 0 0; }
-  .center h5 {
-    text-align: center;
-    margin: 20px 0; }
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font-family: "Bree Serif", "Times New Roman", sans-serif; }
 
-.select-state {
-  display: block;
-  width: 250px;
-  margin: 0 auto; }
-  .select-state h6 {
+body {
+  background: #9699D2; }
+  body .center {
+    margin: 50px 0;
+    width: 100%;
     text-align: center; }
-  .select-state .letter {
-    width: 100px;
-    height: 150px;
-    border: 1px solid grey;
-    border-radius: 10%; }
-    .select-state .letter .letter-text {
-      font-size: 60px; }
+    body .center h1 {
+      font-weight: bold;
+      font-size: 70px;
+      margin: 20px 0; }
+    body .center #big-header:hover {
+      color: white;
+      cursor: pointer; }
+    body .center h3 {
+      font-size: 40px;
+      margin: 0 0; }
+      body .center h3 span {
+        text-decoration: underline; }
+    body .center h5 {
+      font-size: 20px;
+      margin: 20px 0; }
+  body .select-state {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    padding: 10px 25px;
+    border: 3px solid black;
+    text-align: center; }
+    body .select-state h6 {
+      font-size: 30px; }
+    body .select-state .letter {
+      display: block;
+      float: left;
+      width: 123px;
+      height: 150px;
+      border: 1px solid black;
+      border-radius: 10%; }
+      body .select-state .letter .letter-text {
+        font-size: 100px; }
+    body .select-state .active-div {
+      background: #D4F77D; }
+    body .select-state .submit {
+      display: none;
+      background: #00A000;
+      width: 100px;
+      height: 24px;
+      margin: 20px auto;
+      padding: 15px;
+      color: white;
+      border: 1px solid black;
+      border-radius: 10px; }
+    body .select-state .submit:hover {
+      background: #008000;
+      cursor: pointer; }
+  body .info-container .info {
+    width: 70%;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: 20px 15%;
+    background: white; }
+    body .info-container .info span {
+      color: orange; }
 
 /*# sourceMappingURL=style.css.map */
