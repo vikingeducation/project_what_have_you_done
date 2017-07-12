@@ -1,17 +1,34 @@
 const request = require("request");
 const fs = require("fs");
 
-const baseUri = "https://congress.api.sunlightfoundation.com/"
+const baseUri = "http://congress.api.sunlightfoundation.com/"
 
-module.exports = {
+const lookUp = {
 	zipLookup: function(zip, callback) {
-		var url = `${baseUri}legislators/locate?zip=${zip}`;
+		var fields = "bioguide_id,first_name,last_name,phone,oc_email,website,party,chamber";
+		var url = `${baseUri}legislators/locate?zip=${zip}&fields=${fields}`;
 
 		request.get(url, function(error, response, body) {
 			if (!error && response.statusCode === 200) {
 				var legislators = JSON.parse(body);
 				legislators = cleanupLegislators(legislators);
 				callback(legislators);
+			} else {
+				console.log(error);
+			};
+		});
+	},
+
+	singleLegislator: function(id, callback) {
+		var fields = "bioguide_id,first_name,last_name,phone,oc_email,website,party,chamber";
+		var url = `${baseUri}legislators?bioguide_id=${id}&fields=${fields}`;
+
+		request.get(url, function(error, response, body) {
+			if (!error && response.statusCode === 200) {
+				var legislator = JSON.parse(body);
+				legislator = cleanupLegislators(legislator)[0];
+
+				callback(legislator);
 			} else {
 				console.log(error);
 			};
@@ -43,12 +60,8 @@ cleanupLegislators = function(legislators) {
 			id: legislator.bioguide_id,
 			name: {
 				firstName: legislator.first_name,
-				nickname: legislator.nickname,
-				lastName: legislator.last_name,
-				middleName: legislator.middleName,
-				nameSuffix: legislator.name_suffix
+				lastName: legislator.last_name
 			},
-			state: legislator.state_name,
 			contact: {
 				phone: legislator.phone,
 				email: legislator.oc_email,
@@ -104,3 +117,12 @@ cleanupVotes = function(id, votes) {
 
 	return votes;
 };
+
+lookUp.singleLegislator("B001299", function(legislator) {
+	lookUp.votes("B001299", function(votes) {
+		console.log(legislator);
+		console.log(votes);
+	});
+});
+
+module.exports = lookUp;

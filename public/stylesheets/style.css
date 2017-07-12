@@ -1,3 +1,14 @@
+.clearfix:before {
+	content: "";
+  display: table;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +16,59 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+.legislator {
+	margin-bottom: 20px;
+}
+
+.legislator .leg-photo {
+	float: left;
+}
+
+.leg-photo {
+	width: 80px;
+	margin: auto;
+}
+
+.leg-photo img {
+	border-radius: 10px;
+	width: 100%;
+}
+
+.leg-info {
+	float: right;
+	width: calc(100% - 100px);
+	padding-left: 20px;
+}
+
+.leg-header {
+	text-align: center;
+}
+
+.Yea {
+	border: 4px solid green;
+}
+
+.Nay {
+	border: 4px solid red;
+}
+
+.vote {
+	border-radius: 7px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
 }
