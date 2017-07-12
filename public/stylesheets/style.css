@@ -1,0 +1,27 @@
+.center {
+  width: 100%; }
+  .center h1 {
+    text-align: center;
+    margin: 20px 0; }
+  .center h3 {
+    text-align: center;
+    margin: 0 0; }
+  .center h5 {
+    text-align: center;
+    margin: 20px 0; }
+
+.select-state {
+  display: block;
+  width: 250px;
+  margin: 0 auto; }
+  .select-state h6 {
+    text-align: center; }
+  .select-state .letter {
+    width: 100px;
+    height: 150px;
+    border: 1px solid grey;
+    border-radius: 10%; }
+    .select-state .letter .letter-text {
+      font-size: 60px; }
+
+/*# sourceMappingURL=style.css.map */

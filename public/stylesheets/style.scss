@@ -1,0 +1,39 @@
+
+
+.center {
+  width: 100%;
+  text-align: center;
+  h1 {
+    margin: 20px 0;
+  }
+  h3 {
+    margin: 0 0;
+  }
+  h5 {
+    margin: 20px 0;
+  }
+}
+.select-state {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  h6 {
+
+  }
+  .letter {
+    width: 100px;
+    height: 150px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    .letter-text {
+      font-size: 60px;
+    }
+  }
+  .active {
+
+  }
+  .submit {
+
+  }
+}
