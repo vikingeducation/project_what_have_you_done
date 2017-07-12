@@ -1,0 +1,111 @@
+.clearfix:before {
+	content: "";
+  display: table;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee;
+}
+
+a {
+  color: #07d;
+}
+
+.no-style {
+	color: #000;
+	text-decoration: none;
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+section {
+	background-color: #fff;
+	border: 4px solid #ccc;
+	border-radius: 5px;
+}
+
+input {
+	display: block;
+	margin: auto;
+}
+
+#zip {
+	font-size: 48px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+
+#submitButton {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 5px 10px;
+}
+
+.legislator {
+	margin-bottom: 20px;
+}
+
+.legislator .leg-photo {
+	float: left;
+}
+
+.leg-photo {
+	width: 80px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.leg-photo img {
+	border-radius: 10px;
+	width: 100%;
+}
+
+.leg-info {
+	float: right;
+	width: calc(100% - 120px);
+	padding-left: 20px;
+}
+
+.zip-container {
+	padding: 20px;
+	text-align: center;
+}
+
+header {
+	text-align: center;
+}
+
+.Yea {
+	border: 4px solid green;
+}
+
+.Nay {
+	border: 4px solid red;
+}
+
+.vote {
+	border-radius: 7px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+}

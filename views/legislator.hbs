@@ -1,0 +1,28 @@
+<header class="leg-header">
+	<h1>{{legislator.name.firstName}} {{legislator.name.lastName}}</h1>
+
+	<div class="leg-photo">
+		<img src="https://theunitedstates.io/images/congress/225x275/{{legislator.id}}.jpg">
+	</div>
+
+	<p>
+		<a href="mailto:{{legislator.contact.email}}">
+			{{legislator.contact.email}}
+		</a><br>
+		{{legislator.contact.phone}}<br>
+		<a href="{{legislator.contact.website}}">
+			{{legislator.contact.website}}
+		</a>
+	</p>
+</header>
+
+<div>
+	{{#each votes as |vote|}}
+	<a class="vote-wrapper">
+		<section class="{{vote.vote}} vote">
+			<h2>{{vote.bill_id}}</h2>
+			<p>{{vote.title}}</p>
+		</section>
+	</a>
+	{{/each}}
+</div>
