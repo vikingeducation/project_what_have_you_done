@@ -1,4 +1,4 @@
-<div class="leg-header">
+<header class="leg-header">
 	<h1>{{legislator.name.firstName}} {{legislator.name.lastName}}</h1>
 
 	<div class="leg-photo">
@@ -14,13 +14,15 @@
 			{{legislator.contact.website}}
 		</a>
 	</p>
-</div>
+</header>
 
 <div>
 	{{#each votes as |vote|}}
-		<div class="{{vote.vote}} vote">
+	<a class="vote-wrapper">
+		<section class="{{vote.vote}} vote">
 			<h2>{{vote.bill_id}}</h2>
 			<p>{{vote.title}}</p>
-		</div>
+		</section>
+	</a>
 	{{/each}}
 </div>
