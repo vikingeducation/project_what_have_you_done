@@ -1,0 +1,37 @@
+{
+    "results": {
+
+        "house": [
+            {
+                "name": "Ted Lieu",
+                "party": "Democrat",
+                "picture": "https://yt3.ggpht.com/-rpKz1kT8zdQ/AAAAAAAAAAI/AAAAAAAAAAA/tJqE89_Yiro/s100-c-k-no-mo-rj-c0xffffff/photo.jpg"
+            },
+            {
+                "name": "Brad J. Sherman",
+                "party": "Democrat",
+                "picture": "https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/005/09e/215/3c3c3d6.jpg"
+            },
+            {
+                "name": "Adam B. Schiff",
+                "party": "Democrat",
+                "picture": "https://yt3.ggpht.com/-4AJyR4X5VhA/AAAAAAAAAAI/AAAAAAAAAAA/nvH6cIGxgZE/s100-c-k-no-mo-rj-c0xffffff/photo.jpg"
+            }
+        ],
+
+        "senate": [
+            {
+                "name": "Kamala Harris",
+                "party": "Democrat",
+                "picture": "https://www.aspenideas.org/sites/default/files/styles/thumbnail/public/pictures/people/Kamala_Harris.jpeg"
+            },
+            {
+                "name": "Dianne Feinstein",
+                "party": "Democrat",
+                "picture": "https://i2.wp.com/momocrats.com/wp-content/uploads/catablog/thumbnails/DianneFeinstein.jpg?w=838"
+            }
+        ]
+
+    }
+
+}

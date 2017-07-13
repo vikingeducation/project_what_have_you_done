@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 var utils = require('./utils');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var results = require('./routes/results');
+var api = require('./routes/api');
+var people = require('./routes/people');
 
 var app = express();
 
@@ -15,23 +17,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
 // testing
-// const data = { sponsorID: "" };
-// let legislators = utils.APIManager.getLegislators(10010);
+// let reps = utils.APIManager.get('http://localhost:3000/api/reps');
 
-// legislators
+// reps
 // 	.then(function(res) {
-// 		console.log(res.results);
+
 // 	})
+// 	.catch(function(res) {
 
-// let votes = utils.APIManager.getVotes('M000087');
-// votes.then(function(res) { console.log(res.results) }).catch(function(err) {console.error(err)})
-
-// let bill = utils.APIManager.getBill('hr3003-115');
-// bill.then(function(res) {console.log(res)})
-
-
-// https://congress.api.sunlightfoundation.com/votes?fields=roll_id,result,voter_ids.A000055
+// 	})
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -42,7 +38,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/results', results);
+app.use('/people', people);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
