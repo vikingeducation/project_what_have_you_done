@@ -26,13 +26,13 @@
     </div>
     <div class="info-container">
       {{#each meta.session_details as |sess|}}
-      <div class="info" id="sessions">
+      <div class="info sessions">
         <h4><span>Session:</span> <br>{{sess.display_name}}</h4>
         <h6><span>Type:</span> <br>{{sess.type}}</h6>
       </div>
       {{/each}}
       {{#each bills as |bill|}}
-      <div class="info" id="bills">
+      <div class="info bills">
         <h4><span>Title:</span> <br>{{bill.title}}</h4>
         <h6><span>Chamber:</span> <br>{{bill.chamber}}</h6>
         <h6><span>Created at:</span> <br>{{bill.created_at}}</h6>
@@ -42,7 +42,7 @@
       </div>
       {{/each}}
       {{#each legislators as |legi|}}
-      <div class="info" id="legislators">
+      <div class="info legislators">
         <img src={{legi.photo_url}}>
         <h4><span>Name:</span> <br>{{legi.full_name}}</h4>
         <h6><span>Chamber:</span> <br>{{legi.chamber}}</h6>
@@ -53,7 +53,7 @@
       </div>
       {{/each}}
       {{#each committees as |comm|}}
-      <div class="info" id="committees">
+      <div class="info committees">
         <h4><span>Name:</span> <br>{{comm.committee}}</h4>
         <h6><span>Chamber:</span> <br>{{comm.chamber}}</h6>
       </div>

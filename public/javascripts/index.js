@@ -9,10 +9,10 @@ var states = {
 var f = {
   headerRedirect: function(){
     $("h1").click(function(){
-      window.location.href = "http://localhost:3000";
+      window.location.href = "https://evening-wildwood-62025.herokuapp.com/";
     })
   },
-  
+
   typeLetter: function(){
     $(document).on("keypress", function(event){
       if ((/^[a-zA-Z]*$/.test(event.key)) && event.which!==13) {
@@ -59,7 +59,7 @@ var f = {
         alert("Please enter a valid state.");
       }
       else {
-        var url = "http://localhost:3000/states/" + state;
+        var url = "https://evening-wildwood-62025.herokuapp.com/states/" + state;
         window.location.href = url;
       }
    })
@@ -76,7 +76,7 @@ var f = {
            alert("Please enter a valid state.");
          }
          else {
-           var url = "http://localhost:3000/states/" + state;
+           var url = "https://evening-wildwood-62025.herokuapp.com/states/" + state;
            window.location.href = url;
          }
        }

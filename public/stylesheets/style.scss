@@ -77,15 +77,22 @@ body {
   }
   .info-container {
     .info {
-      width: 70%;
+      padding: 15px 5%;
+      display: none;
+      width: 36%;
       text-align: center;
       border: 3px solid black;
       border-radius: 10px;
-      margin: 20px 15%;
+      margin: 5% 27%;
       background: white;
       span {
         color: orange;
       }
+    }
+    .legislators {
+      display: block;
+      width: 70%;
+      margin: 5% 10%;
     }
   }
 }
