@@ -8,7 +8,7 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 
-app.listen(product.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, function(){
   console.log("listening at port 3000");
 })
 
