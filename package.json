@@ -1,0 +1,23 @@
+{
+    "name": "what_have_you_done",
+    "version": "0.0.1",
+    "description": "View legislator information by state.",
+    "keywords": "",
+    "repository": "https://github.com/IDHalverson/project_what_have_you_done.git",
+    "homepage": "https://github.com/IDHalverson/project_what_have_you_done",
+    "author": "Ian Halverson",
+    "dependencies": {
+      "express": "4.15.3",
+      "request": "2.81.0",
+      "hbs": "4.0.1"
+    },
+    "main": "index",
+    "engines": {
+        "node": ">= 6.11.0",
+        "hbs": "4.0.1"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node routes/index.js"
+    }
+}
