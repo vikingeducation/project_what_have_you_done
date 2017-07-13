@@ -8,17 +8,13 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 
 
-app.listen(product.env.PORT, function(){
+app.listen(product.env.PORT || 3000, function(){
   console.log("listening at port 3000");
 })
 
 app.get("/", function(req, res){
   res.render('index.hbs');
   })
-
-var jsonData;
-
-
 
 app.get("/states/:state", function(req, res) {
   var stateMetadata;
