@@ -70,6 +70,9 @@ body {
     background: white; }
     body .info-container .info span {
       color: orange; }
+    body .info-container .info img {
+      max-width: 70%;
+      max-height: 500px; }
   body .info-container .legislators {
     display: block;
     width: 70%;
