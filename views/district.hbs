@@ -1,5 +1,11 @@
 {{zip}}
 
-<h1>{{reps.basic_info.first_name}}</h1>
-<h1>{{reps.basic_info.middle_name}}</h1>
-<h1>{{reps.basic_info.last_name}}</h1>
+{{#each reps as |rep| }}
+<h3>{{rep.basic_info.first_name}}</h3>
+<h3>{{rep.basic_info.middle_name}}</h3>
+<h3>{{rep.basic_info.last_name}}</h3>
+<br>
+<br>
+{{/each}}
+
+<br>

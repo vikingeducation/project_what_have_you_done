@@ -54,7 +54,6 @@ app.use(function(err, req, res, next) {
 
 //app.listen(port);
 app.listen( port, function( err ){
-  debugger;
   if ( err ){
     console.log( err )
   }

@@ -15,8 +15,8 @@ class Representative {
         first_name : json_obj.first_name,
         middle_name : json_obj.middle_name,
         last_name : json_obj.last_name,
-        //party : json_obj.party,
-        party : this.party( json_obj.party ),
+        party : json_obj.party,
+        //party : this.party( json_obj.party ),
         chamber : json_obj.chamber
       }
       this.contact_info = {
