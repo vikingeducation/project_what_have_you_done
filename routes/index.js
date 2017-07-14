@@ -20,7 +20,8 @@ var bill_url;
 //https://congress.api.sunlightfoundation.com//bills?bill_id=hr2810-115
 
 
-//Votes  //NOTE: votes are supposed to be found here but the API is messed up
+//Votes
+//NOTE: votes are supposed to be found here but the API is messed up
 //https://congress.api.sunlightfoundation.com/votes/voter_id=G000546
 
 var get_bills = function( bill_id ){
@@ -83,38 +84,7 @@ var get_reps = function( ){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //make a promise
-  var rep_promise = get_reps()
-  /*.then( function( value ){
-    debugger;
-    res.render('district', { title: 'Express', zip: zip, reps: value })
-  }, function( error ){
-    console.log( error );
-  })*/
-
-
-  Promise.all( [rep_promise] ).then( function( value ){
-    debugger;
-    res.render('district', { title: 'Express', zip: zip, reps: value[0] });
-  }, function( error ){
-    debugger;
-    console.log("error: " + error );
-  })
-
+  res.render('index', { title: 'Express' });
 });
 
-module.exports = router
-
-
-/*
-
-
-<!--
-{{#each reps.basic_info as  |name| }}
-<h3>{{name}}</h3>
-<h3>{{name}}</h3>
-<h3>{{name}}</h3>
-
-{{/each}}
--->
-*/
+module.exports = router;

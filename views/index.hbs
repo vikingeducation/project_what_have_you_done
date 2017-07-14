@@ -1,2 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<head>
+  <title>WHAT HAVE YOU DONE</title>
+</head>
+<body>
+  <div id='main-column'>
+    <h1 class='title highlight'>What Have You Done</h1>
+
+    <h3>Discover the <em>voting records</em> of your <em>local representatives</em></h3>
+    <p class='details'>Then pester their offices!</p>
+
+    <form id='zip-code' action='/district' method="get">
+      <label>ZIP CODE</label>
+      <input type="number" name='zip' required>
+      <button class='highlight'>Go!</button>
+    </form>
+  </div>
+</body>

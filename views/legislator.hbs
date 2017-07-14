@@ -1,0 +1,17 @@
+<head>
+  <title>District</title>
+</head>
+<body>
+
+
+  <h3>{{rep.basic_info.first_name}}</h3>
+  <h3>{{rep.basic_info.middle_name}}</h3>
+  <h3>{{rep.basic_info.last_name}}</h3>
+  <br>
+  <br>
+  {{#each bills as |bill| }}
+  <p>Bill: {{bill.bill_id}}</p>
+  {{/each}}
+  <br>
+
+</body>
