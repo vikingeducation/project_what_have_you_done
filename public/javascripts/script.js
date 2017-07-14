@@ -4,6 +4,7 @@ $(() => {
 		app.searchZip();
 		app.displayZip();
 		app.selectPerson();
+		app.returnHome();
 	}
 
 	const app = {
@@ -105,6 +106,12 @@ $(() => {
 				let name = $(nameBox).children()[0].innerHTML;
 
 				window.location.href = `/people/${name}`;
+			})
+		},
+
+		returnHome: function() {
+			$('.box-wide').on('click', '.sm-zip-box', function() {
+				window.location.href = '/';
 			})
 		}
 	}
