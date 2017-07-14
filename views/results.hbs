@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+</head>
+<body>
+	<div class="box-wide">
+		<div class="title-box">
+			<h1>{{title}}</h1>
+		</div>
+
+		<a href="#">
+			<div class="sm-zip-box">
+				<div class="sm-number-box"></div>
+				<div class="sm-number-box"></div>
+				<div class="sm-number-box"></div>
+				<div class="sm-number-box"></div>
+				<div class="sm-number-box"></div>
+			</div>
+		</a>
+
+
+		<p class="group-title">House</p>
+
+		<div class="rep-group-box">
+
+			{{#each results.house as |person|}}
+				<a href="#">
+					<div class="rep-box">
+						<div class="photo-box">
+							<img src={{person.picture}}>
+						</div>
+
+						<div class="name-box">
+							<h3>{{person.name}}</h3>
+							<p>{{person.party}}</p>
+						</div>
+					</div>
+				</a>
+			{{/each}}
+
+		<p class="group-title">Senate</p>
+
+			{{#each results.senate as |person|}}
+				<a href="#">
+					<div class="rep-box">
+						<div class="photo-box">
+							<img src={{person.picture}}>
+						</div>
+
+						<div class="name-box">
+							<h3>{{person.name}}</h3>
+							<p>{{person.party}}</p>
+						</div>
+					</div>
+				</a>
+			{{/each}}
+
+		</div>
+	</div>
+</body>
+</html>
