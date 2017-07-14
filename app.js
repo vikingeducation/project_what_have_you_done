@@ -27,9 +27,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//need a button to submit a get request with this syntax
-//https://what-have-you-done.herokuapp.com/?zipCode=63401
 //landing page
 app.use('/', index);
 

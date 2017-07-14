@@ -3,20 +3,11 @@ var router = express.Router();
 const request = require('request');
 const Rep = require('../models/rep');
 
-
-
-//var zip = 53075;
-//var rep_url = `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${zip}`
 var bill_url;
-
-//https://congress.api.sunlightfoundation.com//bills?history.active=true&order=last_action_at&actions.type=vote
-//https://congress.api.sunlightfoundation.com//bills?history.active=true&order=last_action_at&actions.type=vote&chamber=senate
-//https://congress.api.sunlightfoundation.com//bills?history.active=true&order=last_action_at&actions.type=vote&chamber=house
 
 //Bills
 //https://congress.api.sunlightfoundation.com/votes?order=voted_at&chamber=house
 //https://congress.api.sunlightfoundation.com/votes?order=voted_at&chamber=senate
-
 //https://congress.api.sunlightfoundation.com//bills?bill_id=hr2810-115
 
 

@@ -8,7 +8,6 @@ const Bill = require('../models/bill')
 
 
 var parse = function( j_string ){
-  //debugger;
   return JSON.parse( j_string );
 }
 

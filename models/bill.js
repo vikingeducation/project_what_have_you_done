@@ -1,6 +1,5 @@
 class Bill {
   constructor( bill_id ){
-    //this.
     this.bill_id = bill_id;
   }
   say_hello(){
