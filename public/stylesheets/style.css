@@ -1,7 +1,6 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  text-align: center;
   font-size: 14px;
   background-color: #EEE;
 }
@@ -13,6 +12,9 @@ body {
 }
 a {
   color: #00B7FF;
+}
+a:hover{
+  color: yellow;
 }
 /*
 .zip-code .zip-char {
@@ -58,4 +60,44 @@ form * {
   border: 0;
   margin: 0;
   padding: 10px;
+}
+#contact_info{
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid grey;
+  background-color: white;
+}
+#contact_info div{
+  margin-bottom: 8px;
+}
+
+#contact_info div * {
+  padding: 4px;
+  margin: 0;
+}
+#display{
+  font-size: 24px;
+}
+.center {
+  margin: auto;
+  text-align: center;
+}
+.center-things {
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+#recent-bills {
+  width: 70%;
+  margin-top: 40px;
+}
+.bill {
+  background-color: white;
+  margin-top: 30px;
+  border: 1px solid black;
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+  padding: 16px;
 }

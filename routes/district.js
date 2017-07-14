@@ -4,7 +4,8 @@ var router = express.Router();
 const request = require('request');
 const Rep = require('../models/rep');
 
-var zip = 53075;
+//var zip = 53075;
+var zip;
 var rep_url = `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${zip}`
 
 
@@ -16,6 +17,7 @@ var parse = function( j_string ){
 //get the list of reps
 var get_reps = function( ){
   var promise = new Promise( function( resolve, reject){
+    var rep_url = `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${zip}`;
     request( rep_url, function( err, res, body){
       if ( err ){
         console.log( err )
@@ -34,13 +36,14 @@ var get_reps = function( ){
   })
   return promise;
 }
-
 router.get('/', function(req, res, next) {
   //make a promise
+  zip = req.query.zip || 65201;
+  debugger;
   var rep_promise = get_reps();
   Promise.all( [rep_promise] ).then( function( value ){
     debugger;
-    res.render('district', { title: 'Express', zip: zip, reps: value[0] });
+    res.render('district', { zip: zip, reps: value[0] });
   }, function( error ){
     debugger;
     console.log("error: " + error );

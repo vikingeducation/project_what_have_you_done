@@ -1,11 +1,9 @@
 //representative class
  //take a giant block of data, make into a class we care about
-
 const log = console.log
 
 //the api gives results in this format
   //['results':{}, 'count': #, 'page':{}]
-//var results = json_obj.results;
 
 class Representative {
   constructor( json_obj ){
@@ -20,7 +18,8 @@ class Representative {
         chamber : json_obj.chamber
       }
       this.contact_info = {
-        website: json_obj.website
+        website: json_obj.website,
+        phone: json_obj.phone
       }
     } catch (e) {
       console.log( e );

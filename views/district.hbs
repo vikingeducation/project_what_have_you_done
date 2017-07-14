@@ -6,10 +6,10 @@
     <h1 class='title highlight'>What Have You Done</h1>
     <h3>{{zip}}</h3>
   </div>
-  <div id='main-column'>
+  <div id='main-column' class='center'>
     {{#each reps as |rep| }}
       <div class='rep'>
-        <a href='./legislators/{{rep.bioguide_id}}'><h3>{{rep.basic_info.first_name}} {{rep.basic_info.middle_name}} {{rep.basic_info.last_name}}</h3></a>
+        <a href='./legislator/{{rep.bioguide_id}}'><h3>{{rep.basic_info.first_name}} {{rep.basic_info.middle_name}} {{rep.basic_info.last_name}}</h3></a>
       </div>
     {{/each}}
   </div>

@@ -2,16 +2,28 @@
   <title>District</title>
 </head>
 <body>
-
-
-  <h3>{{rep.basic_info.first_name}}</h3>
-  <h3>{{rep.basic_info.middle_name}}</h3>
-  <h3>{{rep.basic_info.last_name}}</h3>
-  <br>
-  <br>
-  {{#each bills as |bill| }}
-  <p>Bill: {{bill.bill_id}}</p>
-  {{/each}}
-  <br>
-
+  <div class="center-things flex-col">
+    <div id='display'>
+      <!--congress party -->
+      <h3 class='highlight'>{{rep.basic_info.first_name}} {{rep.basic_info.middle_name}} {{rep.basic_info.last_name}}</h3>
+    </div>
+    <div id='contact_info'>
+      <div>
+        <p>Phone</p>
+        <p>{{rep.contact_info.phone}}</p>
+      </div>
+      <div>
+        <p>Website</p>
+        <a href={{rep.contact_info.website}}>{{rep.contact_info.website}}</a>
+      </div>
+    </div>
+    <div id='recent-bills' class='center-things'>
+      <h3 class='center'>Recent Votes</h3>
+      {{#each bills as |bill| }}
+      <div class='bill'>
+        <p>Bill: {{bill.bill_id}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </body>

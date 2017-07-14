@@ -82,17 +82,16 @@ var get_rep = function( url ){
 /* Legislator page. */
 router.get('/:bioguide_id', function(req, res, next) {
   var rep_id = req.params.bioguide_id;
+
   //get rep
   var url = `https://congress.api.sunlightfoundation.com/legislators?bioguide_id=${rep_id}`;
   var rep = get_rep(url);
   var bills;
   var bill_ids;
   rep.then(function(value){
-    console.log(value);
     bill_ids = get_recent_bills( value.basic_info.chamber );
 
     //get bills voted on in that chamber
-    //bill_ids = get_recent_bills( value.basic_info.chamber );
     bill_ids.then( function(bill_value ){
       //call api
       /*
@@ -117,41 +116,10 @@ router.get('/:bioguide_id', function(req, res, next) {
         return bill;
       })
       */
-      debugger;
       res.render('legislator', { bills: bill_value, rep: value});
     })
 
   })
-  /*
-  var bill_promises;
-  bill_ids.then( function(value ){
-    //call api
-    bill_promises = value.map( function( element ){
-      var bill_promise = get_bill( element );
-    })
-  })
-  bill_promises.then( function( value ){
-    //create new bills
-    bills = value.map( function( element ){
-      var bill = new Bill( element );
-    })
-    res.render('legislator', { bills: bills, rep: rep});
-  })
-  */
-  /*
-  //for each id make a Bill
-  Promise.all( [bill_promises, rep, bill_ids, bill_promises  ).then( function( value ) {
-    //pass your bills to your templates and render
-    res.render('legislator', { bills: bills, rep: rep});
-  })
-
-  Promise.all( [ rep, bills ]).then( function(value){
-
-    res.render('legislator', { bills: bills, rep: rep})
-  })
-  //
-  res.render('district', { title: 'Express' });
-  */
 });
 
 module.exports = router;

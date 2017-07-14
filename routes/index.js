@@ -5,8 +5,8 @@ const Rep = require('../models/rep');
 
 
 
-var zip = 53075;
-var rep_url = `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${zip}`
+//var zip = 53075;
+//var rep_url = `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${zip}`
 var bill_url;
 
 //https://congress.api.sunlightfoundation.com//bills?history.active=true&order=last_action_at&actions.type=vote
@@ -84,7 +84,8 @@ var get_reps = function( ){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  debugger;
+  res.render('index');
 });
 
 module.exports = router;
