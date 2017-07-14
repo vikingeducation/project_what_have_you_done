@@ -1,0 +1,62 @@
+{{!--Header--}}
+<header class="jumbotron col-lg-8 col-lg-offset-2">
+  <h1>{{pol.name}}</h1>
+  <section class="row">
+    <section class="col-xs-4 col-sm-2">
+      <img src="https://theunitedstates.io/images/congress/225x275/{{pol.id}}.jpg">
+    </section>
+    <section class="col-xs-8 col-sm-4">
+      <h3>{{pol.chamber}}</h3>
+      <h3>{{pol.party}}</h3>
+    </section>
+    <div class="clearfix visible-xs-block"></div>
+    <section class="col-xs-8 col-sm-4">
+      <h3>Contact</h3>
+      <dl>
+        <dt>Telephone</dt>
+        <dd>{{pol.contact.phone}}</dd>
+        <dt>Website</dt>
+        <dd><a href="{{pol.contact.website}}">{{pol.contact.website}}</a></dd>
+      </dl>
+    </section>
+    <section class="social col-xs-4 col-sm-2">
+      {{#if pol.contact.email}}
+      <a href="mailto:{{pol.contact.email}}">
+        <i class="fa fa-envelope fa-3x" aria-hidden="true"></i>
+      </a>
+      {{/if}}
+      {{#if pol.contact.facebook}}
+      <a href="http://facebook.com/{{pol.contact.facebook}}">
+        <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+      </a>
+      {{/if}}
+      {{#if pol.contact.twitter}}
+      <a href="http://twitter.com/{{pol.contact.twitter}}">
+        <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+      </a>
+      {{/if}}
+      {{#if pol.contact.youtube}}
+      <a href="http://youtube.com/user/{{pol.contact.youtube}}">
+        <i class="fa fa-youtube-square fa-3x" aria-hidden="true"></i>
+      </a>
+      {{/if}}
+    </section>
+  </section>
+</header>
+
+{{!--Votes--}}
+{{#each votes as |vote|}}
+<a href="https://www.govtrack.us/congress/bills/{{vote.congress}}/{{vote.id}}">
+  <article class="col-sm-6 col-md-4">
+    <div class="panel {{#if vote.vote}}panel-success{{else}}panel-danger{{/if}}">
+      <section class="panel-heading">
+        <h2 class="panel-title">Congress: {{vote.congress}} Bill: {{vote.id}}</h2>
+      </section>
+      <section class="panel-body">
+        <h5>{{vote.date}}</h5>
+        <p>{{vote.title}}</p>
+      </section>
+    </div>
+  </article>
+</a>
+{{/each}}

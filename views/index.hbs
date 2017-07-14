@@ -1,0 +1,66 @@
+{{!--Header--}}
+<header class="jumbotron col-lg-6 col-lg-offset-3">
+  <h1>See Their Votes</h1>
+  {{#unless zip}}
+  <p class="lead">Enter your zip code to review the voting record of your representatives in congress:</p>
+  <form class="form-inline">
+    <section class="form-group">
+      <input title="Please enter a valid zip code."  name="zip" pattern="\d{5}" placeholder="zip" class="form-control">
+    </section>
+    <button type="submit" class="btn btn-primary">Go!</button>
+  </form>
+  {{/unless}}
+</header>
+
+{{!--Legislators--}}
+{{#if legislators}}
+<article class="col-md-6">
+  <div class="panel panel-default">
+    <section class="panel-heading">
+      <h2 class="panel-title">Senate</h2>
+    </section>
+    <section class="panel-body row">
+      {{#each legislators.senate as |pol|}}
+      <a href="/senate/{{pol.id}}?zip={{../zip}}">
+        <article class="col-sm-6">
+          <div class="row">
+            <section class="col-xs-8">
+              <h3>{{pol.name}}</h3>
+              <h4>{{pol.party}}</h4>
+            </section>
+            <section class="col-xs-4">
+              <img src="https://theunitedstates.io/images/congress/225x275/{{pol.id}}.jpg">
+            </section>
+          </div>
+        </article>
+      </a>
+      {{/each}}
+    </section>
+  </div>
+</article>
+
+<article class="col-md-6">
+  <div class="panel panel-default">
+    <section class="panel-heading">
+      <h2 class="panel-title">House of Representatives</h2>
+    </section>
+    <section class="panel-body">
+      {{#each legislators.house as |pol|}}
+       <a href="/house/{{pol.id}}?zip={{../zip}}">
+        <article class="col-sm-6">
+          <div class="row">
+            <section class="col-xs-8">
+              <h3>{{pol.name}}</h3>
+              <h4>{{pol.party}}</h4>
+            </section>
+            <section class="col-xs-4">
+              <img src="https://theunitedstates.io/images/congress/225x275/{{pol.id}}.jpg">
+            </section>
+          </div>
+        </article>
+      </a>
+      {{/each}}
+    </section>
+  </div>
+</article>
+{{/if}}

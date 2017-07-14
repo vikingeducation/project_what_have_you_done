@@ -1,0 +1,19 @@
+body {
+  padding-top: 75px;
+}
+
+.panel img {
+  max-height: 100px;
+}
+
+.jumbotron img {
+  max-height: 150px;
+}
+
+.social a {
+  display: block;
+}
+
+header h3 {
+  text-transform: capitalize;
+}
