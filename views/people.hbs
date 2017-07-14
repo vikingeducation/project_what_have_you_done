@@ -4,8 +4,59 @@
 	<title>Results</title>
 </head>
 <body>
-	<div class="title-box">
-		<h1>{{title}}</h1>
+	<div class="box-wide">
+		<div class="title-box lg-margin-bt">
+			<h1>{{title}}</h1>
+		</div>
+
+
+		<div class="photo-box">
+			<img src={{results.picture}}>
+		</div>
+
+		<div class="label-box">
+			<p>{{results.label}}</p>
+		</div>
+
+		<div class="center-box lg-margin-bt">
+			<div class="md-title-box">
+				<h2>{{results.name}}</h2>
+			</div>
+		</div>
+
+
+		<p class="sm-title bold-text sm-margin-bt">Contact Info</p>
+
+		<div class="contact-box md-margin-bt">
+			<div>
+				<p>Phone Number</p>
+				<a>{{results.phone}}</a>
+			</div>
+
+			<div>
+				<p>Website</p>
+				<a href={{results.website}}>{{results.website}}</a>
+			</div>
+		</div>
+
+		<p class="sm-title bold-text sm-margin-bt">Recent Votes</p>
+
+		{{#each results.bills as |bill|}}
+			{{#if bill.yes}}
+				<div class="bill-box vote-yes md-margin-bt">
+					<h3>{{bill.name}}</h3>
+					<p>{{bill.description}}</p>
+				</div>
+			{{else}}
+				<div class="bill-box vote-no md-margin-bt">
+					<h3>{{bill.name}}</h3>
+					<p>{{bill.description}}</p>
+				</div>			
+			{{/if}}
+		{{/each}}
+
 	</div>
+
+
 </body>
 </html>

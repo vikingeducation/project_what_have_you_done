@@ -13,7 +13,6 @@ router.get('/:zipcode', function(req, res, next) {
 		.then(function(info) {
 			data['results'] = info.results;
 
-			console.log(data, 'data');
 			res.render('results', data);
 		})
 		.catch(function(err) {

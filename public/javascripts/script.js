@@ -3,6 +3,7 @@ $(() => {
 		app.detectKey();
 		app.searchZip();
 		app.displayZip();
+		app.selectPerson();
 	}
 
 	const app = {
@@ -87,22 +88,24 @@ $(() => {
 		displayZip: function() {
 			let zipCode = window.location.href.split('/')[4];
 
-			let boxOne = $('.sm-zip-box').children()[0];
-			let boxTwo = $('.sm-zip-box').children()[1];
-			let boxThree = $('.sm-zip-box').children()[2];
-			let boxFour = $('.sm-zip-box').children()[3];
-			let boxFive = $('.sm-zip-box').children()[4];
+			if (zipCode) {
+				for (let i = 0; i <= 4; i++) {
+					let box = $('.sm-zip-box').children()[i];
+					let number = zipCode[i];
 
-			console.log(window.location.href.split('/'));
-
-			for (let i = 0; i <= 4; i++) {
-				let box = $('.sm-zip-box').children()[i];
-				let number = zipCode[i];
-
-				$(box).text(number);
-				// console.log(number);
-				// console.log(box);
+					$(box).text(number);
+				}
 			}
+			
+		},
+
+		selectPerson: function() {
+			$('.rep-group-box').on('click', '.rep-box', function() {
+				let nameBox = $(this).children()[1];
+				let name = $(nameBox).children()[0].innerHTML;
+
+				window.location.href = `/people/${name}`;
+			})
 		}
 	}
 

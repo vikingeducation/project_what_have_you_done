@@ -5,17 +5,111 @@
             {
                 "name": "Ted Lieu",
                 "party": "Democrat",
-                "picture": "https://yt3.ggpht.com/-rpKz1kT8zdQ/AAAAAAAAAAI/AAAAAAAAAAA/tJqE89_Yiro/s100-c-k-no-mo-rj-c0xffffff/photo.jpg"
+                "picture": "https://yt3.ggpht.com/-rpKz1kT8zdQ/AAAAAAAAAAI/AAAAAAAAAAA/tJqE89_Yiro/s100-c-k-no-mo-rj-c0xffffff/photo.jpg",
+                "phone": "(202) 225-3976",
+                "website": "https://lieu.house.gov/",
+                "bills": [
+                    {
+                        "name": "hjres41-115",
+                        "description": "Providing for congressional disapproval under chapter 8 of title 5, United States Codes, of a rule submitted by the Securities and Exchange Commission relating to 'Disclosure of Payments by Resource Extration Issuers'.",
+                        "yes": "",
+                        "no": "1"
+                    },
+
+                    {
+                        "name": "hjres38-115",
+                        "description": "Disapproving the rule submitted by the Department of Interor known as the Stream Protection Rule.",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "hr7-115",
+                        "description": "To prohibit taxpayer funded abortions",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "s84-115",
+                        "description": "A bill to provide for an exception to a limition against appointment of...",
+                        "yes": "1",
+                        "no": ""                       
+                    }              
+                ]
             },
+
             {
                 "name": "Brad J. Sherman",
                 "party": "Democrat",
-                "picture": "https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/005/09e/215/3c3c3d6.jpg"
+                "picture": "https://media.licdn.com/mpr/mpr/shrink_100_100/p/4/005/09e/215/3c3c3d6.jpg",
+                "phone": "(202) 225-5911",
+                "website": "https://sherman.house.gov/",
+                "bills": [
+                    {
+                        "name": "hjres41-115",
+                        "description": "Providing for congressional disapproval under chapter 8 of title 5, United States Codes, of a rule submitted by the Securities and Exchange Commission relating to 'Disclosure of Payments by Resource Extration Issuers'.",
+                        "yes": "1",
+                        "no": ""
+                    },
+
+                    {
+                        "name": "hjres38-115",
+                        "description": "Disapproving the rule submitted by the Department of Interor known as the Stream Protection Rule.",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "hr7-115",
+                        "description": "To prohibit taxpayer funded abortions",
+                        "yes": "1",
+                        "no": ""                       
+                    },
+
+                    {
+                        "name": "s84-115",
+                        "description": "A bill to provide for an exception to a limition against appointment of...",
+                        "yes": "1",
+                        "no": ""                       
+                    }              
+                ]
             },
             {
                 "name": "Adam B. Schiff",
                 "party": "Democrat",
-                "picture": "https://yt3.ggpht.com/-4AJyR4X5VhA/AAAAAAAAAAI/AAAAAAAAAAA/nvH6cIGxgZE/s100-c-k-no-mo-rj-c0xffffff/photo.jpg"
+                "picture": "https://yt3.ggpht.com/-4AJyR4X5VhA/AAAAAAAAAAI/AAAAAAAAAAA/nvH6cIGxgZE/s100-c-k-no-mo-rj-c0xffffff/photo.jpg",
+                "phone": "(202) 225-4176",
+                "website": "https://schiff.house.gov/",
+                "bills": [
+                    {
+                        "name": "hjres41-115",
+                        "description": "Providing for congressional disapproval under chapter 8 of title 5, United States Codes, of a rule submitted by the Securities and Exchange Commission relating to 'Disclosure of Payments by Resource Extration Issuers'.",
+                        "yes": "1",
+                        "no": ""
+                    },
+
+                    {
+                        "name": "hjres38-115",
+                        "description": "Disapproving the rule submitted by the Department of Interor known as the Stream Protection Rule.",
+                        "yes": "1",
+                        "no": ""                       
+                    },
+
+                    {
+                        "name": "hr7-115",
+                        "description": "To prohibit taxpayer funded abortions",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "s84-115",
+                        "description": "A bill to provide for an exception to a limition against appointment of...",
+                        "yes": "1",
+                        "no": ""                       
+                    }              
+                ]
             }
         ],
 
@@ -23,12 +117,74 @@
             {
                 "name": "Kamala Harris",
                 "party": "Democrat",
-                "picture": "https://www.aspenideas.org/sites/default/files/styles/thumbnail/public/pictures/people/Kamala_Harris.jpeg"
+                "picture": "https://www.aspenideas.org/sites/default/files/styles/thumbnail/public/pictures/people/Kamala_Harris.jpeg",
+                "phone": "(202) 224-3553",
+                "website": "https://www.harris.senate.gov/",
+                "bills": [
+                    {
+                        "name": "hjres41-115",
+                        "description": "Providing for congressional disapproval under chapter 8 of title 5, United States Codes, of a rule submitted by the Securities and Exchange Commission relating to 'Disclosure of Payments by Resource Extration Issuers'.",
+                        "yes": "",
+                        "no": "1"
+                    },
+
+                    {
+                        "name": "hjres38-115",
+                        "description": "Disapproving the rule submitted by the Department of Interor known as the Stream Protection Rule.",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "hr7-115",
+                        "description": "To prohibit taxpayer funded abortions",
+                        "yes": "1",
+                        "no": ""                       
+                    },
+
+                    {
+                        "name": "s84-115",
+                        "description": "A bill to provide for an exception to a limition against appointment of...",
+                        "yes": "",
+                        "no": "1"                       
+                    }              
+                ]
             },
             {
                 "name": "Dianne Feinstein",
                 "party": "Democrat",
-                "picture": "https://i2.wp.com/momocrats.com/wp-content/uploads/catablog/thumbnails/DianneFeinstein.jpg?w=838"
+                "picture": "https://i2.wp.com/momocrats.com/wp-content/uploads/catablog/thumbnails/DianneFeinstein.jpg?w=838",
+                "phone": "(202) 224-3841",
+                "website": "https://www.feinstein.senate.gov/public/",
+                "bills": [
+                    {
+                        "name": "hjres41-115",
+                        "description": "Providing for congressional disapproval under chapter 8 of title 5, United States Codes, of a rule submitted by the Securities and Exchange Commission relating to 'Disclosure of Payments by Resource Extration Issuers'.",
+                        "yes": "",
+                        "no": "1"
+                    },
+
+                    {
+                        "name": "hjres38-115",
+                        "description": "Disapproving the rule submitted by the Department of Interor known as the Stream Protection Rule.",
+                        "yes": "1",
+                        "no": ""                       
+                    },
+
+                    {
+                        "name": "hr7-115",
+                        "description": "To prohibit taxpayer funded abortions",
+                        "yes": "",
+                        "no": "1"                       
+                    },
+
+                    {
+                        "name": "s84-115",
+                        "description": "A bill to provide for an exception to a limition against appointment of...",
+                        "yes": "",
+                        "no": "1"                       
+                    }              
+                ]
             }
         ]
 
