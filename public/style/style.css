@@ -1,0 +1,80 @@
+body p {
+  color: #333333; }
+
+nav {
+  padding: 15px;
+  background-color: #E5E5E5;
+  margin-bottom: 30px; }
+  nav ul {
+    margin-left: 10px; }
+  nav a {
+    color: #242325;
+    font-weight: bold;
+    font-size: 1.2em; }
+
+.invalid {
+  border-left: 20px solid red; }
+
+p {
+  text-align: center; }
+
+#locate {
+  margin-top: 30px;
+  background-color: #E5E5E5;
+  padding: 20px; }
+  #locate input[type='submit'] {
+    display: block;
+    margin: 0 auto; }
+
+#rep-list .rep {
+  padding-top: 12px;
+  width: 50%;
+  display: block;
+  margin: 50px auto; }
+#rep-list p {
+  text-align: left; }
+#rep-list div {
+  background-color: #E5E5E5;
+  padding: 15px; }
+
+#legislator section {
+  margin-top: 27px;
+  margin-bottom: 27px; }
+#legislator #contact {
+  background-color: #E5E5E5;
+  padding: 20px;
+  list-style: none;
+  text-align: center; }
+  #legislator #contact li {
+    line-height: 2em;
+    font-size: 1.3em; }
+#legislator .my-votes {
+  padding: 20px 10px;
+  margin-top: 0px; }
+  #legislator .my-votes div {
+    background-color: #E5E5E5;
+    padding: 15px;
+    width: 70%;
+    margin: 20px auto; }
+
+#bill {
+  padding: 15px;
+  background-color: #E5E5E5; }
+  #bill h3 {
+    text-align: center;
+    padding: 10px; }
+  #bill ul {
+    list-style: none;
+    text-align: center;
+    margin: 0 auto; }
+  #bill li {
+    margin-bottom: 12px; }
+
+#related-bills {
+  margin-top: 25px; }
+  #related-bills ul {
+    list-style: none; }
+  #related-bills #title {
+    margin: 0; }
+
+/*# sourceMappingURL=style.css.map */

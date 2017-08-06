@@ -1,0 +1,30 @@
+$light-gray: #E5E5E5;
+$gray: #b3b3b3;
+$black: #242325;
+$text: #333333;
+
+body{
+	p{
+		color: $text;
+	}
+}
+
+nav{
+	padding: 15px;
+	background-color: $light-gray;
+	margin-bottom: 30px;
+
+	ul{
+		margin-left:10px;
+	}
+
+	a{
+		color: $black;
+		font-weight: bold;
+		font-size: 1.2em;
+	}
+}
+
+@import 'index';
+@import 'legislator';
+@import 'bill';
