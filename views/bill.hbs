@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation-float.css">
+        <link rel="stylesheet" href="../../style/style.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+
+        <section class="row" id="bill">
+        <h3> {{bill.chamber}}  </h3>
+        <div class="large-6 large-pull-3 column">
+            <ul>
+                <li><h3> {{bill.bill_id}} - {{bill.short_title}} </h3></li>
+                <li>{{bill.official_title}} </li>
+                <li>Introduced on: {{bill.introduced_on}} </li>
+                <li> Last action at: {{bill.last_action_at}}</li>
+                
+            </ul>
+        </div>
+        </section>
+
+        <section class ="row" id="related-bills">
+        <h2 class="text-center">Related Bills</h2>
+            <ul id="list-related-bills">
+                {{#each related_bills as |b|}}
+                    {{#if b.results.[0].short_title}}
+                        <li>
+                            <a href="/bill/{{b.results.[0].bill_id}}">
+                                <p id="title"> {{b.results.[0].short_title}} </p>
+                            </a>
+                            <p class="date">{{b.results.[0].last_version_on}}</p>
+                        </li>
+
+                    {{/if}}
+                {{/each}}
+            </ul>
+            
+        </section>
+
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+          </script>
+          <script src="../../js/jquery-3.2.1.min.js"></script>
+        <script src="../../js/mainindex.js"></script>
+
+    </body>
+</html>

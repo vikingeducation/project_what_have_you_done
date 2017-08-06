@@ -1,0 +1,29 @@
+#bill{
+	padding: 15px;
+	background-color:$light-gray;
+
+	h3{
+		text-align: center;
+		padding: 10px;
+	}
+
+	ul{
+		list-style: none;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	li{
+		margin-bottom: 12px;
+		
+	}
+}
+
+#related-bills{
+	margin-top: 25px;
+	ul{
+		list-style: none;
+	}
+
+	#title{ margin: 0; }
+}

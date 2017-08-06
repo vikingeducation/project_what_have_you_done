@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation-float.css">
+        <link rel="stylesheet" href="../../style/style.css">
+    </head>
+    <body>
+    <main id="legislator">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+
+
+        <section class="row" id="single-legislator">
+            <h1 class="text-center">
+                {{l_info.first_name}} {{l_info.middle_name}} {{l_info.last_name}}
+            </h1>
+                <article class="contact-information">
+                <ul id="contact">
+                    {{#if l_info.phone}}
+                        <li>Reach me @ {{l_info.phone}}</li>
+                    {{/if}}
+
+                    {{#if l_info.website}}
+                        <li>Website: {{l_info.website}}</li>
+                    {{/if}}
+
+                    {{#if l_info.office}}
+                        <li>I'm located @ {{l_info.office}}</li>
+                    {{/if}}
+
+                    {{#if l_info.contact_form}}
+                        <li> Contact me @ {{l_info.contact_form}} </li>
+                    {{/if}}
+                </ul>
+                </article>
+        </section>
+            <h2 class="text-center"> My votes</h2>
+            <section class="row my-votes">
+            {{#each bill_info as |b|}}
+            <div>
+                {{#if b.results.[0]}}
+                    <a href="/bill/{{b.results.[0].bill_id}}">
+                        <h3 id="{{b.results.[0].history.house_passage_result}}" class=" bill-title text-center">{{{b.results.[0].short_title}}}</h3>
+                    </a>
+                    <p class="text-center">{{b.results.[0].official_title}}</p>
+                {{/if}}
+            </div>
+            {{/each}}
+        </section>
+
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+          </script>
+          <script src="../../js/jquery-3.2.1.min.js"></script>
+        <script src="../../js/legislator-js.js"></script>
+
+    </body>
+    </main>
+</html>

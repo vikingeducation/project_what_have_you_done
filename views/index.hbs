@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.1/css/foundation-float.css">
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <section class="row" id="locate">
+	        <h1 class="text-center"> What Have You Done? </h1>
+	        <p class="text-center"> A little app that gives you insight on the bills and votes of your local representatives</p>
+	        <p class="text-center"> Then, you can disagree and pester them with emails until they agree with you! </p>
+
+	        <form>
+		        <div class="large-4 large-offset-4 column">
+		        	<input id="zipenter" type="text" placeholder="Enter your zip"> </input>
+                    <p id="error"></p>
+		        	<a href="#" id="zip-link"><input id="subm" value="Find a Rep" type="submit" class="button"> </a>
+		        </div>
+	        </form>
+	    </section>
+
+        <section id="rep-list" class="">
+        {{#if l_info}}
+          {{#each l_info as |l|}}
+              <div class="rep" id="{{l.first_name}}">
+              <a href="/legislator/{{l.first_name}}-{{l.last_name}}/{{zip}}">
+                  <h3>{{l.first_name}} {{l.middle_name}} {{l.last_name}} </h3>
+              </a>
+                  <p>Party affiliation: {{l.party}}</p>
+                  <p>Chamber: {{l.chamber}}</p>
+              </div>
+          {{/each}}
+        {{else}}
+          <h1 class="text-center"> {{no_reps}} </h1>
+        {{/if}}
+        </section>
+
+
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous">
+          </script>
+          <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/mainindex.js"></script>
+
+    </body>
+</html>
+

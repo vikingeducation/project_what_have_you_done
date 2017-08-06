@@ -1,0 +1,32 @@
+#legislator{
+
+	section{
+		margin-top: 27px;
+		margin-bottom: 27px;
+	}
+
+	#contact{
+		background-color: $light-gray;
+		padding: 20px;
+		list-style: none;
+		text-align: center;
+
+		li{
+		  line-height: 2em;
+   	      font-size: 1.3em;
+		}
+	}
+
+	.my-votes{
+		padding: 20px 10px;
+		margin-top: 0px;
+
+		div{
+			background-color: $light-gray;
+			padding: 15px;
+			width: 70%;
+			margin: 20px auto;
+		}
+
+	}
+}
