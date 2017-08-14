@@ -1,3 +1,4 @@
+// pacakges
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,9 +6,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// api
+var request = require('request');
+var SunlightData = require('./lib/sunlight_api');
+const sunlightApi = new SunlightData();
+
+// routes
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// express app
 var app = express();
 
 // view engine setup
