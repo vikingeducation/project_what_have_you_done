@@ -1,6 +1,7 @@
 {
-  "name": "what-have-you-done",
-  "version": "0.0.0",
+  "name": "project_what_have_you_done",
+  "version": "1.0.0",
+  "description": "Build an application to help track the legislative activities of your local representatives.",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
@@ -16,5 +17,21 @@
     "request-promise": "^4.2.1",
     "serve-favicon": "~2.4.2",
     "sync-request": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuckinabox/project_what_have_you_done.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuckinabox/project_what_have_you_done/issues"
+  },
+  "homepage": "https://github.com/chuckinabox/project_what_have_you_done#readme"
   }
+
 }
