@@ -1,31 +1,28 @@
-{{#each legislator as |leg|}}
-
   <div class = "small-photo">
-    <img src={{leg.smallPhoto}}>
+    <img src={{legislator.smallPhoto}}>
   </div>
-  <h3>{{leg.name}}</h3>
-  <h3>{{leg.party}}</h3>
+  <h3>{{legislator.name}}</h3>
+  <h3>{{legislator.party}}</h3>
   <h4>Contact Info</h4>
   <div class= 'boxed'>
     <p>Phone Number:
-      <a href='tel:{{leg.phone}}'>
-      {{leg.phone}}</a>
+      <a href='tel:{{legislator.phone}}'>
+      {{legislator.phone}}</a>
     </p>
-    <p>Twitter: <a href='http://www.twitter.com/{{leg.twitter}}'>
-      {{leg.twitter}}</a>
+    <p>Twitter: <a href='http://www.twitter.com/{{legislator.twitter}}'>
+      {{legislator.twitter}}</a>
     </p>
-    <p>Facebook: <a href="http://www.facebook.com/{{leg.facebook}}">
-      {{leg.facebook}}</a>
+    <p>Facebook: <a href="http://www.facebook.com/{{legislator.facebook}}">
+      {{legislator.facebook}}</a>
     </p>
-    <p>Website: <a href='{{leg.website}}'>
-      {{leg.website}}</a>
+    <p>Website: <a href='{{legislator.website}}'>
+      {{legislator.website}}</a>
     </p>
-    <p>Email: <a href='mailto:{{leg.email}}'>
-      {{leg.email}}</a>
+    <p>Email: <a href='mailto:{{legislator.email}}'>
+      {{legislator.email}}</a>
     </p>
   </div>
 
-{{/each}}
 
 {{#each billsListing as |bill|}}
 

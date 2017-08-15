@@ -40,7 +40,7 @@ router.get('/bills/:bioId',function (request, response, next) {
   response.render('bills', {
     title: 'What Have You Done?',
     billsListing: billsList,
-    legislator: legislatorsListById
+    legislator: legislatorsListById[0]
   });
 })
 

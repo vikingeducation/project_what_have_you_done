@@ -25,7 +25,7 @@ class Legislator {
   }
 }
 
-const legislators = [];
+var legislators = [];
 
 function callbackNames(body) {
   var info = JSON.parse(body);
@@ -61,12 +61,16 @@ function callbackNames(body) {
 //request(options, callbackNames);
 
 module.exports = function (routingCode) {
+  legislators = [];
   if (routingCode.length === 5) {
     var res = request('GET', options(routingCode));
+    callbackNames(res.getBody());
+    return legislators;
   }
   else {
     var res = request('GET', options2(routingCode));
+    callbackNames(res.getBody());
+    return legislators;
   }
-  callbackNames(res.getBody());
-  return legislators;
+
 }
