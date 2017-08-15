@@ -1,0 +1,40 @@
+{{#each legislator as |leg|}}
+
+  <div class = "small-photo">
+    <img src={{leg.smallPhoto}}>
+  </div>
+  <h3>{{leg.name}}</h3>
+  <h3>{{leg.party}}</h3>
+  <h4>Contact Info</h4>
+  <div class= 'boxed'>
+    <p>Phone Number:
+      <a href='tel:{{leg.phone}}'>
+      {{leg.phone}}</a>
+    </p>
+    <p>Twitter: <a href='http://www.twitter.com/{{leg.twitter}}'>
+      {{leg.twitter}}</a>
+    </p>
+    <p>Facebook: <a href="http://www.facebook.com/{{leg.facebook}}">
+      {{leg.facebook}}</a>
+    </p>
+    <p>Website: <a href='{{leg.website}}'>
+      {{leg.website}}</a>
+    </p>
+    <p>Email: <a href='mailto:{{leg.email}}'>
+      {{leg.email}}</a>
+    </p>
+  </div>
+
+{{/each}}
+
+{{#each billsListing as |bill|}}
+
+<div class ='boxed'>
+  <h3>{{bill.short_title}}</h3>
+  <h5>{{bill.official_title}}</h5>
+  <h4>The bill: {{bill.result}}</h4>
+  <h3>Your legislator voted: {{bill.vote}}</h3>
+  <h5>Link to <a href='{{bill.link}}'>congress.gov of this bill</a></h5>
+</div>
+
+{{/each}}
