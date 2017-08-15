@@ -3,6 +3,7 @@
   </div>
   <h3>{{legislator.name}}</h3>
   <h3>{{legislator.party}}</h3>
+  <hr>
   <h4>Contact Info</h4>
   <div class= 'boxed'>
     <p>Phone Number:
@@ -15,15 +16,16 @@
     <p>Facebook: <a href="http://www.facebook.com/{{legislator.facebook}}">
       {{legislator.facebook}}</a>
     </p>
-    <p>Website: <a href='{{legislator.website}}'>
+    <p>Website: <br><a href='{{legislator.website}}'>
       {{legislator.website}}</a>
     </p>
-    <p>Email: <a href='mailto:{{legislator.email}}'>
+    <p>Email: <br><a href='mailto:{{legislator.email}}'>
       {{legislator.email}}</a>
     </p>
   </div>
 
-
+<hr>
+<h4>Recent Bills</h4>
 {{#each billsListing as |bill|}}
 
 <div class ='boxed'>

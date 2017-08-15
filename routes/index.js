@@ -31,6 +31,7 @@ router.get('/zipCode',function(request,response, next){
   }
 })
 
+//Click on legislator link to
 router.get('/bills/:bioId',function (request, response, next) {
   var bioId = request.params.bioId;
   var billsList = fetchBills(bioId);

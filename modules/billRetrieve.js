@@ -1,10 +1,8 @@
 var request = require('sync-request');
 
 var options = function (repId) {
-  return ('https://congress.api.sunlightfoundation.com/votes?voters.' + repId + '__exists=true&fields=voters.' + repId + ',result,bill&per_page=1&page=1')
+  return ('https://congress.api.sunlightfoundation.com/votes?voters.' + repId + '__exists=true&fields=voters.' + repId + ',result,bill&per_page=2&page=1')
 }
-
-//https://congress.api.sunlightfoundation.com/votes?voters.V000128__exists=true&fields=voters,result,bill
 
 class Bill {
   constructor(result, bill_id, chamber, official_title, short_title, vote, link) {
