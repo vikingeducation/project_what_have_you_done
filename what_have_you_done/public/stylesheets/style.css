@@ -1,10 +1,17 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #DEDEDE;
 }
 
 a {
   color: #00B7FF;
+}
+
+#top-header {
+  background-color: yellow;
+  display: inline-block;
+  padding: 10px;
 }
 
 .boxed {
@@ -13,6 +20,7 @@ a {
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 10px;
+  background-color: #EEEEEE;
 
 }
 

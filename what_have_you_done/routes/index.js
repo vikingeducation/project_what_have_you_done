@@ -8,7 +8,6 @@ var fetchBills = require("../modules/billRetrieve");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'What Have You Done?',
     inputError: ""
   });
 });
@@ -17,16 +16,15 @@ router.get('/', function(req, res, next) {
 router.get('/zipCode',function(request,response, next){
   var zip = request.query.zipCode;
   var legislatorsListByZip = fetchLegislators(zip);
-  if (zip.length != 5) {
+  //Check zipcode length and if accurate zip
+  if ( (zip.length != 5) || (legislatorsListByZip[0] === undefined) ) {
     response.render ('index', {
-      title: 'What Have You Done?',
       inputError: "Please enter a 5-digit zip code"
 
     })
   }
   else {
     response.render('local_legislators', {
-      title: 'What Have You Done?',
       zipCode: zip,
       legislatorInfo: legislatorsListByZip
     })
@@ -38,7 +36,6 @@ router.get('/bills/:bioId',function (request, response, next) {
   var billsList = fetchBills(bioId);
   var legislatorsListById = fetchLegislators(bioId);
   response.render('bills', {
-    title: 'What Have You Done?',
     billsListing: billsList,
     legislator: legislatorsListById[0]
   });
