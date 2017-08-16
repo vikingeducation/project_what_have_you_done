@@ -15,30 +15,42 @@ router.get('/', function(req, res, next) {
 //form use
 router.get('/zipCode',function(request,response, next){
   var zip = request.query.zipCode;
-  var legislatorsListByZip = fetchLegislators(zip);
   //Check zipcode length and if accurate zip
-  if ( (zip.length != 5) || (legislatorsListByZip[0] === undefined) ) {
+  if ( (zip.length != 5)  ) {
     response.render ('index', {
       inputError: "Please enter a 5-digit zip code"
-
     })
   }
   else {
-    response.render('local_legislators', {
-      zipCode: zip,
-      legislatorInfo: legislatorsListByZip
+     fetchLegislators(zip).then(function(legislators) {
+      response.render('local_legislators', {
+        zipCode: zip,
+        legislatorInfo: legislators
+      })
+      }).catch(function(err) {
+      console.err(err);
+      response.render ('index', {
+        inputError: "Please enter a 5-digit zip code"
+      })
     })
   }
-})
+});
 
 //Click on legislator link to
 router.get('/bills/:bioId',function (request, response, next) {
   var bioId = request.params.bioId;
-  var billsList = fetchBills(bioId);
-  var legislatorsListById = fetchLegislators(bioId);
-  response.render('bills', {
-    billsListing: billsList,
-    legislator: legislatorsListById[0]
+  var billsListings = [fetchBills(bioId),fetchLegislators(bioId)];
+
+  Promise.all(billsListings).then(function(values) {
+    response.render('bills', {
+      billsListing: values[0],
+      legislator: values[1][0]
+    });
+    }).catch(function(err) {
+      console.log(err);
+      response.render('index', {
+        inputError: "Sorry, the list of bills didn't load, please try again later."
+      });
   });
 })
 

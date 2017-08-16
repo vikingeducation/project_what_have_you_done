@@ -1,7 +1,9 @@
-var request = require('sync-request');
+var request = require('request');
 
 var options = function (repId) {
-  return ('https://congress.api.sunlightfoundation.com/votes?voters.' + repId + '__exists=true&fields=voters.' + repId + ',result,bill&per_page=2&page=1')
+  return {
+    url: 'https://congress.api.sunlightfoundation.com/votes?voters.' + repId + '__exists=true&fields=voters.' + repId + ',result,bill&per_page=20&page=1'
+  }
 }
 
 class Bill {
@@ -19,6 +21,7 @@ class Bill {
 var bills = [];
 
 function callbackNames(body, repId) {
+  //console.log("**", body);
     var info = JSON.parse(body);
     for (var x in info.results){
       if (info.results[x].voters[repId] != undefined){
@@ -29,12 +32,25 @@ function callbackNames(body, repId) {
     }
   }
 
-
-//request(options, callbackNames);
-
 module.exports = function (repId) {
   bills = [];
-  var res = request('GET', options(repId));
-  callbackNames(res.getBody(), repId);
-  return bills;
-}
+
+  return new Promise(function(resolve, reject){
+      request(options(repId), function (err, response, body) {
+        if (response.statusCode === 504) {
+          reject("504: Sorry, did not load from https://congress.api.sunlightfoundation.com");
+        }
+        else {
+          if (err) {
+            reject(err);
+          }
+          try {
+              callbackNames(body, repId);
+              resolve(bills);
+          } catch(err) {
+              reject(err);
+          }
+        }
+      });
+    });
+  }

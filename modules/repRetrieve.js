@@ -1,11 +1,16 @@
-var request = require('sync-request');
+var request = require('request');
 
-var options = function(zipCode) {
-  return ('https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + zipCode)
-}
-
-var options2 = function(repId) {
-  return ('https://congress.api.sunlightfoundation.com/legislators?bioguide_id=' + repId)
+var options = function(routingCode) {
+  if (routingCode.length != 5){
+    return {
+        url: 'https://congress.api.sunlightfoundation.com/legislators?bioguide_id=' + routingCode
+      }
+  }
+  else {
+    return {
+      url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + routingCode
+    }
+  }
 }
 
 class Legislator {
@@ -57,20 +62,20 @@ function callbackNames(body) {
   }
 }
 
-
-//request(options, callbackNames);
-
 module.exports = function (routingCode) {
   legislators = [];
-  if (routingCode.length === 5) {
-    var res = request('GET', options(routingCode));
-    callbackNames(res.getBody());
-    return legislators;
-  }
-  else {
-    var res = request('GET', options2(routingCode));
-    callbackNames(res.getBody());
-    return legislators;
-  }
 
-}
+  return new Promise(function(resolve, reject){
+      request(options(routingCode), function (err, response, body) {
+          if (err) {
+            reject(err);
+          }
+          try {
+              callbackNames(body);
+              resolve(legislators);
+          } catch(err) {
+              reject(err);
+          }
+      });
+    });
+  }
