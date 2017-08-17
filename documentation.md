@@ -4,6 +4,12 @@ This project uses info from the Sunlight Foundation API in an app where you can 
 Demo:
 https://what-have-you-done.herokuapp.com
 
+Viking Assignment Page:
+https://www.vikingcodeschool.com/dashboard#/professional-development-with-javascript/project-walkthrough-professional-javascript
+
+Viking Repo:
+https://github.com/vikingeducation/project_what_have_you_done
+
 
 
 ## Sunlight Foundation API info
