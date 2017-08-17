@@ -8,8 +8,8 @@ var bodyParser = require('body-parser');
 
 // api
 var request = require('request');
-var SunlightData = require('./lib/sunlight_api');
-const sunlightApi = new SunlightData();
+// var SunlightData = require('./lib/sunlight_api');
+// const sunlightApi = new SunlightData();
 
 // routes
 var index = require('./routes/index');
