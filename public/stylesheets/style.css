@@ -12,9 +12,13 @@
 
 /* Site-wide Layout */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--background);
+  position: relative;
+}
+
+.container {
+  padding: 50px;
 }
 
 a {
@@ -30,6 +34,17 @@ header.site-header h1 {
   padding: 10px;
   display: inline-block;
   margin: 0;
+}
+
+footer {
+  text-align: center;
+  font-style: italic;
+  color: var(--background);
+  background-color: gray;
+  padding: 10px 0px;
+  margin: 0;
+  display: block;
+  width: 100%;
 }
 
 
