@@ -1,6 +1,10 @@
 // require the request library
 const request = require('request');
 
+var fs = require('fs');
+// var legislators_by_zip = require('../lib/legislators_by_zip');
+// var zorro = require('../lib/zorro');
+
 // set up the base URI for the api from https://sunlightlabs.github.io/congress/
 const baseUri = 'https://congress.api.sunlightfoundation.com';
 const zipUri = '/legislators/locate?zip=';
@@ -22,7 +26,9 @@ class SunlightApi {
     }
     request(options, function(error, response, body){
       if (!error & response.statusCode === 200) {
-        builderCallback(JSON.parse(body));
+        // builderCallback(JSON.parse(response));
+        // console.log(response.body);
+        builderCallback(response.body);
       }
     });
   }
@@ -30,22 +36,30 @@ class SunlightApi {
   // A method for grabbing a list of legislators based upon a given zip code.
   getLegislators() {
     function buildLegislators(jsonBody){
-      var apiResults = jsonBody.results;
-      apiResults.forEach(function(legislator){
-        selectedLegislatorsDetails.push(
-          {
-            bioguideId: legislator.bioguide_id,
-            firstName: legislator.first_name,
-            lastName: legislator.last_name,
-            chamber: legislator.chamber,
-            party: legislator.party,
-            phone: legislator.phone,
-            website: legislator.website,
-            imageUrl: `https://theunitedstates.io/images/congress/225x275/${legislator.bioguide_id}.jpg`
-          }
-        );//close push
-      });//close forEach
-      return selectedLegislatorsDetails;
+      console.log(jsonBody["results"]);
+      // fs.writeFile('./lib/legislators_by_zip.json', jsonBody, 'utf8', function(err){
+      //   err ? console.log(err) : console.log('Raw legislators by zip have been saved.');
+      // });
+      // var apiResults = jsonBody.results;
+      // legislators_by_zip["results"].forEach(function(legislator){
+      //   selectedLegislatorsDetails.push(
+      //     {
+      //       bioguideId: legislator.bioguide_id,
+      //       firstName: legislator.first_name,
+      //       lastName: legislator.last_name,
+      //       chamber: legislator.chamber,
+      //       party: legislator.party,
+      //       phone: legislator.phone,
+      //       website: legislator.website,
+      //       imageUrl: `https://theunitedstates.io/images/congress/225x275/${legislator.bioguide_id}.jpg`
+      //     }
+      //   );//close push
+      // });//close forEach
+
+      // fs.writeFile('./lib/zorro.json', selectedLegislatorsDetails, 'utf8', function(err){
+      //   err ? console.log(err) : console.log('Legislators have been cleaned up.');
+      // });
+      // return selectedLegislatorsDetails;
     };//close buildLegislators
 
     var url = `${baseUri}${zipUri}${this.zip}`;
