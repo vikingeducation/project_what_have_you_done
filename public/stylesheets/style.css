@@ -1,8 +1,76 @@
+:root {
+  --background: #F5F5F5;
+  --content-box: #FEFFF8;
+  --highlight: #EBFF00;
+  --border: #CCC;
+  --green: #2C9C20;
+  --blue: #317BE1;
+  --lightblue: #A0C6F7;
+  --lightgray: #EEEEEE;
+}
+
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--background);
 }
 
 a {
   color: #00B7FF;
 }
+
+/* Home Page */
+.home {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home h1 {
+  background-color: var(--highlight);
+  padding: 10px;
+  display: inline-block;
+}
+
+.home h2 {font-weight: normal;}
+
+.enter-zip {
+  background-color: var(--content-box);
+  border: 1px solid var(--border);
+  padding: 15px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.enter-zip h2 {
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 0;
+  clear: both;
+}
+
+.digit-holder {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+
+}
+
+.zip-digit-box {
+  text-align: center;
+  font-size: 30px;
+  height: 52px;
+  width: 42px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--highlight);
+}
+
+.enter-zip form input[type=submit] {
+  margin-top: 10px;
+}
+
+
+
