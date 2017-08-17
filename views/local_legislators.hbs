@@ -1,0 +1,31 @@
+<h2>{{zipCode}}</h2>
+
+<h2>Senate</h2>
+{{#each legislatorInfo as |legislator|}}
+{{#if legislator.senateChamber}}
+<a href='/bills/{{legislator.bioguideId}}'>
+<div class="boxed">
+  <h3>{{legislator.name}}</h3>
+  <div class = "small-photo">
+    <img src={{legislator.smallPhoto}}>
+  </div>
+  <h3>{{legislator.party}}</h3>
+</div>
+</a>
+  {{/if}}
+{{/each}}
+
+<h2>House</h2>
+{{#each legislatorInfo as |legislator|}}
+{{#if legislator.houseChamber}}
+<a href='/bills/{{legislator.bioguideId}}'>
+<div class="boxed">
+  <h3>{{legislator.name}}</h3>
+  <div class = "small-photo">
+    <img src={{legislator.smallPhoto}}>
+  </div>
+    <h3>{{legislator.party}}</h3>
+</div>
+</a>
+  {{/if}}
+{{/each}}
