@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('legislators', { title: 'Legislator show page' });
+  res.render('zip_results', { title: 'Legislators by Zip' });
 });
 
 module.exports = router;

@@ -13,6 +13,7 @@ var request = require('request');
 
 // require info from routes
 var index = require('./routes/index');
+var zip_results = require('./routes/zip_results');
 var legislators = require('./routes/legislators');
 var users = require('./routes/users');
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // set up route paths
 app.use('/', index);
+app.use('/zip_results', zip_results);
 app.use('/legislators', legislators);
 app.use('/users', users);
 
