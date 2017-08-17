@@ -10,6 +10,9 @@ https://www.vikingcodeschool.com/dashboard#/professional-development-with-javasc
 Viking Repo:
 https://github.com/vikingeducation/project_what_have_you_done
 
+My Heroku Deployment:
+https://frozen-brushlands-61850.herokuapp.com
+
 
 
 ## Sunlight Foundation API info
