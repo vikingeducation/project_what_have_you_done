@@ -3,12 +3,12 @@ var request = require('request');
 var options = function(routingCode) {
   if (routingCode.length != 5){
     return {
-        url: 'https://congress.api.sunlightfoundation.com/legislators?bioguide_id=' + routingCode
+        url: `https://congress.api.sunlightfoundation.com/legislators?bioguide_id=${routingCode}`
       }
   }
   else {
     return {
-      url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + routingCode
+      url: `https://congress.api.sunlightfoundation.com/legislators/locate?zip=${routingCode}`
     }
   }
 }
