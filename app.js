@@ -11,8 +11,9 @@ var request = require('request');
 // var SunlightData = require('./lib/sunlight_api');
 // const sunlightApi = new SunlightData();
 
-// routes
+// require info from routes
 var index = require('./routes/index');
+var legislators = require('./routes/legislators');
 var users = require('./routes/users');
 
 // express app
@@ -29,7 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// set up route paths
 app.use('/', index);
+app.use('/legislators', legislators);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
