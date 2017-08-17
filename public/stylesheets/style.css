@@ -10,6 +10,7 @@
 }
 
 
+/* Site-wide Layout */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -20,17 +21,23 @@ a {
   color: #00B7FF;
 }
 
-/* Home Page */
+header.site-header {
+  text-align: center;
+}
+
+header.site-header h1 {
+  background-color: var(--highlight);
+  padding: 10px;
+  display: inline-block;
+  margin: 0;
+}
+
+
+/* Index Page */
 .home {
   width: 400px;
   margin: 0 auto;
   text-align: center;
-}
-
-.home h1 {
-  background-color: var(--highlight);
-  padding: 10px;
-  display: inline-block;
 }
 
 .home h2 {font-weight: normal;}
