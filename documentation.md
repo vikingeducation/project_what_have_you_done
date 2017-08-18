@@ -36,7 +36,7 @@ Documentation:
 https://sunlightlabs.github.io/congress/bills.html
 
 API Call:
-https://congress.api.sunlightfoundation.com/bills?fields=bill_id,official_title,summary
+https://congress.api.sunlightfoundation.com/bills?fields=bill_id,congress,number,official_title,summary
 
 
 
@@ -45,7 +45,7 @@ Documentation:
 https://sunlightlabs.github.io/congress/votes.html
 
 API Calls:
-https://congress.api.sunlightfoundation.com/votes?fields=bill_id,vote_type,year,question,result,voter_ids
+https://congress.api.sunlightfoundation.com/votes?fields=bill_id,vote_zipUri,year,question,result,voter_ids&vote_type=passage&voter_ids.R000588__exists=true
 
 
 
