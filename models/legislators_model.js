@@ -6,10 +6,29 @@ class Legislator {
     this.bioguide_id = bioguide_id,
     this.name = name,
     this.chamber = chamber,
-    this.party = party,
+    this.party = this.partyConverter(party),
     this.phone = phone,
     this.website = website,
     this.imageUrl = imageUrl
+  };
+
+  partyConverter(apiParty){
+    switch (apiParty) {
+      case 'D':
+        return 'Democrat'
+        break;
+      case 'R':
+        return 'Republican'
+        break;
+      case 'G':
+        return 'Green'
+        break;
+      case 'I':
+        return 'Independent'
+        break;
+      default:
+        return 'Party Unknown'
+    }
   };
 } // close Legislator
 
@@ -27,9 +46,6 @@ legislators_by_zip.results.forEach(function(leg){
       )
   );
 });
-
-
-console.log(LEGISLATORS);
 
 // return the class for use in other files
 module.exports = {
