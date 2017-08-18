@@ -167,6 +167,11 @@ h1.chamber {
   text-align: left;
 }
 
+.profile .details a {
+  color: black;
+  text-decoration: none;
+}
+
 /* Legislator Show Page */
 .legislator-bio .pic-holder {
   margin: 0 auto;
