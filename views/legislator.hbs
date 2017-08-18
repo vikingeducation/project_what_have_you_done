@@ -1,9 +1,9 @@
 <section class="legislator-bio">
   <section class="pic-holder">
-    <img src="https://theunitedstates.io/images/congress/original/R000588.jpg">
+    <img src="{{legislator.imageUrl}}">
   </section>
-  <h3>Senator</h3>
-  <h1>Cedric L. Richmond</h1>
+  <h3>{{legislator.chamber}}</h3>
+  <h1>{{legislator.name}}</h1>
 </section>
 
 
@@ -11,9 +11,9 @@
   <h3>Contact Info</h3>
   <div class="contact-info-box small-box">
     <h4>Phone Number</h4>
-    <p>202-225-3015</p>
+    <p>{{legislator.phone}}</p>
     <h4>Website</h4>
-    <p><a href="https://scalise.house.gov" target="_blank" alt="scalise" title="scalise">https://scalise.house.gov</a></p>
+    <p><a href="{{legislator.website}}" target="_blank" alt="{{legislator.name}}'s Website" title="{{legislator.name}}'s Website">{{legislator.website}}</a></p>
   </div> <!-- contact-info-box -->
 
 </section>
