@@ -7,6 +7,22 @@
   <p><a href="" alt="change zip" title="change zip">Change Zip</a></p>
 </div> <!-- display-zip -->
 
+
+{{#each legislators as |legislator|}}
+  <article class="profile">
+    <section class="pic-holder">
+      <img src="{{legislator.imageUrl}}">
+    </section>
+    <section class="details">
+      <h1>{{legislator.name}}</h1>
+      <h2>{{legislator.party}}</h2>
+    </section>
+  </article>
+{{/each}} <!-- legislator -->
+
+
+<hr>
+
 <h1 class="chamber">House</h1>
 <article class="profile">
   <section class="pic-holder">
