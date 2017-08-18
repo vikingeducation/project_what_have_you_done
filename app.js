@@ -13,8 +13,8 @@ var request = require('request');
 
 // require info from routes
 var index = require('./routes/index');
-var zip_results = require('./routes/zip_results');
-var legislator = require('./routes/legislator');
+var zip_results_router = require('./routes/zip_results_router');
+var legislator_router = require('./routes/legislator_router');
 var users = require('./routes/users');
 
 // express app
@@ -33,8 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // set up route paths
 app.use('/', index);
-app.use('/zip_results', zip_results);
-app.use('/legislators', legislator);
+app.use('/zip_results', zip_results_router);
+app.use('/legislators', legislator_router);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

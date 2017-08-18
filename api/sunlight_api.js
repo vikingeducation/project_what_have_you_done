@@ -37,7 +37,6 @@ class SunlightApi {
 
   // A method for parsing the JSON data into objects (Legislators, Bills, etc.).
   saveToLegislatorJson(input) {
-    console.log(input[0].first_name);
     fs.writeFile('./lib/legislators_by_zip.json', input 'utf8', function(err){
       err ? console.log(err) : console.log('The file has been saved to legislators_by_zip.json.');
     });
