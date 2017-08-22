@@ -1,11 +1,8 @@
 <div class="display-zip">
-<p>{{from_params}}</p>
-  <span>7</span>
-  <span>0</span>
-  <span>1</span>
-  <span>1</span>
-  <span>5</span>
-  <p><a href="" alt="change zip" title="change zip">Change Zip</a></p>
+{{#each zip_numbers as |num|}}
+  <span>{{num}}</span>
+{{/each}} <!-- zip_numbers -->
+  <p><a href="/" alt="change zip" title="change zip">Change Zip</a></p>
 </div> <!-- display-zip -->
 
 
@@ -15,7 +12,7 @@
       <img src="{{legislator.imageUrl}}">
     </section>
     <section class="details">
-      <h1><a href="/legislators/{{legislator.bioguide_id}}">{{legislator.name}}</a></h1>
+      <h1><a href="/legislator/{{legislator.bioguide_id}}">{{legislator.name}}</a></h1>
       <h2>{{legislator.party}}</h2>
     </section>
   </article>
@@ -23,43 +20,42 @@
 
 
 <hr>
-
 <h1 class="chamber">House</h1>
 <article class="profile">
   <section class="pic-holder">
-    <img src="https://theunitedstates.io/images/congress/original/R000588.jpg">
+    <img src="http://placekitten.com/g/600/600">
   </section>
   <section class="details">
-    <h1>Cedric L. Richmond</h1>
-    <h2>Democrat</h2>
+    <h1>Firstname Lastname</h1>
+    <h2>Sample Party</h2>
   </section>
 </article>
 <article class="profile">
   <section class="pic-holder">
-    <img src="https://theunitedstates.io/images/congress/original/R000588.jpg">
+    <img src="http://placekitten.com/g/600/600">
   </section>
   <section class="details">
-    <h1>Cedric L. Richmond</h1>
-    <h2>Democrat</h2>
+    <h1>Firstname Lastname</h1>
+    <h2>Sample Party</h2>
   </section>
 </article>
 
 <h1 class="chamber">Senate</h1>
 <article class="profile">
   <section class="pic-holder">
-    <img src="https://theunitedstates.io/images/congress/original/R000588.jpg">
+    <img src="http://placekitten.com/g/600/600">
   </section>
   <section class="details">
-    <h1>Cedric L. Richmond</h1>
-    <h2>Democrat</h2>
+    <h1>Firstname Lastname</h1>
+    <h2>Sample Party</h2>
   </section>
 </article>
 <article class="profile">
   <section class="pic-holder">
-    <img src="https://theunitedstates.io/images/congress/original/R000588.jpg">
+    <img src="http://placekitten.com/g/600/600">
   </section>
   <section class="details">
-    <h1>Cedric L. Richmond</h1>
-    <h2>Democrat</h2>
+    <h1>Firstname Lastname</h1>
+    <h2>Sample Party</h2>
   </section>
 </article>
