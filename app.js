@@ -8,13 +8,11 @@ var bodyParser = require('body-parser');
 
 // api
 var request = require('request');
-// var SunlightData = require('./lib/sunlight_api');
-// const sunlightApi = new SunlightData();
 
 // require info from routes
 var index = require('./routes/index');
-var zip_results_router = require('./routes/zip_results_router');
-var legislator_router = require('./routes/legislator_router');
+var legislators_index_router = require('./routes/legislators_index_router');
+var legislator_show_router = require('./routes/legislator_router');
 
 // express app
 var app = express();
@@ -32,8 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // set up route paths
 app.use('/', index);
-app.use('/zip_results', zip_results_router);
-app.use('/legislators', legislator_router);
+app.use('/legislators', legislators_index_router);
+app.use('/legislator', legislator_show_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
