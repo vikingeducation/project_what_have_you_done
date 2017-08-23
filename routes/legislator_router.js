@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router();
-const {Legislator, LEGISLATORS} = require('../models/legislators_model')
-
-const findLegislator = (leg) => {
-  return LEGISLATORS.find(LEGISLATORS => leg == LEGISLATORS.bioguide_id)
-}
+var {SunlightApi} = require('../api/sunlight_api');
 
 router.get('/:bioguide_id', function(req, res, next) {
-  const legislator_for_view = findLegislator(req.params.bioguide_id)
-  res.render('legislator_show', { title: 'Legislator show page', legislator: legislator_for_view });
+  var bioguide_id = req.params.bioguide_id
+  var api = new SunlightApi();
+
+  // make a call to the api to get a specific legislator
+  api.getLegislator(bioguide_id, function(legislator){
+    // this is the action of the callback referenced api function
+    res.render('legislator_show', { title: 'Legislator show page', legislator: legislator[0] });
+  })
 });
 
 

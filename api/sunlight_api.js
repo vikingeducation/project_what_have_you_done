@@ -23,6 +23,18 @@ class SunlightApi {
     this._sendRequest(url, mapper, callback);
   }
 
+  // A method for getting details on a specific legislator.
+  // The callback is passed in directly in the router.
+  getLegislator(bioguide_id, callback) {
+    var url = `${baseUri}/legislators?bioguide_id=${bioguide_id}`
+    var mapper = function(result){
+      // generate a new instance of legislator obj
+      return new Legislator(result)
+    }
+
+    this._sendRequest(url, mapper, callback);
+  }
+
   // A method for making all of the api calls
   _sendRequest(url, mapper, callback){
     request(url, function(error, response, body){
