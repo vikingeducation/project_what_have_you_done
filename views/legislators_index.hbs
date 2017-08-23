@@ -5,8 +5,8 @@
   <p><a href="/" alt="change zip" title="change zip">Change Zip</a></p>
 </div> <!-- display-zip -->
 
-
-{{#each legislators as |legislator|}}
+<h1 class="chamber">House</h1>
+{{#each house_members as |legislator|}}
   <article class="profile">
     <section class="pic-holder">
       <img src="{{legislator.imageUrl}}">
@@ -18,44 +18,15 @@
   </article>
 {{/each}} <!-- legislator -->
 
-
-<hr>
-<h1 class="chamber">House</h1>
-<article class="profile">
-  <section class="pic-holder">
-    <img src="http://placekitten.com/g/600/600">
-  </section>
-  <section class="details">
-    <h1>Firstname Lastname</h1>
-    <h2>Sample Party</h2>
-  </section>
-</article>
-<article class="profile">
-  <section class="pic-holder">
-    <img src="http://placekitten.com/g/600/600">
-  </section>
-  <section class="details">
-    <h1>Firstname Lastname</h1>
-    <h2>Sample Party</h2>
-  </section>
-</article>
-
 <h1 class="chamber">Senate</h1>
-<article class="profile">
-  <section class="pic-holder">
-    <img src="http://placekitten.com/g/600/600">
-  </section>
-  <section class="details">
-    <h1>Firstname Lastname</h1>
-    <h2>Sample Party</h2>
-  </section>
-</article>
-<article class="profile">
-  <section class="pic-holder">
-    <img src="http://placekitten.com/g/600/600">
-  </section>
-  <section class="details">
-    <h1>Firstname Lastname</h1>
-    <h2>Sample Party</h2>
-  </section>
-</article>
+{{#each senate_members as |legislator|}}
+  <article class="profile">
+    <section class="pic-holder">
+      <img src="{{legislator.imageUrl}}">
+    </section>
+    <section class="details">
+      <h1><a href="/legislator/{{legislator.bioguide_id}}">{{legislator.name}}</a></h1>
+      <h2>{{legislator.party}}</h2>
+    </section>
+  </article>
+{{/each}} <!-- legislator -->
