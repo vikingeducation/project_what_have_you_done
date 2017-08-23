@@ -1,17 +1,16 @@
 // require the request library
 const request = require('request');
 const {Legislator} = require('../models/legislator_model')
+const {Vote} = require('../models/vote_model')
 
 // set up the base URI for the api from https://sunlightlabs.github.io/congress/
 const baseUri = 'https://congress.api.sunlightfoundation.com';
-// const voteUri = '/votes?voter_ids.';
-// const billUri = '/bills?bill_id=';
 
 
+// build class to organize api calls
 class SunlightApi {
 
-
-  // A method for grabbing a list of legislators based upon a given zip code.
+  // Get a list of legislators based upon a given zip code.
   // The callback is passed in directly in the router.
   getLegislators(zip, callback) {
     var url = `${baseUri}/legislators/locate?zip=${zip}`
@@ -19,11 +18,10 @@ class SunlightApi {
       // generate a new instance of legislator obj
       return new Legislator(result)
     }
-
     this._sendRequest(url, mapper, callback);
   }
 
-  // A method for getting details on a specific legislator.
+  // Get details on a specific legislator.
   // The callback is passed in directly in the router.
   getLegislator(bioguide_id, callback) {
     var url = `${baseUri}/legislators?bioguide_id=${bioguide_id}`
@@ -31,9 +29,19 @@ class SunlightApi {
       // generate a new instance of legislator obj
       return new Legislator(result)
     }
-
     this._sendRequest(url, mapper, callback);
   }
+
+  // Get the list of votes a legislator has participated in
+  getLegislatorVotes(bioguide_id, callback) {
+    var url = `https://congress.api.sunlightfoundation.com/votes?fields=bill_id,vote_zipUri,year,result,voter_ids&vote_type=passage&voter_ids.${bioguide_id}__exists=true`;
+    var mapper = function(result){
+      // generate a new instance of legislator obj
+      return new Vote(result, bioguide_id)
+    }
+    this._sendRequest(url, mapper, callback);
+  };
+
 
   // A method for making all of the api calls
   _sendRequest(url, mapper, callback){
@@ -48,28 +56,6 @@ class SunlightApi {
       }
     });
   }
-
-  // A method for retrieving the bills recently voted upon by a given legislator.
-  getBills() {
-    function buildBills(){
-      console.log('builsBills test');
-      var billLink = `https://www.govtrack.us/congress/bills/114/hr3082`;
-    };
-    var url = `https://congress.api.sunlightfoundation.com/bills?fields=bill_id,congress,number,official_title,summary`;
-    this._sendRequest(url, buildBills);
-  };
-
-  // Make sure you include how the legislator voted.
-  legislatorVote() {
-    function buildVotes(){
-      console.log('buildVotes test');
-    };
-    var url = `https://congress.api.sunlightfoundation.com/votes?fields=bill_id,vote_zipUri,year,question,result,voter_ids&vote_type=passage&voter_ids.R000588__exists=true`
-    this._sendRequest(url, buildVotes);
-
-  };
-
-  // Any other methods or objects you find useful
 
 } // close SunlightApi
 

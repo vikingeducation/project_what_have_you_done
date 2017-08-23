@@ -20,11 +20,20 @@
 
 <section class="votes">
   <h3>Recent Votes</h3>
+  {{#each votes as |vote|}}
   <article class="vote">
+    <i class="material-icons"></i>
+    <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress_number}}/{{bill.number}}" target="_blank" alt="{{bill.name}}" title="{{bill.name}}">{{vote.billId}}</a></h2>
+    <p>{{vote.legislatorId}} voted {{vote.legislatorVote}} on this bill.</p>
+    <p>The result of this vote: {{vote.result}}.</p>
+  </article>
+  {{/each}} <!-- vote -->
+
+  <!-- <article class="vote">
     <i class="material-icons"></i>
     <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress_number}}/{{bill.number}}" target="_blank" alt="{{bill.name}}" title="{{bill.name}}">{{bill.name}}</a></h2>
     <p>{{bill.description}}</p>
-  </article>
+  </article> -->
 
   <h3>Placeholders below:</h3>
   <article class="vote voted-yes">

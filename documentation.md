@@ -45,7 +45,7 @@ Documentation:
 https://sunlightlabs.github.io/congress/votes.html
 
 API Calls:
-https://congress.api.sunlightfoundation.com/votes?fields=bill_id,vote_zipUri,year,question,result,voter_ids&vote_type=passage&voter_ids.R000588__exists=true
+https://congress.api.sunlightfoundation.com/votes?fields=bill_id,congress,vote_zipUri,year,question,result,voter_ids&vote_type=passage&voter_ids.${legislator.bioguide_id}__exists=true
 
 
 

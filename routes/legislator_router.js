@@ -8,8 +8,10 @@ router.get('/:bioguide_id', function(req, res, next) {
 
   // make a call to the api to get a specific legislator
   api.getLegislator(bioguide_id, function(legislator){
-    // this is the action of the callback referenced api function
-    res.render('legislator_show', { title: 'Legislator show page', legislator: legislator[0] });
+    // make a call to the api to get that legislator's vote records
+    api.getLegislatorVotes(bioguide_id, function(votes){
+      res.render('legislator_show', { title: 'Legislator show page', legislator: legislator[0], votes: votes });
+    });
   })
 });
 
