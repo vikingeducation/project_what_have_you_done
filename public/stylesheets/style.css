@@ -222,32 +222,56 @@ article.vote {
   border: 1px solid var(--border);
   margin: 20px 0px;
 }
-article.vote .material-icons {
+
+article.vote header .material-icons {
   float: right;
   margin: 10px 10px 0px 0px;
   color: white;
 }
 
-article.vote h2 {
+article.vote header {
   background-color: var(--lightgray);
-  text-align: left;
   margin: 0;
-  padding: 10px;
+  padding: 0;
   color: gray;
+  text-align: center;
+  overflow: auto;
 }
 
-article.vote p {
-  padding: 0px 10px 10px 10px;
-}
-
-article.voted-yes h2 {
-  /*background-color: var(--lightgreen);*/
+article.voted-yes header {
   background-color: var(--green);
   color: white;
 }
 
-article.voted-no h2 {
-  /*background-color: var(--lightred);*/
+article.voted-no header {
   background-color: var(--red);
   color: white;
+}
+
+article.vote header h2 {
+  text-align: left;
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+article.vote header h2 a {
+  color: black;
+  text-decoration: none;
+}
+
+article.vote header h2 a:hover {
+  text-decoration: underline;
+}
+
+article.vote header .result-container {
+  font-size: 0.85em;
+  float: right;
+  color: black;
+  padding: 10px;
+}
+
+article.vote p {
+  padding: 0px 10px 10px 10px;
 }

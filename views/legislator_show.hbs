@@ -22,10 +22,19 @@
   <h3>Recent Votes</h3>
   {{#each votes as |vote|}}
   <article class="vote">
-    <i class="material-icons"></i>
-    <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress_number}}/{{bill.number}}" target="_blank" alt="{{bill.name}}" title="{{bill.name}}">{{vote.billId}}</a></h2>
-    <p>{{vote.legislatorId}} voted {{vote.legislatorVote}} on this bill.</p>
-    <p>The result of this vote: {{vote.result}}.</p>
+    <header>
+      <div class="result-container">
+        <strong>Bill:</strong><br>
+        {{vote.result}}
+      </div> <!-- result-container -->
+      <div class="result-container">
+        <strong>{{../legislator.name}}<br>
+        Voted:</strong> {{vote.legislatorVote}}
+      </div> <!-- result-container -->
+
+      <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress}}/{{bill.number}}" target="_blank" alt="bill" title="bill"><strong>{{vote.billId}}:</strong> Bill Title Coming </a></h2>
+    </header>
+    <p>Description Coming</p>
   </article>
   {{/each}} <!-- vote -->
 
@@ -34,24 +43,5 @@
     <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress_number}}/{{bill.number}}" target="_blank" alt="{{bill.name}}" title="{{bill.name}}">{{bill.name}}</a></h2>
     <p>{{bill.description}}</p>
   </article> -->
-
-  <h3>Placeholders below:</h3>
-  <article class="vote voted-yes">
-    <i class="material-icons">thumb_up</i>
-    <h2>SAMPLE <a href="https://www.govtrack.us/congress/bills/115/hr3180" target="_blank" alt="bill" title="bill">hr3180-115</a></h2>
-    <p>SAMPLE To authorize appropriations for fiscal year 2018 for intelligence and intelligence-related activities of the United States Government, the Community Management Account, and the Central Intelligence Agency Retirement and Disability System, and for other purposes.</p>
-  </article>
-
-  <article class="vote voted-no">
-    <i class="material-icons">thumb_down</i>
-    <h2>SAMPLE s114-115</h2>
-    <p>SAMPLE To authorize appropriations and to appropriate amounts for the Veterans Choice Program of the Department of Veterans Affairs, to improve hiring authorities of the Department, to authorize major medical facility leases, and for other purposes.</p>
-  </article>
-
-  <article class="vote">
-    <i class="material-icons"></i>
-    <h2>SAMPLE hr3219-115</h2>
-    <p>SAMPLE Making appropriations for the Department of Defense for the fiscal year ending September 30, 2018, and for other purposes.</p>
-  </article>
 
 </section>
