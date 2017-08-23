@@ -1,4 +1,5 @@
 class Legislator {
+  // Take the full results object and parse it into useful fields for the views
   constructor(params) {
     this.bioguide_id = params.bioguide_id,
     this.name = this.name(params.first_name, params.last_name),
