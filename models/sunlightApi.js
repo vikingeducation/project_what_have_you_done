@@ -6,4 +6,16 @@ const baseUri = 'https://congress.api.sunlightfoundation.com';
 
 class SunlightApi = {
 
+  legislatorByZip: function(zip, callback){
+    //figure out url and send it in first
+    var url = '${baseUri}legislators/locate?zip=${zip}';
+    var dataSend = function(apiData){
+      return new Legislator(apiData)
+    };
+    this._sendRequest(url, dataSend, callback);
+  }
+
+
+
+
 }
