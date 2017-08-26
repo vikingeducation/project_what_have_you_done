@@ -8,26 +8,25 @@ class Sunlight {
 
   legislatorByZip(zip, callback) {
     //figure out url and send it in first
-    var url = '${baseUri}legislators/locate?zip=${zip}';
+    var url = `${baseUri}/legislators/locate?zip=${zip}`;
     var data = function(apiData) {
       return new Legislator(apiData)
     };
-    
-    this._sendRequest(url, dataSend, callback);
+
+    this._sendRequest(url, data, callback);
   }
 
 
-  _sendRequest(url, dataSend, callback) {
+  _sendRequest(url, data, callback) {
     request(url, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         callback(JSON.parse(body).results.map(function(apiData) {
-          return mapper(apiData)
+          return data(apiData)
         }))
       } else {
         //error handling
-        console.log(options.url)
         console.log("Oh no error", error);
-        console.log(response.statusCode);
+
       }
     }) //request
   } //_sendRequest
@@ -35,3 +34,4 @@ class Sunlight {
 
 
 } //Sunlight
+module.exports = Sunlight;

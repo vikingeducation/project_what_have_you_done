@@ -1,0 +1,44 @@
+<h1>What Have You Done?</h1>
+<h2>{{zip}}</h2>
+
+{{#each data as |leg|}}
+  <div class="">
+    {{leg.name}}
+  </div>
+  <div class="">
+    {{leg.party}}
+  </div>
+  <div class="">
+    <img src="{{leg.image}}" alt="">
+
+  </div>
+{{/each}}
+
+{{#each data as |leg|}}
+{{#if leg.chamber === "house"}}
+  <div class="">
+    <h2>House of Representatives</h2>
+      <div class="">
+        {{leg.name}}
+        {{leg.party}}
+        <div class="">
+          <img src="{{leg.image}}" alt="">
+
+        </div>
+      </div>
+  </div>
+  {{else}}
+  <div class="">
+    <h2>House of Representatives</h2>
+      <div class="">
+        {{leg.name}}
+        {{leg.party}}
+        <div class="">
+          <img src="{{leg.image}}" alt="">
+
+        </div>
+      </div>
+  </div>
+
+{{/if}}
+{{/each}}
