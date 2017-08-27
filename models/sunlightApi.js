@@ -16,6 +16,19 @@ class Sunlight {
     this._sendRequest(url, data, callback);
   }
 
+  splitLegislatorByChamber(legis){
+    //arrays
+    var peeps = {housePeeps: [], senatePeeps: []}
+
+    legis.forEach( function(legis){
+      if ( legis.chamber == 'house'){
+        peeps.housePeeps.push(legis)
+      } else {
+        peeps.senatePeeps.push(legis)
+      };
+    });
+      return peeps;
+  }
 
   _sendRequest(url, data, callback) {
     request(url, function(error, response, body) {

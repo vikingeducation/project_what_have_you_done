@@ -1,7 +1,8 @@
 <h1>What Have You Done?</h1>
 <h2>{{zip}}</h2>
 
-{{#each data as |leg|}}
+<h2>House Members</h2>
+{{#each data.housePeeps as |leg|}}
   <div class="">
     {{leg.name}}
   </div>
@@ -14,31 +15,18 @@
   </div>
 {{/each}}
 
-{{#each data as |leg|}}
-{{#if leg.chamber === "house"}}
+<h2>Senate Members</h2>
+{{#each data.senatePeeps as |leg|}}
   <div class="">
-    <h2>House of Representatives</h2>
-      <div class="">
-        {{leg.name}}
-        {{leg.party}}
-        <div class="">
-          <img src="{{leg.image}}" alt="">
-
-        </div>
-      </div>
+    {{leg.name}}
   </div>
-  {{else}}
   <div class="">
-    <h2>House of Representatives</h2>
-      <div class="">
-        {{leg.name}}
-        {{leg.party}}
-        <div class="">
-          <img src="{{leg.image}}" alt="">
-
-        </div>
-      </div>
+    {{leg.party}}
   </div>
+  <div class="">
+    <img src="{{leg.image}}" alt="">
 
-{{/if}}
+  </div>
 {{/each}}
+
+<!--can't do if else in HBS -->

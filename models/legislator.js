@@ -23,7 +23,7 @@ class Legislator {
   }
 
   name(first_name, last_name){
-    return `${first_name} ${middle_name} ${last_name}`
+    return `${first_name} ${last_name}`
   }
 
   getChamber(){
