@@ -16,21 +16,18 @@ router.get('/:bioguide_id', function(req, res, next){
   //then render that data in legislatorslist.hbs
   api.legislatorByBioguide_id(bioguide_id, function(legislator){
 
-    res.render('lonelegis', {//object that defines variable for hbs
-      bioguide_id: req.params.bioguide_id,
-      data: legislator[0]//data: is the data param got from legislator.js constructor
-    });
+    api.billAndVoteData(bioguide_id, function(bills){
+
+      res.render('lonelegis', {//object that defines variable for hbs
+        bioguide_id: req.params.bioguide_id,
+        data: legislator[0],
+        billData: bills
+      });//res.render
+
+    });//billAndVoteData
+
   });//api.legislatorByBioguide_id
 
-})//end router
+})//end router, end callback hell
 
 module.exports = router;
-
-//========
-//notes
-//modify app.js -done
-//modify legislatorslist.hbs to have links to lonelegis -done
-//get links to work-done
-//get data to work on lonelegis
-//query votes
-//display contact info

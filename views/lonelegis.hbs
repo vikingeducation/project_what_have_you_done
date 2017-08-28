@@ -1,9 +1,28 @@
 <h1>What Have You Done?</h1>
 
 <div class="info">
-  <img src="{{data.image}}" alt="">
-  <h3>{{data.chamber}} Member</h3>
-  <h1>{{data.name}}</h1>
-  {{bioguide_id}}
+  <div class="pic-and-name">
+    <img src="{{data.image}}" alt="">
+    <h2>({{data.party}}) {{data.chamber}} Member</h2>
+    <h1>{{data.name}}</h1>
+  </div>
 
+  <div class="contact-info-box">
+    {{bioguide_id}}
+    {{data.oc_email}}
+    {{data.phone}}
+    {{data.website}}
+    {{data.twitter_id}}
+  </div>
+</div>
+
+<div class="bill-box">
+  {{#each billData as |billData|}}
+    <a href="{{billData.url}}"> <h2>{{billData.roll_id}}</h2> </a>
+    <h3>{{billData.vote_decision}}</h3>
+    <p>{{billData.question}}</p>
+    <h4>{{billData.result}}</h4>
+
+
+  {{/each}}
 </div>

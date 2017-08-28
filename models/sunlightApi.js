@@ -2,7 +2,7 @@ const request = require('request');
 
 //require data modules
 const Legislator = require('./legislator');
-const Bills = require('/.bills');
+const Bills = require('./bills');
 
 
 const baseUri = 'https://congress.api.sunlightfoundation.com';
@@ -34,14 +34,14 @@ class Sunlight {
 
   billAndVoteData(bioguide_id, callback) {
 
-    var url = `https://congress.api.sunlightfoundation.com/votes?voter_ids.${bioguide_id}__exists=true&fields=bill_id,result,url,question,voter_ids.${bioguide_id}`;
+    var url = `https://congress.api.sunlightfoundation.com/votes?voter_ids.${bioguide_id}__exists=true&fields=roll_id,result,url,question,voter_ids.${bioguide_id}`;
     var data = function(apiData) {
-      return new Bills(apiData)
+      return new Bills(apiData, bioguide_id)
     };
     console.log(url);
     this._sendRequest(url, data, callback);
   }
-  
+
 
   _sendRequest(url, data, callback) {
     request(url, function(error, response, body) {

@@ -3,39 +3,43 @@
 
 
 {{#if data.senatePeeps}}
-<h2>House Members</h2>
-<div class="housemembers">
+  <h2>House Members</h2>
+  <div class="housemembers">
 
     {{#each data.housePeeps as |leg|}}
-      <div class="">
-        <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a>
-      </div>
-      <div class="">
-        {{leg.party}}
-      </div>
-      <div class="">
-        <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
+      <div class="pic-and-name">
+        <div class="">
+          <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
+        </div>
+        <div class="">
+          <h1> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h1>
+        </div>
+        <div class="">
+          <h2>({{leg.party}}) {{leg.chamber}} Member</h2>
+        </div>
       </div>
     {{/each}}
 
-</div>
+  </div>
 
-<h2>Senate Members</h2>
-<div class="senatemembers">
+  <h2>Senate Members</h2>
+  <div class="senatemembers">
 
     {{#each data.senatePeeps as |leg|}}
-      <div class="">
-        <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a>
-      </div>
-      <div class="">
-        {{leg.party}}
-      </div>
-      <div class="">
-        <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
+      <div class="pic-and-name">
+        <div class="">
+          <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
+        </div>
+        <div class="">
+          <h1> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h1>
+        </div>
+        <div class="">
+          <h2>({{leg.party}}) {{leg.chamber}} Member</h2>
+        </div>
       </div>
     {{/each}}
 
-</div>
+  </div>
 
 {{else}}
   <h1>No Members Found</h1>
