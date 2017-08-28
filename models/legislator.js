@@ -26,10 +26,6 @@ class Legislator {
     return `${first_name} ${last_name}`
   }
 
-  getChamber(){
-
-  }
-
 }//END Legislator
 
 module.exports = Legislator;

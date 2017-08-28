@@ -19,11 +19,12 @@ class Sunlight {
 
 
   legislatorByBioguide_id(bioguide_id, callback) {
-    url = `${baseUri}/legislators?bioguide_id=${bioguide_id}&all_legislators=true`;
+
+    var url = `${baseUri}/legislators/?bioguide_id=${bioguide_id}`;
     var data = function(apiData) {
       return new Legislator(apiData)
     };
-
+    console.log(url)
     this._sendRequest(url, data, callback);
   }//legislatorByBioguide_id
 

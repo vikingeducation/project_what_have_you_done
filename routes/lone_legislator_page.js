@@ -9,7 +9,7 @@ router.get('/:bioguide_id', function(req, res, next){
 
   //req.query returns an object for each string in query param
   //http://expressjs.com/en/api.html#req.query
-  //var bioguide_id = req.query.bioguide_id;
+  var bioguide_id = req.params.bioguide_id;
   var api = new Sunlight();//new instance of api module
 
   //get the legislatorByZip function to return data based on zip query
@@ -18,9 +18,9 @@ router.get('/:bioguide_id', function(req, res, next){
 
     res.render('lonelegis', {//object that defines variable for hbs
       bioguide_id: req.params.bioguide_id,
-      data: legislator
-      });
-  })//data: is the data param got from legislator.js constructor
+      data: legislator[0]//data: is the data param got from legislator.js constructor
+    });
+  });//api.legislatorByBioguide_id
 
 })//end router
 
@@ -30,6 +30,7 @@ module.exports = router;
 //notes
 //modify app.js -done
 //modify legislatorslist.hbs to have links to lonelegis -done
-//get links to work
+//get links to work-done
+//get data to work on lonelegis
 //query votes
 //display contact info

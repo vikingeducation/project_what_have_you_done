@@ -6,11 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var expressValidator = require('express-validator');
 
-//routers
+//require routers
 var index = require('./routes/index');
 var users = require('./routes/users');
-var legislators_router = require('./routes/legislators_page')
-var lonelegis_router = require('./routes/lone_legislator_page')
+var legislators_router = require('./routes/legislators_page');
+var lonelegis_router = require('./routes/lone_legislator_page');
 
 var app = express();
 

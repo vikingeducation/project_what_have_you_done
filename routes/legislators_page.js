@@ -7,7 +7,7 @@ const Sunlight = require('../models/sunlightApi');
 
 //splitLegislatorByChamber so that they can be organized
 //on legislatorslist.hbs
-//I only need this function on this page so I put it in the router .js page
+//I only need this function on this page so I put it in the router .js page here
 function splitLegislatorByChamber(legis){
   //arrays to organize members
   var peeps = {housePeeps: [], senatePeeps: []}
