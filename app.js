@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var expressValidator = require('express-validator');
 
+//routers
 var index = require('./routes/index');
 var users = require('./routes/users');
 var legislators_router = require('./routes/legislators_page')
+var lonelegis_router = require('./routes/lone_legislator_page')
 
 var app = express();
 
@@ -25,10 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//paths and routers they come from
 app.use('/', index);
 app.use('/users', users);
-app.use('/legislators/', legislators_router)
+app.use('/legislators/', legislators_router);
+app.use('/legislator', lonelegis_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

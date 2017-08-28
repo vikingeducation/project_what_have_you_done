@@ -7,7 +7,7 @@ const Sunlight = require('../models/sunlightApi');
 
 //splitLegislatorByChamber so that they can be organized
 //on legislatorslist.hbs
-//I only need this function on this page so I put it in the router
+//I only need this function on this page so I put it in the router .js page
 function splitLegislatorByChamber(legis){
   //arrays to organize members
   var peeps = {housePeeps: [], senatePeeps: []}
@@ -32,13 +32,13 @@ router.get('/', function(req, res, next){
 
   //get the legislatorByZip function to return data based on zip query
   //then render that data in legislatorslist.hbs
-  api.legislatorByZip(zip, function(legislator){
+  api.legislatorByZip(zip, function(legislators){
 
-    var peeps = splitLegislatorByChamber(legislator);
+    var peeps = splitLegislatorByChamber(legislators);
 
     res.render('legislatorslist', {//object that defines variable for hbs
       zip: req.params.zip,
-      legislator: legislator
+      data: peeps
     });
   })//data: is the data param got from legislator.js constructor
 

@@ -8,13 +8,13 @@
 
     {{#each data.housePeeps as |leg|}}
       <div class="">
-        {{leg.name}}
+        <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a>
       </div>
       <div class="">
         {{leg.party}}
       </div>
       <div class="">
-        <img src="{{leg.image}}" alt="">
+        <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
       </div>
     {{/each}}
 
@@ -25,13 +25,13 @@
 
     {{#each data.senatePeeps as |leg|}}
       <div class="">
-        {{leg.name}}
+        <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a>
       </div>
       <div class="">
         {{leg.party}}
       </div>
       <div class="">
-        <img src="{{leg.image}}" alt="">
+        <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
       </div>
     {{/each}}
 
