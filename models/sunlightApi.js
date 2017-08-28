@@ -6,6 +6,7 @@ const baseUri = 'https://congress.api.sunlightfoundation.com';
 
 class Sunlight {
 
+
   legislatorByZip(zip, callback) {
     //figure out url and send it in first
     var url = `${baseUri}/legislators/locate?zip=${zip}`;
@@ -14,21 +15,18 @@ class Sunlight {
     };
 
     this._sendRequest(url, data, callback);
-  }
+  }//legislatorByZip
 
-  splitLegislatorByChamber(legis){
-    //arrays
-    var peeps = {housePeeps: [], senatePeeps: []}
 
-    legis.forEach( function(legis){
-      if ( legis.chamber == 'house'){
-        peeps.housePeeps.push(legis)
-      } else {
-        peeps.senatePeeps.push(legis)
-      };
-    });
-      return peeps;
-  }
+  legislatorByBioguide_id(bioguide_id, callback) {
+    url = `${baseUri}/legislators?bioguide_id=${bioguide_id}&all_legislators=true`;
+    var data = function(apiData) {
+      return new Legislator(apiData)
+    };
+
+    this._sendRequest(url, data, callback);
+  }//legislatorByBioguide_id
+
 
   _sendRequest(url, data, callback) {
     request(url, function(error, response, body) {
@@ -43,7 +41,6 @@ class Sunlight {
       }
     }) //request
   } //_sendRequest
-
 
 
 } //Sunlight
