@@ -1,32 +1,43 @@
 <h1>What Have You Done?</h1>
 <h2>{{zip}}</h2>
 
-<h2>House Members</h2>
-{{#each data.housePeeps as |leg|}}
-  <div class="">
-    {{leg.name}}
-  </div>
-  <div class="">
-    {{leg.party}}
-  </div>
-  <div class="">
-    <img src="{{leg.image}}" alt="">
 
-  </div>
-{{/each}}
+{{#if data.senatePeeps}}
+<h2>House Members</h2>
+<div class="housemembers">
+
+    {{#each data.housePeeps as |leg|}}
+      <div class="">
+        {{leg.name}}
+      </div>
+      <div class="">
+        {{leg.party}}
+      </div>
+      <div class="">
+        <img src="{{leg.image}}" alt="">
+      </div>
+    {{/each}}
+
+</div>
 
 <h2>Senate Members</h2>
-{{#each data.senatePeeps as |leg|}}
-  <div class="">
-    {{leg.name}}
-  </div>
-  <div class="">
-    {{leg.party}}
-  </div>
-  <div class="">
-    <img src="{{leg.image}}" alt="">
+<div class="senatemembers">
 
-  </div>
-{{/each}}
+    {{#each data.senatePeeps as |leg|}}
+      <div class="">
+        {{leg.name}}
+      </div>
+      <div class="">
+        {{leg.party}}
+      </div>
+      <div class="">
+        <img src="{{leg.image}}" alt="">
+      </div>
+    {{/each}}
 
+</div>
+
+{{else}}
+  <h1>No Members Found</h1>
+{{/if}}
 <!--can't do if else in HBS -->
