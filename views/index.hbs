@@ -1,11 +1,13 @@
-<h1>{{title}}?</h1>
+<h1 class="title heading">{{title}}?</h1>
 
-<h2>Find your local representatatives and find how they vote</h2>
+<h2 class="heading">Find your local representatatives and find how they vote</h2>
 
-<h4>Then pester them into changing their minds!</h4>
+<h4 class="heading subheading">Then pester them into changing their minds!</h4>
 
-<h2>Enter Your Zip Code</h2>
-<form class="" action="legislators/" method="GET">
-  <input type="number" name="zip" value=""><br>
-  <input type="submit" name="" value="Find my legislators">
-</form>
+<div class="zipbox heading">
+  <h2>Enter Your Zip Code</h2>
+  <form class="" action="legislators/" method="GET">
+    <input id="zipboxinput" type="number" name="zip" min="00000" max="99999" ><br>
+    <input id="findbutton" type="submit" name="" value="Find my legislators">
+  </form>
+</div>

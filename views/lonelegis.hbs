@@ -8,17 +8,21 @@
   </div>
 
   <div class="contact-info-box">
-    {{bioguide_id}}
-    {{data.oc_email}}
-    {{data.phone}}
-    {{data.website}}
-    {{data.twitter_id}}
+
+    <ul>
+      <li>{{data.oc_email}}</li>
+      <li>{{data.phone}}</li>
+      <li>{{data.website}}</li>
+      <li>{{data.twitter_id}}</li>
+    </ul>
+    
   </div>
 </div>
 
 <div class="bill-box">
   {{#each billData as |billData|}}
-    <a href="{{billData.url}}"> <h2>{{billData.roll_id}}</h2> </a>
+    <a href="{{billData.url}}">
+      <h2>{{billData.roll_id}}</h2> </a>
     <h3>{{billData.vote_decision}}</h3>
     <p>{{billData.question}}</p>
     <h4>{{billData.result}}</h4>
