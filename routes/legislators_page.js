@@ -37,7 +37,7 @@ router.get('/', function(req, res, next){
     var peeps = splitLegislatorByChamber(legislators);
 
     res.render('legislatorslist', {//object that defines variable for hbs
-      zip: req.params.zip,
+      zip: req.query.zip,
       data: peeps
     });
   })//data: is the data param got from legislator.js constructor

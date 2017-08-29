@@ -3,18 +3,18 @@
 
 
 {{#if data.senatePeeps}}
-  <h2>House Members</h2>
-  <div class="housemembers">
+
+  <h1 class="heading member" >House Members</h1>
+
+  <div class="housemembers heading">
 
     {{#each data.housePeeps as |leg|}}
       <div class="pic-and-name">
-        <div class="">
+        <div class="pic">
           <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
         </div>
-        <div class="">
-          <h1> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h1>
-        </div>
-        <div class="">
+        <div class="info">
+          <h2> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h2><br>
           <h2>({{leg.party}}) {{leg.chamber}} Member</h2>
         </div>
       </div>
@@ -22,18 +22,16 @@
 
   </div>
 
-  <h2>Senate Members</h2>
-  <div class="senatemembers">
+  <h1 class="heading member">Senate Members</h1>
+  <div class="senatemembers heading">
 
     {{#each data.senatePeeps as |leg|}}
       <div class="pic-and-name">
-        <div class="">
+        <div class="pic">
           <a href="/legislator/{{leg.bioguide_id}}"><img src="{{leg.image}}" alt=""></a>
         </div>
-        <div class="">
-          <h1> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h1>
-        </div>
-        <div class="">
+        <div class="info">
+          <h2> <a href="/legislator/{{leg.bioguide_id}}">{{leg.name}}</a> </h2><br>
           <h2>({{leg.party}}) {{leg.chamber}} Member</h2>
         </div>
       </div>
@@ -45,3 +43,5 @@
   <h1>No Members Found</h1>
 {{/if}}
 <!--can't do if else in HBS -->
+
+<h5 class="heading"><a class="shoutout" href="https://github.com/coelacanth7">Built by Greg Alford</a></h5>
