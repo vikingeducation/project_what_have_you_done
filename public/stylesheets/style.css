@@ -197,3 +197,7 @@ lonelegis.hbs
   width: 80%;
   text-align: left;
 }
+
+.bill-box h2 {
+  color: darkgrey;
+}
