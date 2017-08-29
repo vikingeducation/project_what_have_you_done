@@ -8,6 +8,7 @@ Check it out here:
 https://boiling-wildwood-43735.herokuapp.com/
 
 to do list:
+
 -style a little nicer
 
 -get more bill info
