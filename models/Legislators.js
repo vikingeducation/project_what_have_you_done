@@ -6,31 +6,13 @@ class Legislators {
 		this.zip = zip;
 	}
 
-	party(callback) {
-		this._sendRequest("party", callback);
-	}
-
-	chamber(callback) {
-		this._sendRequest("chamber", callback)
-	}
-	bioguideIde(callback) {
-		this._sendRequest("bioguide_id", callback)
-	}
-	firstName(callback) {
-		this._sendRequest("first_name", callback)
-	}
-	middleName(callback) {
-		this._sendRequest("middle_name", callback)
-	}
-	phone(callback) {
-		this._sendRequest("phone", callback)
-	}
-	website(callback) {
-		this._sendRequest("website", callback)
+	
+	Data(callback) {
+		this._sendRequest("results", callback)
 	}
 
 	_sendRequest(type, callback) {
-		let url = `${baseUri}11216&fields=${type}`
+		let url = `${baseUri}zip=${zip}`
 		request(url, (err, res, body) => {
 			if (!err && res.statusCode === 200) {
 				callback(JSON.parse(body).results);
