@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .body
+    h1.heading= title
+    .content
+      h3 Discover the voting records of your local representatives.
+
+      p Then pester their offices until their views reflect yours!
+
+      form(action="/legislators" method="GET")
+        label(for="zip")
+        strong Enter Zipcode
+        br
+        input(type='text' name='zip')
+        input(type='submit' value="GO")

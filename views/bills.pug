@@ -1,0 +1,23 @@
+extends layout
+
+
+block content
+ a(href='/') HOME
+ br
+ img(src=`https://theunitedstates.io/images/congress/225x275/${bioguide_id}.jpg`) 
+ 
+ ul
+  each thing in data
+   h2 Party: #{thing.party}
+   h2 Chamber: #{thing.chamber}
+   h2= `${thing.first_name} ${thing.last_name}`
+   h3 Contact Info
+   .contact-info
+    h5 Phone number
+    h4= thing.phone
+    h5 Website
+    a(href=`${thing.website}`)= thing.website
+   h3 Recent Votes
+   each bill in votes
+    .votes
+     a(href=`${bill.url}/`)= bill.bill_id

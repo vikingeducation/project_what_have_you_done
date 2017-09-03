@@ -1,0 +1,17 @@
+extends layout
+block content
+ h1 #{zip}
+ a(href='/') 
+  h4 Change zip
+ ul
+  each data in legislators
+   .legislators_list
+    li
+    |
+    li
+    |
+    img(src=`https://theunitedstates.io/images/congress/225x275/${data.bioguide_id}.jpg`) 
+    li PARTY: #{data.party}
+    a(href=`/legislators/${data.bioguide_id}`)= `${data.first_name} ${data.last_name}`
+    br
+    li CHAMBER: #{data.chamber}
