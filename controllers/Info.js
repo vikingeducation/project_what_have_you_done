@@ -1,6 +1,6 @@
-const Legislators = require('../models/legislators')
 const LegislatorProfile = require('../models/legislatorProfile')
 const Bills = require('../models/Bills')
+const Legislators = require('../models/legislators')
 const _ = require('lodash');
 
 const legislators = new Legislators();
