@@ -1,7 +1,14 @@
+body {
+  background: #4ECDC4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(85, 98, 112, 0.75), rgba(78, 205, 196, 0.74)););  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(85, 98, 112, 0.75), rgba(78, 205, 196, 0.74));); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 h2 {
   font-size: 30px;
   text-align: center;
-  color:gray;
+  color:black;
 }
 
 main {
@@ -12,7 +19,7 @@ main {
 header {
   text-align: center;
   font-size: 47px;
-  margin-top: 75px;
+  margin-top: 37px;
 }
 
 img {
@@ -29,8 +36,8 @@ a {
   padding-left:20px;
 }
 
-.house {
-  margin: 20px;
+a:hover {
+  color:white;
 }
 
 .houseReps {

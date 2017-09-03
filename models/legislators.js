@@ -3,6 +3,7 @@ var api = require('../call')
 var Legislators = {
 
   parseData: function(parsed){
+    console.log(parsed)
     var congress = [];
     for (var i=0; i<parsed.count; i++){
       var results = parsed.results[i]
@@ -25,11 +26,13 @@ var Legislators = {
   },
 
   getLegislators: function(path){
+    console.log(path)
     // var path = path
     // var congress = []
     var p = new Promise(function(resolve, reject){
 
       api.call(path).then(function(data){
+        console.log(data);
         var parsed = JSON.parse(data)
         // for (var i=0; i<parsed.count; i++){
         //   var results = parsed.results[i]
@@ -50,7 +53,9 @@ var Legislators = {
         // }
         var congress = Legislators.parseData(parsed);
         resolve(congress)
-      })
+      }).catch(function(err){
+        reject(err)
+      });
     })
     return p
   }

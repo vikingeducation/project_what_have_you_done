@@ -3,15 +3,55 @@
     <title>Politician thing</title>
     <link rel='stylesheet' href='../static/css/styles.css'>
     <link rel='stylesheet' href='../static/css/index.css'>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
   </head>
   <body>
     <main class='flex-col center'>
       <h1>What Have You Done</h1>
-      <form action="/show" method='get' class='flex-col center'>
+      <h2>Discover the voting records of<br>your state and local representatives</h2>
+
+
+      <form action="/show/zip" method='get' class='flex-col center'>
         <input type="text" name="zip">
         <span>Enter your zip code</span>
         <input type="submit" value="Submit">
       </form>
+
+      <div class='zip flex-col center'>
+          <div class='flex-row'>
+          <div class='zip-box'>
+            <div class='zip-text'></div>
+          </div>
+          <div class='zip-box'>
+            <div class='zip-text'></div>
+          </div>
+          <div class='zip-box'>
+            <div class='zip-text'></div>
+          </div>
+          <div class='zip-box'>
+            <div class='zip-text'></div>
+          </div>
+          <div class='zip-box'>
+            <div class='zip-text'></div>
+          </div>
+        </div>
+        <div class='submit hidden'>
+          <form action='/show' method='get'>
+            <input class='hidden' name=zip value=''>
+            <input type='submit' value='Go!'>
+          </form>
+        </div>
+      </div>
     </main>
+    <script src='../static/javascripts/zipBoxes.js'></script>
+
   </body>
+
+
+
+
 </html>

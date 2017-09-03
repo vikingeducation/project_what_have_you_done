@@ -7,8 +7,11 @@ var API = {
     var url = base + path
     var p = new Promise(function(resolve, reject){
       request(url, function(err, response, body){
-        resolve(body)
-      })
+        if (err){
+          reject(err)
+        }
+        resolve(body);
+      });
     })
     return p
   }

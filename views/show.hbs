@@ -9,10 +9,12 @@
   <body>
     <header>
       <div>
-        <h1>What have you done</h1>
+        <h1>What Have You Done?</h1>
+        <hr>
       </div>
     </header>
     <main class='flex-col'>
+
       <div class="house flex-col">
         <h2>House</h2>
         <div class='houseReps flex-row'>
@@ -23,9 +25,10 @@
           </div>
         </div>
       </div>
-      <div class="senate">
+
+      <div class="senate flex-col">
         <h2>Senate</h2>
-        <div class=flex-col>
+
           <div class='senateReps flex-row'>
             <img src={{senate1.image}}>
             <div class='flex-col center'>
@@ -33,6 +36,7 @@
               <p>{{senate1.party}}</p>
             </div>
           </div>
+
           <div class='senateReps flex-row'>
             <img src={{senate2.image}}>
             <div class='flex-col center'>
@@ -41,7 +45,7 @@
             </div>
           </div>
         </div>
-      </div>
+
     </main>
   </body>
 </html>

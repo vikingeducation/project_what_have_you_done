@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var legislators = require('../models/legislators')
 
-router.use(express.static('public'))
 
 
-router.get('/', function(req, res){
+router.get('/:zip', function(req, res){
   var zip = req.query.zip
+  console.log(zip)
   var path = `/legislators/locate?zip=${zip}`;
   legislators.getLegislators(path).then(function(data){
     var house = data[0];
@@ -18,6 +18,9 @@ router.get('/', function(req, res){
       senate1: senate1,
       senate2: senate2
     })
+  }).catch(function(err) {
+    console.log(err)
+    res.render('error', {err: err});
   });
 });
 

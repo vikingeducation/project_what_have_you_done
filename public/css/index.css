@@ -1,11 +1,43 @@
 h1 {
-  font-size:40px;
+  font-size:35px;
   margin-top: 100px;
   margin-bottom: 25px;
+  background-color: yellow;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.zip {
+  height:300;
+  width:300;
+  border:1px black solid;
+}
+
+.zip-box {
+  height:50px;
+  width:50px;
+  border:1px solid black;
+  text-align: center;
+  font-size: 38px;
 }
 
 span {
   font-size: 20px;
   margin-top:10px;
   margin-bottom:10px;
+}
+
+form {
+  margin-top:25px;
+}
+
+.submit {
+  height:100px;
+  width:100px;
+}
+
+.hidden {
+  display: none;
 }

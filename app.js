@@ -12,12 +12,7 @@ app.use('/static', express.static('public'))
 app.set('view engine', 'hbs')
 
 app.get('/', function(req, res){
-  legislators.getLegislators(`/legislators/locate?zip=55406`).then(function(data){
-    var id = data[0].id
-    bills.getBills(id).then(function(data){
-      res.render('index', {test: data.results[1].bill.bill_id, test2:id})
-    })
-  })
+  res.render('index');
 })
 
 app.use('/show', show);

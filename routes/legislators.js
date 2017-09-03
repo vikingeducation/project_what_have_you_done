@@ -15,6 +15,12 @@ router.get('/:id', function(req, res){
         legislator: legislator
       })
     })
+    .catch(function(reason){
+      console.log(reason)
+    })
+  })
+  .catch(function(reason){
+    console.log(reason)
   })
 })
 
