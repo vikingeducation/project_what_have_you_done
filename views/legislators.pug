@@ -15,11 +15,3 @@ block content
     a(href=`/legislators/${data.bioguide_id}`)= `${data.first_name} ${data.last_name}`
     br
     li CHAMBER: #{data.chamber}
-   
-//- h3 House
- each bioguide in house_boiguideId
-  a(href=`/legislators/${bioguide}`) link
-  li
-  |
-  img(src=`https://theunitedstates.io/images/congress/225x275/${bioguide}.jpg`) 
-  li #{house_firstName} 
