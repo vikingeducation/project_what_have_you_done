@@ -1,24 +1,29 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 a {
   color: #00B7FF;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 h1 {
   background-color: yellow;
-  margin: 5px 5px; }
+  margin: 5px 5px;
+}
 
 .center {
   width: 50%;
   margin: auto;
-  text-align: center; }
+  text-align: center;
+}
 
 .input-box {
   background-color: beige;
   padding: 5px;
-  margin: 10px auto; }
+  margin: 10px auto;
+}
 
 .zipInput {
   display: inline-block;
@@ -29,12 +34,14 @@ h1 {
   border-radius: 5px;
   margin: 0 5px;
   font-size: 32px;
-  text-align: center; }
+  text-align: center;
+}
 
 .hidden {
-  display: none; }
+  display: none;
+}
 
-.submit, .active {
+.submit {
   display: block;
   width: 60px;
   height: 30px;
@@ -42,64 +49,81 @@ h1 {
   border-radius: 5px;
   margin: 10px auto;
   background-color: lightgrey;
-  font-weight: lighter; }
+  font-weight: lighter;
+}
 
 .active {
+  @extend .submit;
   background-color: yellow;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .legislator {
-  margin: 15px auto; }
+  margin: 15px auto;
+}
 
 .photo {
   width: 100px;
-  display: inline-block; }
-  .photo img {
+  display: inline-block;
+  img {
     border-radius: 50px;
-    width: 100%; }
+    width: 100%;
+  }
+}
 
 .legislator-info {
   width: 200px;
   display: inline-block;
   position: relative;
   top: -40px;
-  text-align: left; }
-  .legislator-info .name {
+  text-align: left;
+  .name {
     font-size: 1.5em;
-    font-weight: bold; }
+    font-weight: bold;
+  }
+}
 
 .name, .party, .chamber-container {
-  padding: 2px; }
+  padding: 2px;
+}
 
 .legislator-contact {
   width: 40%;
   margin: auto;
   background-color: beige;
   border: 1px solid grey;
-  text-align: left; }
-  .legislator-contact .contact-label {
-    font-weight: bold; }
-  .legislator-contact .phone, .legislator-contact .website {
-    margin: 10px 5px; }
+  text-align: left;
+  .contact-label {
+    font-weight: bold;
+  }
+  .phone, .website {
+    margin: 10px 5px;
+  }
+}
 
-.bill, .yea, .nay {
+.bill {
   background-color: beige;
   margin: 15px auto;
   padding: 10px;
-  text-align: left; }
-  .bill .bill-id, .yea .bill-id, .nay .bill-id {
+  text-align: left;
+  .bill-id {
     font-weight: bold;
     font-size: 1.25em;
-    margin-bottom: 5px; }
-  .bill .bill-description, .yea .bill-description, .nay .bill-description {
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+  }
+  .bill-description {
+    margin-bottom: 5px;
+  }
+}
 
 .yea {
-  border: 1px solid green; }
+  @extend .bill;
+  border: 1px solid green;
+}
 
 .nay {
-  border: 1px solid red; }
-
-/*# sourceMappingURL=style.css.map */
+  @extend .bill;
+  border: 1px solid red;
+}
 
 /*# sourceMappingURL=style.css.map */

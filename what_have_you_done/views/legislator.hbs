@@ -1,0 +1,45 @@
+<div class="center">
+  <h1>{{title}}</h1>
+  {{#each legislator as |legislator|}}
+    <div class="photo">
+      <img src="{{legislator.photo}}">
+    </div>
+    <div class="legislator-name">
+      <a href="/legislators/{{legislator.bioguide_id}}">
+        {{legislator.first_name}} {{legislator.middle_name}} {{legislator.last_name}}
+      </a>
+    </div>
+    <div class="title">
+      <span class="party">{{legislator.party}}</span> in <span class="chamber"{{legislator.chamber}}</span>
+    </div>
+    <h3>Contact Info</h3>
+    <div class="legislator-contact">
+      <div class="phone">
+        <div class="contact-label">Phone Number</div>
+        {{legislator.phone}}
+      </div>
+      <div class="website">
+        <div class="contact-label">Website</div>
+        {{legislator.website}}
+      </div>
+    </div>
+  {{/each}}
+  <h3>Recent Votes</h3>
+  <div class="bills">
+    {{#each bills as |bill|}}
+      <div class="bill">
+        <div class="bill-id">
+          <a href="{{bill.govtrackUrl}}">
+            {{bill.bill.bill_id}}
+          </a>
+        </div>
+        <div class="bill-description">
+          {{bill.bill.official_title}}
+        </div>
+        <div class="vote">
+          <strong>My vote:</strong> <span class="my-vote">{{bill.my_vote}}</span>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

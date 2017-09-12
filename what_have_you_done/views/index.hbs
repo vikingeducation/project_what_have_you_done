@@ -1,2 +1,23 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="center">
+  <h1>{{title}}</h1>
+  <div>
+    Discover the <strong>voting records</strong><br>
+    of your <strong>local representatives</strong>
+  </div>
+  <br>
+  <div>
+    Then pester their offices until their views reflect yours!
+  </div>
+  <div class="input-box">
+    <h2>Enter Your Zip Code</h2>
+    <form action="/" method="get">
+      <input type="text" placeholder="-" maxlength="1" class="zipInput empty"></input>
+      <input type="text" placeholder="-" maxlength="1" class="zipInput empty"></input>
+      <input type="text" placeholder="-" maxlength="1" class="zipInput empty"></input>
+      <input type="text" placeholder="-" maxlength="1" class="zipInput empty"></input>
+      <input type="text" placeholder="-" maxlength="1" class="zipInput empty"></input>
+      <input type="text" name="zipCode" class="zip hidden"></input>
+      <input type="submit" value="Search" class="submit" disabled>
+    </form>
+  </div>
+</div>

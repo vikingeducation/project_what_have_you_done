@@ -1,27 +1,22 @@
 const request = require('request');
 const baseUri = "https://congress.api.sunlightfoundation.com";
-const legislators = [];
-const bills = [];
 
 // API Wrapper
 class CongressSearch {
-  constructor(query) {
-    this.query = query;
+  locate(zipcode, callback) {
+    let urlStub = `legislators/locate?zip=${zipcode}`
+    this._sendRequest(urlStub, callback);
   }
-  locate(callback) {
-    this._sendRequest("legislators/locate?zip=", callback);
+  votes(id, callback) {
+    let urlStub = `votes?voter_ids.${id}__exists=true&vote_type=passage&fields=voter_ids,bill_id,bill&per_page=20&page=1`;
+    this._sendRequest(urlStub, callback);
   }
-  votes(callback) {
-    this._sendRequest("votes?voter_ids.", callback);
+  profile(id, callback) {
+    let urlStub = `legislators?bioguide_id=${id}`;
+    this._sendRequest(urlStub, callback);
   }
-  _sendRequest(type, callback) {
-    let url = "";
-
-    if (type === "legislators/locate?zip=") {
-      url = `${baseUri}/${type}${this.query}`;
-    } else if (type === "votes?voter_ids.") {
-      url = `${baseUri}/${type}${this.query}__exists=true&fields=voter_ids,bill_id,bill,question&per_page=20&page=1`;
-    };
+  _sendRequest(urlStub, callback) {
+    const url = baseUri + '/' + urlStub;
 
     request(url, function(error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -30,17 +25,18 @@ class CongressSearch {
         console.error(JSON.parse(body));
       };
     });
-  }
+  };
 };
 
 // Parses JSON into objects
 const JSONhandler = function(data) {
   let results = data.results;
+  var output = [];
 
-  results.forEach(result => {
+  if (results[0].bioguide_id) {
 
-    if (result.bioguide_id) {
-      legislators.push(new Legislator(
+    results.forEach(result => {
+      output.push(new Legislator(
         result.bioguide_id,
         result.chamber,
         result.first_name,
@@ -50,15 +46,16 @@ const JSONhandler = function(data) {
         result.phone,
         result.website,
         `https://theunitedstates.io/images/congress/225x275/${result.bioguide_id}.jpg`));
+    });
+  } else if (results[0].bill_id) {
 
-      bills.push(new Bill(result.bioguide_id));
-    } else if (result.bill_id) {
-
-    }
-  });
-
-  console.log(legislators);
-  console.log(bills);
+    results.forEach(result => {
+      output.push(new Bill(
+        result.bill,
+        result.voter_ids));
+    });
+  };
+  return output;
 };
 
 // Constructors
@@ -77,17 +74,13 @@ class Legislator {
 };
 
 class Bill {
-  constructor(bioguide_id) {
-     this.bioguide_id = bioguide_id;
+  constructor(bill, voter_ids) {
+    this.bill = bill;
+    this.voter_ids = voter_ids;
    };
- };
-
-module.exports = {
-  Legislator,
-  legislators
 };
 
-const test = new CongressSearch("90210");
-test.locate(function(data) {
-  JSONhandler(data);
-});
+module.exports = {
+  CongressSearch,
+  JSONhandler
+};

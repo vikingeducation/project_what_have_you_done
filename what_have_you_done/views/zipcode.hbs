@@ -1,0 +1,24 @@
+<div class="center">
+  <h1>{{title}}</h1>
+  <h2>Legislators In Zip Code {{zipcode}}</h2>
+  {{#each legislators as |legislator|}}
+    <div class="legislator">
+      <div class="photo">
+        <img src="{{legislator.photo}}">
+      </div>
+      <div class="legislator-info">
+        <div class="name">
+          <a href="/legislators/{{legislator.bioguide_id}}">
+            {{legislator.first_name}} {{legislator.middle_name}} {{legislator.last_name}}
+          </a>
+        </div>
+        <div class="chamber-container">
+          Chamber: <span class="chamber">{{legislator.chamber}}</span>
+        </div>
+        <div class="party">
+          {{legislator.party}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
