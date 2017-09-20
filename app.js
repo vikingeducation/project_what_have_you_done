@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var legislators = require('./routes/legislators');		//added
+var legislators = require('./routes/legislators');					//added
 var legislator_details = require('./routes/legislator_details');	//added
 
 
@@ -16,16 +16,16 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// set up routes
 app.use('/', index);
-app.use('/legislators', legislators);		//added
+app.use('/legislators', legislators);				//added
 app.use('/legislator_details', legislator_details);	//added
 
 // catch 404 and forward to error handler

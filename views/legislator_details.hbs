@@ -2,11 +2,13 @@
   <div class="photo">
     <img src="{{legislator.imageUrl}}">
   </div>
-  <div class="legislator-party-name">
-    {{legislator.title}}
-  </div>
+  
   <div class="legislator-name">
     <a href={{legislator.website}} target="_blank" alt="{{legislator.name}}'s Website" title="{{legislator.name}}'s Website">{{legislator.name}}
+  </div>
+
+  <div class="legislator-party-name">
+    <h3>{{legislator.title}}</h3>
   </div>
 </div>
 
@@ -30,6 +32,6 @@
     <div class="bill-name">
       <a href="https://www.govtrack.us/congress/bills/{{vote.congress}}/{{vote.bill_type}}{{vote.number}}" target="_blank" alt="bill" title="bill"><strong>{{vote.billId}}</strong></a>
     </div>
-    <p class="bill-description"><b>Description:</b> {{vote.summary}}</p>
+    <p class="bill-description"><b><u>Description:</u></b> {{vote.summary}}</p>
   </div>
 {{/each}}

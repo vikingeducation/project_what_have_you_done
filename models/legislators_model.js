@@ -34,9 +34,8 @@ class Legislator {
       case 'R':
         return 'Republican' + strChamber
         break;
-      case 'I':
+      default:
         return 'Independent' + strChamber
-        break;  
     }
   }
 

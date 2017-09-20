@@ -175,6 +175,8 @@ a:hover {
   margin: 0 auto; 
 }
 
+/* Legislator Details page */
+
 .legislator-heading {
   text-align: center;
   margin: 20px auto 40px auto; 
@@ -203,8 +205,10 @@ a:hover {
 }
 
 .content-box-title {
+  margin-top: 60px;
   margin-bottom: 10px;
   opacity: 0.8; 
+  font-size: 20px;
 }
 
 .content-box, .vote {
