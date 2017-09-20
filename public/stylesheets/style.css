@@ -1,0 +1,250 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F5F5F5; 
+}
+
+a {
+  text-decoration: none;
+  color: black; 
+}
+  
+a:hover {
+  background-color: #EBFF00; 
+}
+
+.container {
+  text-align: center;
+}
+
+.banner {
+  width: 340px;
+  margin: 0 auto;
+  background-color: #ebff00;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.banner a {
+  text-decoration: none;
+  color: black;
+}
+
+.banner h1 {
+  background-color: #ebff00;
+  line-height: 50px;
+}
+
+.homePage {
+  width: 380px;
+  display: inline-block;
+}
+
+.heading2 {
+  font-size: 24px;
+}
+
+.heading5 {
+  color: gray;
+  font-size: 14px;
+}
+
+.zipcode {
+  background-color: #fefff8;
+  height: 160px;
+  width: 340px;
+  border: 1px solid lightgray;
+  text-align: center;
+  margin: 30px auto;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.zipcode .heading3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}	
+
+.numbers input[type="text"] {
+  height: 50px;
+  width: 200px;
+  box-shadow: 1px 1px 1px #888888;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 32px;
+  font-weight: bold;
+}	
+
+.go input[type="submit"] {
+  border: 1px solid #CCC;
+  width: 60px;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #ebff00;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+
+/* Legislators by Zip */
+
+.zip-code {
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer; 
+}
+
+.zip-code .change-zip {
+  color: gray;
+  position: relative;
+  top: 5px;
+  opacity: 0; 
+}
+  
+.zip-code:hover .zip-char {
+  background-color: #FEFFF8; 
+}
+  
+.zip-code:hover .change-zip {
+  opacity: 1; 
+}
+  
+.zip-code .zip-char {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 2px 3px;
+  border-radius: 3px;
+  background-color: white;
+  font-weight: bold;
+  border: 1px solid #CCC; 
+}
+
+.body-name {
+  opacity: 0.5;
+  font-weight: normal;
+  text-align: center;
+  font-size: 28px;
+  margin: 30px auto; 
+}
+
+.party-name {
+  font-size: 21px; 
+  text-align: left;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 28px;
+  cursor: pointer; 
+}
+
+.photo {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50px; 
+}
+  
+.photo img {
+  width: 100%;
+  position: relative;
+  top: -10px; 
+}
+
+.legislator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; 
+  border: 1px solid #CCC; 
+  border-radius: 50px;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+.legislator-info {
+  margin-left: 15px; 
+}
+
+.content {
+  width: 600px;
+  margin: 0 auto; 
+}
+
+/* Legislator Details page */
+
+.legislator-heading {
+  text-align: center;
+  margin: 20px auto 40px auto; 
+}
+
+.legislator-heading .legislator-name {
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #EBFF00;
+  padding: 5px;
+  display: inline-block; 
+  box-shadow: 3px 3px 5px #888888;
+}
+  
+.legislator-heading .legislator-party-name {
+  font-size: 21px;
+  margin-bottom: 10px; 
+}
+  
+.legislator-heading .photo {
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 120px; 
+  margin: 30px auto; 
+}
+
+.content-box-title {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  opacity: 0.8; 
+  font-size: 20px;
+}
+
+.content-box, .vote {
+  background-color: white;
+  border: 1px solid #CCC;
+  padding: 15px;
+  width: 300px;
+  margin: 0 auto; 
+  box-shadow: 3px 3px 5px #888888;
+}
+
+.content-box.active, .active.vote {
+  background-color: #FEFFF8; 
+}
+
+.vote {
+  width: 500px;
+  margin-bottom: 15px; 
+  border: 2px solid lightgray;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.vote-Yea {
+  border-color: green; 
+
+}
+
+.vote-Nay {
+  border-color: red; 
+}
+
+.bill-name {
+  font-weight: bold;
+  font-size: 21px; 
+}
+
+.bill-description {
+  color: #333; 
+}

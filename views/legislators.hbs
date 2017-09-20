@@ -1,0 +1,44 @@
+<a href="/">
+  <div class="zip-code">
+    {{#each zip_numbers as |num|}}
+      <div class="zip-char">{{num}}</div>
+    {{/each}} 
+    <div class="change-zip">Change Zip</div>	
+  </div> 
+</a>
+
+<div class="content">
+
+  <div class="body-name">House</div>
+
+  {{#each house_members as |legislator|}}
+    <div class="legislator">
+      <div class="photo">
+        <img src="{{legislator.imageUrl}}">
+      </div>
+      <div class="legislator-info">
+        <div class="name">
+          <a href="/legislator_details/{{legislator.bioguide_id}}">{{legislator.name}}</a></h1>
+        </div>
+        <div class="party-name">{{legislator.party}}</div>
+      </div>
+    </div>
+  {{/each}} 
+
+  <div class="body-name">Senate</div>
+
+  {{#each senate_members as |legislator|}}
+    <div class="legislator">
+      <div class="photo">
+        <img src="{{legislator.imageUrl}}">
+      </div>
+      <div class="legislator-info">
+        <div class="name">
+          <a href="/legislator_details/{{legislator.bioguide_id}}">{{legislator.name}}</a></h1>
+        </div>
+        <div class="party-name">{{legislator.party}}</div>
+      </div>
+    </div>
+  {{/each}} 
+
+</div>
