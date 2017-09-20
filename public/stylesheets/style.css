@@ -175,5 +175,72 @@ a:hover {
   margin: 0 auto; 
 }
 
+.legislator-heading {
+  text-align: center;
+  margin: 20px auto 40px auto; 
+}
 
+.legislator-heading .legislator-name {
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #EBFF00;
+  padding: 5px;
+  display: inline-block; 
+  box-shadow: 3px 3px 5px #888888;
+}
+  
+.legislator-heading .legislator-party-name {
+  font-size: 21px;
+  margin-bottom: 10px; 
+}
+  
+.legislator-heading .photo {
+  width: 240px;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 120px; 
+  margin: 30px auto; 
+}
 
+.content-box-title {
+  margin-bottom: 10px;
+  opacity: 0.8; 
+}
+
+.content-box, .vote {
+  background-color: white;
+  border: 1px solid #CCC;
+  padding: 15px;
+  width: 300px;
+  margin: 0 auto; 
+  box-shadow: 3px 3px 5px #888888;
+}
+
+.content-box.active, .active.vote {
+  background-color: #FEFFF8; 
+}
+
+.vote {
+  width: 500px;
+  margin-bottom: 15px; 
+  border: 2px solid lightgray;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.vote-Yea {
+  border-color: green; 
+
+}
+
+.vote-Nay {
+  border-color: red; 
+}
+
+.bill-name {
+  font-weight: bold;
+  font-size: 21px; 
+}
+
+.bill-description {
+  color: #333; 
+}

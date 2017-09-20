@@ -7,7 +7,8 @@ class Legislator {
     this.party = this.partyConverter(params.party),
     this.phone = params.phone,
     this.website = params.website,
-    this.imageUrl = this.image(params.bioguide_id)
+    this.imageUrl = this.image(params.bioguide_id),
+    this.title = this.createTitle(this.chamber, params.party)
   };
 
   name(first_name, last_name){
@@ -18,6 +19,27 @@ class Legislator {
     return `https://theunitedstates.io/images/congress/225x275/${bioguide_id}.jpg`;
   }
 
+  createTitle(chamber, apiParty){
+    var strChamber;
+    if (chamber==='senate') {
+      strChamber = ' Senator';
+    } else {
+      strChamber = ' Congressperson';
+    }
+
+    switch (apiParty) {
+      case 'D':
+        return 'Democratic' + strChamber
+        break;
+      case 'R':
+        return 'Republican' + strChamber
+        break;
+      case 'I':
+        return 'Independent' + strChamber
+        break;  
+    }
+  }
+
   partyConverter(apiParty){
     switch (apiParty) {
       case 'D':
@@ -26,14 +48,8 @@ class Legislator {
       case 'R':
         return 'Republican'
         break;
-      case 'G':
-        return 'Green'
-        break;
-      case 'I':
-        return 'Independent'
-        break;
       default:
-        return 'Party Unknown'
+        return 'Independent'
     }
   };
 } 

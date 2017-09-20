@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
     // render this info in the view
     res.render('legislators', 
       { 
-        title: 'Legislators by zip', 
         house_members: houseMembers, 
         senate_members: senateMembers, 
         zip_numbers: zip.split('') 

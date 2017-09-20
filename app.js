@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var legislators = require('./routes/legislators'); //added
+var legislators = require('./routes/legislators');		//added
+var legislator_details = require('./routes/legislator_details');	//added
 
 
 var app = express();
@@ -24,7 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/legislators', legislators);  //added
+app.use('/legislators', legislators);		//added
+app.use('/legislator_details', legislator_details);	//added
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
