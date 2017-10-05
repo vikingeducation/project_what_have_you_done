@@ -6,6 +6,7 @@ Gregory Alford
 Check it out here:
 
 https://boiling-wildwood-43735.herokuapp.com/
+(the API I was using shut down and I have to rework the application with a different API)
 
 to do list:
 
