@@ -1,0 +1,36 @@
+<h1 class="heading title">What Have You Done?</h1>
+
+<div class="pic-and-name">
+  <div class="heading">
+    <img class="pic" src="{{data.image}}" alt="">
+    <h2>({{data.party}}) {{data.chamber}} Member</h2>
+    <h1 class="title widthfix" >{{data.name}}</h1>
+  </div>
+</div>
+
+
+<h2 class="heading member">Contact Info</h2>
+<div class="contact-info-box heading">
+
+  <ul>
+    <li><a href="mailto:{{data.oc_email}}?subject=feedback">{{data.oc_email}}</a> </li>
+    <li><a href="tel:{{data.phone}}">{{data.phone}}</a></li>
+    <li><a href="{{data.website}}">Your Legislator's Website</a> </li>
+    <li><a href="https://twitter.com/{{data.twitter_id}}">Tweet @{{data.twitter_id}}</a> </li>
+  </ul>
+
+</div>
+
+<h2 class="heading member">Recent Votes</h2>
+<div class="">
+  {{#each billData as |billData|}}
+    <div class="bill-box heading">
+      <h2><a href="{{billData.url}}">{{billData.roll_id}}</a></h2> 
+      <h3>How did they Vote: {{billData.vote_decision}}</h3>
+      <p>{{billData.question}}</p>
+      <h4>{{billData.result}}</h4>
+    </div>
+  {{/each}}
+</div>
+
+<h5 class="heading"><a class="shoutout" href="https://github.com/coelacanth7">Built by Greg Alford</a></h5>
