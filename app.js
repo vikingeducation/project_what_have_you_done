@@ -8,7 +8,6 @@ var expressValidator = require('express-validator');
 
 // Requiring each route
 var index = require("./routes/index");
-var users = require("./routes/users");
 
 // Requiring keys
 var keys = require("../../../Modules/Cles/items.js");
@@ -30,7 +29,6 @@ app.use(expressValidator());
 
 // Set routes
 app.use("/", index);
-app.use("/users", users);
 //app.use("/results", results);
 
 // catch 404 and forward to error handler
