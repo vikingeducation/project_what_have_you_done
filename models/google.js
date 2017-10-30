@@ -35,7 +35,7 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
     }
 
     var obj = JSON.parse(body);
-
+    console.log(obj);
     // For each INDEX in obj.office
     var i = 0;
     while (i < (obj.offices.length)) {
@@ -69,19 +69,6 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
   });
 
 };
-
-var exampleLine = "352 Woodford St.";
-var exampleCity = "Portland";
-var exampleState = "ME";
-var exampleZip = "04103";
-
-executeGoogleRequest(exampleLine, exampleCity, exampleState, exampleZip, function(APIerr, officialArray) {
-  if (APIerr) {
-    console.log(APIerr);
-  } else {
-    console.log(officialArray);
-  }
-});
 
 module.exports = {
   executeGoogleRequest
