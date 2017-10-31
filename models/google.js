@@ -10,7 +10,6 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
   var houseIndices = [];
   var indexArray = [];
 
-
   // Options object, which gets passed to request call
   var options = {
     method: 'GET',
@@ -19,7 +18,8 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
      { address: address,
        includeOffices: 'true',
        levels: 'country',
-       key: keys.google },
+       key: keys.google,
+       fields: 'offices(name,officialIndices),officials(name,party,urls,photoUrl,channels)' },
     headers:
      { 'postman-token': keys.postmanToken,
        'cache-control': 'no-cache',
@@ -35,8 +35,7 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
     }
 
     var obj = JSON.parse(body);
-    console.log(obj);
-    // For each INDEX in obj.office
+    // For each INDEX in obj.offices - unknown quantity
     var i = 0;
     while (i < (obj.offices.length)) {
       // If the rep is in the Senate or House, add them to
@@ -59,16 +58,40 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
         name: obj.officials[index].name,
         party: obj.officials[index].party,
         siteURL: obj.officials[index].urls,
-        photoURL: obj.officials[index].photoUrl
+        photoURL: obj.officials[index].photoUrl,
+        channels: obj.officials[index].channels
       }
+
+      // Get the necessary info from the channels property
+      var i;
+      for(i = 0; i <= officialInfo.channels.length; i++) {
+        if(officialInfo.channels[i].type === "Twitter") {
+          officialInfo.twitter = obj.officials[index].channels[i].id;
+          break;
+        }
+      }
+      // Delete channels property from officialInfo
+      // It's now unneccesary and a bit unwieldy
+      delete officialInfo.channels;
       // Push each official object into an array
       officialArray.push(officialInfo);
     });
-
     callback(APIerr, officialArray);
   });
-
 };
+
+var exampleLine = "352 Woodford St.";
+var exampleCity = "Portland";
+var exampleState = "ME";
+var exampleZip = "04103";
+
+executeGoogleRequest(exampleLine, exampleCity, exampleState, exampleZip, function(APIerr, officialArray) {
+  if (APIerr) {
+    console.log(APIerr);
+  } else {
+    console.log(officialArray);
+  }
+});
 
 module.exports = {
   executeGoogleRequest
