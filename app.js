@@ -1,30 +1,24 @@
 'use strict';
+const dotenv = require('dotenv').config();
+const env = require('./.env');
 const request = require('request');
 const Express = require('express');
 const router = Express.Router();
-const app = new Express();
+const app = Express();
 const Members = require('./index.js');
 const members = {};
-members.houseMember = new Members.houseMember();
-members.senateMember = new Members.senateMember();
-
-const locator = request.defaults({
-  headers: { key: 'API_KEY' }
-});
+// members.HouseMember = new Members.HouseMember();
+// members.SenateMember = new Members.SenateMember();
 
 const congress = request.defaults({
-  headers: { 'X-API-Key': 't39tWvoQexG9UaGKn3k1LDKbWEvxS7ZoxmK0B7ai' }
+  headers: { 'X-API-Key': `${congressKey}` }
 });
 
 const localBaseUri =
   'https://www.googleapis.com/civicinfo/v2/representatives?key';
 
-const lock = 'AIzaSyCBYSt4nVMnuyOUFg6TZCA9q4z6V3zkzg0';
-
-let zip = 12550;
-
 const congressBaseUri = 'https://api.propublica.org/congress/v1/115';
-// const houseMembers =
+
 congress.get(
   `${congressBaseUri}/house/members.json`,
   (error, response, body) => {
@@ -33,19 +27,36 @@ congress.get(
     }
     console.log(response.statusCode);
     let data = JSON.parse(body);
-    // data.results[0].members.forEach(obj => members.housemember(obj));
-    // data.results[0].members.forEach(member => members.houseMember(member));
-    // console.log(members);
+    data.results[0].members.forEach(member => {
+      members.HouseMember = new Members.HouseMember(member);
+    });
   }
 );
 
-// locator.get(`${localBaseUri}=${lock}&address=${zip}`, (error, response, body) => {
-//   if (error) {
-//     console.error(error);
+congress.get(
+  `${congressBaseUri}/senate/members.json`,
+  (error, response, body) => {
+    if (error) {
+      console.error(error);
+    }
+    console.log(response.statusCode);
+    JSON.parse(body).results[0].members.forEach(member => {
+      members.SenateMember = new Members.SenateMember(member);
+      console.log(members);
+    });
+  }
+);
+
+// request.get(
+//   `${localBaseUri}=${googleKey}&address=${address}`,
+//   (error, response, body) => {
+//     if (error) {
+//       console.error(error);
+//     }
+//     var data = JSON.parse(body);
+//     for (var key in data['officials']) {
+//       console.log(data['officials'][key]);
+//     }
+//     // console.log(data['officials']['name']);
 //   }
-//   let data = JSON.parse(body);
-//   for (let key in data['officials']) {
-//     console.log(data['officials'][key].name);
-//   }
-//   // console.log(data['officials']['name']);
-// });
+// );

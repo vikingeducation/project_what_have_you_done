@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Seeker0/project_what_have_you_done#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "request": "^2.83.0"
   }
