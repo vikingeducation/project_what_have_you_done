@@ -17,10 +17,10 @@ const congress = request.defaults({
 const localBaseUri =
   'https://www.googleapis.com/civicinfo/v2/representatives?key';
 
-const congressBaseUri = 'https://api.propublica.org/congress/v1/115';
+const congressBaseUri = 'https://api.propublica.org/congress/v1';
 
 congress.get(
-  `${congressBaseUri}/house/members.json`,
+  `${congressBaseUri}/115/house/members.json`,
   (error, response, body) => {
     if (error) {
       console.error(error);
@@ -34,7 +34,7 @@ congress.get(
 );
 
 congress.get(
-  `${congressBaseUri}/senate/members.json`,
+  `${congressBaseUri}/115/senate/members.json`,
   (error, response, body) => {
     if (error) {
       console.error(error);
@@ -42,21 +42,46 @@ congress.get(
     console.log(response.statusCode);
     JSON.parse(body).results[0].members.forEach(member => {
       members.SenateMember = new Members.SenateMember(member);
-      console.log(members);
     });
   }
 );
 
-// request.get(
-//   `${localBaseUri}=${googleKey}&address=${address}`,
-//   (error, response, body) => {
-//     if (error) {
-//       console.error(error);
-//     }
-//     var data = JSON.parse(body);
-//     for (var key in data['officials']) {
-//       console.log(data['officials'][key]);
-//     }
-//     // console.log(data['officials']['name']);
-//   }
-// );
+let memberLookup = id => {
+  congress.get(`${congressBaseUri}/members/${id}`, (err, response, body) => {
+    if (err) {
+      console.error(err);
+    }
+    console.log(JSON.parse(body));
+  });
+};
+
+let memberVotes = id => {
+  congress.get(
+    `${congressBaseUri}/members/${id}/votes.json`,
+    (err, response, body) => {
+      if (err) {
+        console.error(err);
+      }
+      console.log(JSON.parse(body));
+    }
+  );
+};
+
+let localReps = zip => {
+  request.get(
+    `${localBaseUri}=${googleKey}&address=${zip}&levels=country`,
+    (error, response, body) => {
+      if (error) {
+        console.error(error);
+      }
+      var data = JSON.parse(body);
+      for (var key in data['officials']) {
+        console.log(data['officials'][key]);
+      }
+      // console.log(data['officials']['name']);
+    }
+  );
+};
+
+memberLookup('Y000064');
+memberVotes('Y000064');
