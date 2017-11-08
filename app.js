@@ -7,8 +7,7 @@ const router = Express.Router();
 const app = Express();
 const Members = require('./index.js');
 const members = {};
-// members.HouseMember = new Members.HouseMember();
-// members.SenateMember = new Members.SenateMember();
+const localReps = {};
 
 const congress = request.defaults({
   headers: { 'X-API-Key': `${congressKey}` }
@@ -34,30 +33,45 @@ let memberLookup = (id, callback) => {
 };
 
 let memberVotes = (id, callback) => {
-  generalGet(`${congressBaseUri}/members/${id}/votes.json`, data =>
-    callback(data)
-  );
+  generalGet(`${congressBaseUri}/members/${id}/votes.json`, data => {
+    for (let key in localReps) {
+      if (localReps[key].id === id) {
+        localReps[key].voteCount = new Members.Votes(data.results[0].votes);
+      }
+    }
+  });
 };
 
-let localReps = zip => {
+let findLocalReps = zip => {
   generalGet(
     `${localBaseUri}=${googleKey}&address=${zip}&levels=country`,
     data => {
-      for (let key in data['officials']) {
-        console.log(data['officials'][key]);
+      for (var key in data['officials']) {
+        for (var key2 in members) {
+          if (data['officials'][key]['name'] === key2) {
+            localReps[key2] = members[key2]['SenateMember'];
+            localReps[key2][photo] = data['officials'][key]['photoUrl'];
+          }
+        }
       }
     }
   );
 };
 
 generalGet(`${congressBaseUri}/115/house/members.json`, data => {
-  data.results[0].members.forEach(
-    member => (members.HouseMember = new Members.HouseMember(member))
-  );
+  data.results[0].members.forEach(member => {
+    members[
+      `${member.first_name} ${member.last_name}`
+    ] = new Members.HouseMember(member);
+  });
 });
 
 generalGet(`${congressBaseUri}/115/senate/members.json`, data => {
-  data.results[0].members.forEach(
-    member => (members.HouseMember = new Members.HouseMember(member))
-  );
+  data.results[0].members.forEach(member => {
+    members[
+      `${member.first_name} ${member.last_name}`
+    ] = new Members.SenateMember(member);
+  });
+  findLocalReps(12550);
+  console.log(localReps);
 });
