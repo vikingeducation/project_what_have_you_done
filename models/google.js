@@ -31,9 +31,10 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
 
     var APIerr = null;
     if (response.statusCode !== 200 ) {
-      APIerr = "Invalid API Response";
-      callback(APIerr, null);
+      APIerr = `Invalid API Response: ${body}`;
+      callback(error, APIerr, null);
     } else {
+
       var obj = JSON.parse(body);
       // For each INDEX in obj.offices - unknown quantity
       var i = 0;
@@ -62,22 +63,27 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
           channels: obj.officials[index].channels
         }
 
-        // Get the necessary info from the channels property
+
+
+        // Get Twitter info if available, otherwise get FB info
         var i;
-        for(i = 0; i <= officialInfo.channels.length; i++) {
+        for(i = 0; i < officialInfo.channels.length; i++) {
           if(officialInfo.channels[i].type === "Twitter") {
-            officialInfo.twitter = obj.officials[index].channels[i].id;
-            break;
+            officialInfo.twitter = obj.officials[index].channels[i].id.toLowerCase();
+          } else if(officialInfo.channels[i].type === "Facebook") {
+            officialInfo.facebook = obj.officials[index].channels[i].id.toLowerCase();
+          } else if(officialInfo.channels[i].type === "YouTube") {
+            officialInfo.youtube = obj.officials[index].channels[i].id.toLowerCase();
           }
         }
         // Delete channels property from officialInfo
-        // It's now unneccesary and a bit unwieldy
+        // It's now unneccesary
         delete officialInfo.channels;
         // Push each official object into an array
         officialArray.push(officialInfo);
       });
 
-      callback(APIerr, officialArray);
+      callback(error, APIerr, officialArray);
     }
 
   });
