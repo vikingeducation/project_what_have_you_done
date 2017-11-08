@@ -19,69 +19,45 @@ const localBaseUri =
 
 const congressBaseUri = 'https://api.propublica.org/congress/v1';
 
-congress.get(
-  `${congressBaseUri}/115/house/members.json`,
-  (error, response, body) => {
-    if (error) {
-      console.error(error);
-    }
-    console.log(response.statusCode);
-    let data = JSON.parse(body);
-    data.results[0].members.forEach(member => {
-      members.HouseMember = new Members.HouseMember(member);
-    });
-  }
-);
-
-congress.get(
-  `${congressBaseUri}/115/senate/members.json`,
-  (error, response, body) => {
-    if (error) {
-      console.error(error);
-    }
-    console.log(response.statusCode);
-    JSON.parse(body).results[0].members.forEach(member => {
-      members.SenateMember = new Members.SenateMember(member);
-    });
-  }
-);
-
-let memberLookup = id => {
-  congress.get(`${congressBaseUri}/members/${id}`, (err, response, body) => {
+let generalGet = (url, callback) => {
+  congress.get(url, (err, response, body) => {
     if (err) {
       console.error(err);
     }
-    console.log(JSON.parse(body));
+    console.log(response.statusCode);
+    callback(JSON.parse(body));
   });
 };
 
-let memberVotes = id => {
-  congress.get(
-    `${congressBaseUri}/members/${id}/votes.json`,
-    (err, response, body) => {
-      if (err) {
-        console.error(err);
-      }
-      console.log(JSON.parse(body));
-    }
+let memberLookup = (id, callback) => {
+  generalGet(`${congressBaseUri}/members/${id}`, data => callback(data));
+};
+
+let memberVotes = (id, callback) => {
+  generalGet(`${congressBaseUri}/members/${id}/votes.json`, data =>
+    callback(data)
   );
 };
 
 let localReps = zip => {
-  request.get(
+  generalGet(
     `${localBaseUri}=${googleKey}&address=${zip}&levels=country`,
-    (error, response, body) => {
-      if (error) {
-        console.error(error);
-      }
-      var data = JSON.parse(body);
-      for (var key in data['officials']) {
+    data => {
+      for (let key in data['officials']) {
         console.log(data['officials'][key]);
       }
-      // console.log(data['officials']['name']);
     }
   );
 };
 
-memberLookup('Y000064');
-memberVotes('Y000064');
+generalGet(`${congressBaseUri}/115/house/members.json`, data => {
+  data.results[0].members.forEach(
+    member => (members.HouseMember = new Members.HouseMember(member))
+  );
+});
+
+generalGet(`${congressBaseUri}/115/senate/members.json`, data => {
+  data.results[0].members.forEach(
+    member => (members.HouseMember = new Members.HouseMember(member))
+  );
+});
