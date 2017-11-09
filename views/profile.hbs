@@ -1,0 +1,20 @@
+<h1>{{project.name}}</h1>
+
+<img src={{project.imgs}}>
+
+<ul>Technologies Used
+  {{#each project.techs as |tech|}}
+  <li>{{tech}}</li>
+  {{/each}}
+</ul>
+
+
+<br>
+
+<a href={{project.link}}>
+  Project Github page
+</a>
+
+<h3>About this project</h3>
+<br>
+<p>{{project.description}}</p>

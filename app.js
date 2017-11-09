@@ -1,4 +1,6 @@
 'use strict';
+const http = require('http');
+const fs = require('fs');
 const dotenv = require('dotenv').config();
 const env = require('./.env');
 const request = require('request');
@@ -6,8 +8,28 @@ const Express = require('express');
 const router = Express.Router();
 const app = Express();
 const Members = require('./index.js');
-const members = {};
-const localReps = {};
+
+const localReps = {
+  senate: {},
+  house: {}
+};
+
+const port = 3000;
+const host = 'localhost';
+
+let server = http.createServer((req, res) => {
+  fs.readFile('./views/home.html', 'utf8', (err, data) => {
+    if (err) {
+      res.writeHead(404);
+      res.end('404 Not Found');
+    } else {
+      res.writeHead(200, {
+        'Content-Type': 'text/html'
+      });
+      res.end(data);
+    }
+  });
+});
 
 const congress = request.defaults({
   headers: { 'X-API-Key': `${congressKey}` }
@@ -28,50 +50,86 @@ let generalGet = (url, callback) => {
   });
 };
 
-let memberLookup = (id, callback) => {
-  generalGet(`${congressBaseUri}/members/${id}`, data => callback(data));
+let memberLookup = (array, callback) => {
+  array.forEach(id => {
+    generalGet(`${congressBaseUri}/members/${id}`, data => callback(data));
+  });
 };
 
 let memberVotes = (id, callback) => {
   generalGet(`${congressBaseUri}/members/${id}/votes.json`, data => {
-    for (let key in localReps) {
-      if (localReps[key].id === id) {
-        localReps[key].voteCount = new Members.Votes(data.results[0].votes);
-      }
-    }
+    callback(data);
   });
 };
 
-let findLocalReps = zip => {
+let findHouseReps = (state, district, callback) => {
   generalGet(
-    `${localBaseUri}=${googleKey}&address=${zip}&levels=country`,
+    `${congressBaseUri}/members/house/${state}/${district}/current.json`,
     data => {
-      for (var key in data['officials']) {
-        for (var key2 in members) {
-          if (data['officials'][key]['name'] === key2) {
-            localReps[key2] = members[key2]['SenateMember'];
-            localReps[key2][photo] = data['officials'][key]['photoUrl'];
-          }
-        }
-      }
+      let repArr = [];
+      data.results.forEach(rep => repArr.push(rep.id));
+      callback(repArr);
     }
   );
 };
 
-generalGet(`${congressBaseUri}/115/house/members.json`, data => {
-  data.results[0].members.forEach(member => {
-    members[
-      `${member.first_name} ${member.last_name}`
-    ] = new Members.HouseMember(member);
-  });
-});
+let findSenateReps = (state, callback) => {
+  generalGet(
+    `${congressBaseUri}/members/senate/${state}/current.json`,
+    data => {
+      let repArr = [];
+      data.results.forEach(rep => repArr.push(rep.id));
+      callback(repArr);
+    }
+  );
+};
 
-generalGet(`${congressBaseUri}/115/senate/members.json`, data => {
-  data.results[0].members.forEach(member => {
-    members[
-      `${member.first_name} ${member.last_name}`
-    ] = new Members.SenateMember(member);
+let popHouseReps = obj => {
+  let rep = obj.results[0];
+  let id = obj.results[0].member_id;
+  memberVotes(id, data => {
+    let thisRep = localReps.house[`${rep['first_name']} ${rep['last_name']}`];
+    thisRep = new Members.HouseMember(rep);
+    // thisRep.voteCount = new Members.Votes(data.results[0].votes[0]);
+    thisRep.voteCount = [];
+    let dir = data.results[0].votes;
+    // console.log(dir);
+    for (let key in dir) {
+      thisRep.voteCount.push(new Members.Votes(dir[key]));
+    }
+    console.log(thisRep.voteCount);
   });
-  findLocalReps(12550);
-  console.log(localReps);
+};
+
+let popSenateReps = obj => {
+  let rep = obj.results[0];
+  localReps.senate[
+    `${rep['first_name']} ${rep['last_name']}`
+  ] = new Members.SenateMember(rep);
+};
+
+let findLocalReps = (address, callback) => {
+  generalGet(
+    `${localBaseUri}=${googleKey}&address=${address}&levels=country`,
+    data => {
+      let district = Object.keys(data.divisions)[2];
+      district = district.slice(district.length - 2).replace(/\W/g, '');
+      let state = data.normalizedInput.state;
+      callback(state, district);
+    }
+  );
+};
+
+findLocalReps('94 prospect street newburgh ny 12550', (state, district) => {
+  findHouseReps(state, district, array => {
+    memberLookup(array, obj => {
+      popHouseReps(obj);
+    });
+    // findSenateReps(state, array => {
+    //   memberLookup(array, obj => {
+    //     popSenateReps(obj);
+    //     console.log(localReps);
+    //   });
+    // });
+  });
 });
