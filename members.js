@@ -43,23 +43,6 @@ class Votes {
   }
 }
 
-// class Votes {
-//   constructor(data) {
-//     this.bills = {};
-//     for (let key in data) {
-//       const obj = data[key];
-//       const entry = {
-//         title: obj.bill.title,
-//         bill_id: obj.bill.bill_id,
-//         description: obj.description,
-//         position: obj.position,
-//         result: obj.result
-//       };
-//       this.bills[key] = entry;
-//     }
-//   }
-// }
-
 module.exports = {
   HouseMember,
   SenateMember,

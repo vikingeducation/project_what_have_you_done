@@ -7,7 +7,7 @@ const request = require('request');
 const Express = require('express');
 const router = Express.Router();
 const app = Express();
-const Members = require('./index.js');
+const Members = require('./members.js');
 
 const localReps = {
   senate: {},
@@ -44,6 +44,7 @@ let generalGet = (url, callback) => {
   congress.get(url, (err, response, body) => {
     if (err) {
       console.error(err);
+      return; //Handle errors!
     }
     console.log(response.statusCode);
     callback(JSON.parse(body));
@@ -90,22 +91,26 @@ let popHouseReps = obj => {
   memberVotes(id, data => {
     let thisRep = localReps.house[`${rep['first_name']} ${rep['last_name']}`];
     thisRep = new Members.HouseMember(rep);
-    // thisRep.voteCount = new Members.Votes(data.results[0].votes[0]);
     thisRep.voteCount = [];
     let dir = data.results[0].votes;
-    // console.log(dir);
     for (let key in dir) {
       thisRep.voteCount.push(new Members.Votes(dir[key]));
     }
-    console.log(thisRep.voteCount);
   });
 };
 
 let popSenateReps = obj => {
   let rep = obj.results[0];
-  localReps.senate[
-    `${rep['first_name']} ${rep['last_name']}`
-  ] = new Members.SenateMember(rep);
+  let id = obj.results[0].member_id;
+  memberVotes(id, data => {
+    let thisRep = localReps.senate[`${rep['first_name']} ${rep['last_name']}`];
+    thisRep = new Members.SenateMember(rep);
+    thisRep.voteCount = [];
+    let dir = data.results[0].votes;
+    for (let key in dir) {
+      thisRep.voteCount.push(new Members.Votes(dir[key]));
+    }
+  });
 };
 
 let findLocalReps = (address, callback) => {
@@ -125,11 +130,10 @@ findLocalReps('94 prospect street newburgh ny 12550', (state, district) => {
     memberLookup(array, obj => {
       popHouseReps(obj);
     });
-    // findSenateReps(state, array => {
-    //   memberLookup(array, obj => {
-    //     popSenateReps(obj);
-    //     console.log(localReps);
-    //   });
-    // });
+    findSenateReps(state, array => {
+      memberLookup(array, obj => {
+        popSenateReps(obj);
+      });
+    });
   });
 });
