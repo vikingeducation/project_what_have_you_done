@@ -51,8 +51,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function () {
-  // This function is run when the app starts up.
-  
-})
+
+
+const port = process.env.PORT || '3000'
+
+app.listen(port)
 module.exports = app;
