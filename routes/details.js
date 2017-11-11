@@ -23,9 +23,9 @@ if (repsa.length > 0) {
       repsa = [];
     };
 if (typeof obj === "undefined"){
-var repname="Please go back and enter a complete address";
-      var repparty="";
-      var repphotos="";
+var repname=null;
+      var repparty=null;
+      var repphotos=null;
       repsa.push(new reps(repname,repparty,repphotos))
     } else {
     while (j < obj.length){
