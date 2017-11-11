@@ -5,8 +5,7 @@ const request = require('request');
 const Express = require('express');
 const router = Express.Router();
 const app = Express();
-const Members = require('./members.js');
-const Locals = require('./routes/locals.js');
+const legislators = require('./routes/legislators.js');
 
 const port = 3000;
 const host = 'localhost';
@@ -24,6 +23,8 @@ let server = http.createServer((req, res) => {
     }
   });
 });
+
+app.use('/legislators', legislators);
 
 Locals.findLocalReps(
   '94 prospect street newburgh ny 12550',
