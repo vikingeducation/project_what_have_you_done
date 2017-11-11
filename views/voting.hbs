@@ -1,25 +1,25 @@
 
 <img src="/images/flag.jpg">
 
-<h2>History of Action:" "</h2>
+<h2>History of Action: </h2>
 <div class="info">
 {{#each votea1 as |vote|}}
 
-<div class="billn"><h3>Bill Number: " "{{vote.billnumb}}</h3>
+<div class="billn"><h3>Bill Number: {{vote.billnumb}}</h3>
 </div>
 
-<div class="title"><h4>Bill Title:" "{{vote.billtitle}}</h4></div>
+<div class="title"><h4>Bill Title: {{vote.billtitle}}</h4></div>
 
-<div class="posit"></h4>Bill Position:" "
+<div class="posit"></h4>Bill Position:
 {{vote.billposit}}</h4></div>
 
 </div>
 {{/each}}
 <div class="moredetail">
-<div><h4>Missed Votes: " "</h4></div>
+<div><h4>Missed Votes: </h4></div>
 {{#each votea2 as |vote2|}}
 {{vote2.missed}}
-<div class="total"><h4>Total Votes:" "</h4>
+<div class="total"><h4>Total Votes: </h4>
 {{vote2.total}}</div>
 
 <div class="renew"><h3>Yay or nay, when can you say if they stay?:" "</h3>
