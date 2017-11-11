@@ -1,0 +1,39 @@
+<img src="/images/flag.jpg">
+<h1 class="main">Your Representatives:</h1>
+
+<h2>These are your reps: </h2>
+
+<div class="house">
+  <h3>House</h3>
+  {{#each repsa as |rep|}}
+  <div class="summary">
+    <div class="name">
+      <a href="/voting/{{rep.name}}">
+        {{rep.name}}</a>
+    </div>
+  <div class="pic">
+    <img src={{rep.photos}}>
+  </div>
+  <div class="party">
+    {{rep.party}}
+  </div>
+</div>
+{{/each}}
+</div>
+<div class="senate">
+  <h3>Senate</h3>
+  {{#each sensa as |sen|}}
+  <div class="summary">
+    <div class="name">
+      <a href="/voting/{{sen.name}}">
+        {{sen.name}}</a>
+    </div>
+  <div class="pic">
+    <img src={{sen.photos}}>
+  </div>
+  <div class="party">
+    {{sen.party}}
+  </div>
+</div>
+</div>
+{{/each}}
