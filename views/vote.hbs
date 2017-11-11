@@ -4,22 +4,21 @@
 
 <h2 class="text-center">
 {{Each votea1 as |vote|}}
-History of Action</h2>
-<h3>Recent Votes:</h3> 
-<h4>Bill Number:</h4>
+History of Action:" "</h2>
+<h3>Recent Votes:" "</h3>
+<h4>Bill Number:" "</h4>
 {{vote.billnumb}}
-<h4>Bill Title:</h4>
+<h4>Bill Title:" "</h4>
 {{vote.billtitle}}
-<h4>Bill Position:</h4>
+<h4>Bill Position:" "</h4>
 {{vote.billposit}}
 {{/each}}
 <h4>Missed Votes</h4>
 {{#Each votea2 as |vote2|}}
 {{vote2.missed}}
-<h4>Total Votes</h4>
+<h4>Total Votes:" "</h4>
 {{vote2.total}}
 
-<h1>Yay or nay, do they stay?:</h1>
+<h1>Yay or nay, do they stay?:" "</h1>
 {{vote2.next}}
 {{/each}}
-
