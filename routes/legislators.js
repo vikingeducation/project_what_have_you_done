@@ -8,8 +8,17 @@ const router = express.Router();
 const dotenv = require('dotenv').config();
 const env = require('../.env');
 const Members = require('../members.js');
-const localReps = require('../index.js');
+const Reps = require('../index.js');
 
-router.get('/', (req, res, next) => {});
+router.get('/', () => console.log('Request received'));
 
-router.get('/:id', (req, res, next) => {});
+router.get('/:address', (req, res) => {
+  console.log('address received');
+  let address = req.query.address;
+  Reps.LocalRepsGenerator(address)
+    .then(console.log)
+    .then(reps => res.render('../views/locals.hbs', { reps: reps }))
+    .catch(err => res.render('../views/error.hbs', { err }));
+});
+
+module.exports = router;

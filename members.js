@@ -20,9 +20,9 @@ class HouseMember {
 class SenateMember {
   constructor(member) {
     if (member.current_party === 'D') {
-      this.party === 'Democratic';
+      this.party = 'Democratic';
     } else {
-      this.party === 'Republican';
+      this.party = 'Republican';
     }
     this.name = `${member.first_name} ${member.last_name}`;
     this.title = 'Senator';

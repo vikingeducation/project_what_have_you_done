@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 const request = require('request');
 const rp = require('request-promise');
-const fs = require('fs');
-const router = express.Router();
 const dotenv = require('dotenv').config();
 const env = require('./.env');
 const Members = require('./members.js');
@@ -63,24 +61,19 @@ let findRepIds = obj => {
 let memberLookup = array =>
   Promise.all(array.map(id => promisedGet(`${congressBaseUri}/members/${id}`)));
 
-let populateReps = (array, localReps) => {
-  return array.map(rep => populateRep(rep, localReps));
-  console.log(localReps);
+const populateReps = reps => {
+  return reps.reduce(populateRep, { Senate: [], House: [] });
 };
 
-let populateRep = (obj, localReps) => {
-  let rep = obj.results[0];
-  let chamber = rep.roles[0].chamber;
+const populateRep = (localReps, obj) => {
+  const rep = obj.results[0];
+  const chamber = rep.roles[0].chamber;
   if (chamber === 'House') {
-    localReps[chamber][
-      `${rep['first_name']} ${rep['last_name']}`
-    ] = new Members.HouseMember(rep);
+    localReps.House.push(new Members.HouseMember(rep));
   } else {
-    localReps[chamber][
-      `${rep['first_name']} ${rep['last_name']}`
-    ] = new Members.SenateMember(rep);
+    localReps.Senate.push(new Members.SenateMember(rep));
   }
-  return localReps[chamber][`${rep['first_name']} ${rep['last_name']}`];
+  return localReps;
 };
 
 let memberVotes = obj => {
@@ -91,39 +84,26 @@ let memberVotes = obj => {
       (obj[0].votes = data.results[0].votes.map(val => new Members.Votes(val)))
   );
 };
-// obj[0].votes= new Members.Votes(obj);
-let num = ['S000148'];
 
 const RepGenerator = id => {
-  const soloRep = {
-    House: {},
-    Senate: {}
-  };
-
   memberLookup(id)
     .then(obj => populateReps(obj, soloRep))
     .then(memberVotes)
     .then(data => console.log(data));
-  // // .catch(error => console.error(error))
-  // .then(memberVotes)
-  // .catch(error => console.error(error));
 };
 
 const LocalRepsGenerator = address => {
-  const localReps = {
-    Senate: {},
-    House: {}
-  };
-
-  findLocalReps(address)
+  return findLocalReps(address)
     .then(findRepIds)
     .then(memberLookup)
-    .then(array => populateReps(array, localReps))
-    .then(console.log);
+    .then(array => populateReps(array));
 };
 
-module.exports = {};
+module.exports = {
+  LocalRepsGenerator,
+  RepGenerator
+};
 
+// let num = ['S000148'];
 // LocalRepsGenerator('2415 nobel ave south lehigh acres fl 33973');
-RepGenerator(num);
-// console.log(num);
+// RepGenerator(num);

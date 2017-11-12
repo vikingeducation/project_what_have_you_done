@@ -2,9 +2,9 @@
       <h3>{{zip_code}}</h3>
 
 <div class='body'>
-  <div class="house">
+  <div class="senate">
     <h1>House</h1>
-    {{#each localReps.house as |rep|}}
+    {{#each reps.Senate as |rep|}}
     <div class="rep">
       <div class='image'>
       <img src={{rep.photo}}
@@ -17,9 +17,9 @@
     {{/each}}
   </div>
 
-    <div class="senate">
+    <div class="house">
       <h1>Senate</h1>
-      {{#each localReps.senate as |rep|}}
+      {{#each reps.House as |rep|}}
       <div class="rep">
         <div class='image'>
         <img src={{rep.photo}}
