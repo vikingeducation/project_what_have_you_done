@@ -27,7 +27,10 @@ router.get('/id/:id', (req, res) => {
   console.log('Rep ID received');
   // let id = [req.params.id];
   Reps.RepGenerator([req.params.id])
-    .then(rep => res.render('../views/profile.hbs', { rep }))
+    .then(rep => {
+      console.log(rep);
+      res.render('../views/profile.hbs', { rep });
+    })
     .catch(err => res.render('../views/error.hbs', { err }));
 });
 

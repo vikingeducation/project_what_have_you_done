@@ -39,9 +39,12 @@ class SenateMember {
 
 class Votes {
   constructor(data) {
+    const billNum = data.bill.number.toLowerCase().replace(/\s/g, '');
+    const newNum = billNum.slice(0, 2) !== 'pn' ? billNum : null;
+    this.num = newNum;
     this.title = data.bill.title;
     this.bill_id = data.bill.bill_id;
-    this.bill_url = data.bill.bill_uri;
+    this.bill_url = `https://www.govtrack.us/congress/bills/115/${newNum}`;
     this.description = data.description;
     this.position = data.position;
     this.result = data.result;

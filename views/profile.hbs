@@ -1,26 +1,43 @@
-<h1>{{rep.name}}</h1>
+<h1 class='highlighted'>What Have You Done?</h1>
 
+
+<section>
 <img src={{rep.photo}}>
 
-<h1>{{rep.party}}</h1>
+<h2>{{rep.party}} Congressperson</h2>
+
+<h1 class='highlighted'>{{rep.name}}</h1>
+</section>
 
 
+<section>
+  <h3>Contact Info</h3>
+  <div>
+    <h4>Phone Number</h4>
+    <p>{{rep.phone}}</p>
+    <br>
+    <h4>Website</h4>
+    <p>{{rep.website}}</p>
+  </div>
+</section>
 
-
-
-<!-- <br>
-
-<a href={{project.link}}>
-  Project Github page
-</a>
-
-<h3>About this project</h3>
-<br>
-<p>{{project.description}}</p>
-
-
-<ul>Technologies Used
-  {{#each project.techs as |tech|}}
-  <li>{{tech}}</li>
+<section>
+  <h3>Recent Votes</h3>
+  <p>Bill passed - <div class='passed'></div></p>
+  {{#each rep.votes as |vote|}}
+    <article class='failed'>
+      {{#if vote.num}}
+      <a href={{vote.bill_url}}>
+        <h2>{{vote.bill_id}}</h2>
+      </a>
+      {{else}}
+        <h2>{{vote.bill_id}}</h2>
+      {{/if}}
+      <h3>{{vote.title}}</h3>
+      <br>
+      <p>{{vote.description}}</p>
+      <br>
+      <p>voted: {{vote.position}}</p>
+    </article>
   {{/each}}
-</ul> -->
+</section>
