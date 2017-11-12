@@ -5,7 +5,8 @@
   <div class="senate">
     <h1>House</h1>
     {{#each reps.Senate as |rep|}}
-    <div class="rep">
+    <a href={{rep.soloUrl}}>
+    <div class="rep" id={{rep.id}}>
       <div class='image'>
       <img src={{rep.photo}}
       </div>
@@ -14,13 +15,15 @@
         <h3>{{rep.party}}</h3>
       </section>
     </div>
+  </a>
     {{/each}}
   </div>
 
     <div class="house">
       <h1>Senate</h1>
       {{#each reps.House as |rep|}}
-      <div class="rep">
+      <a href={{rep.soloUrl}}>
+      <div class="rep" id={{rep.id}}>
         <div class='image'>
         <img src={{rep.photo}}
         </div>
@@ -29,6 +32,7 @@
           <h3>{{rep.party}}</h3>
         </section>
         </div>
+      </a>
       {{/each}}
     </div>
   </div>

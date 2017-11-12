@@ -27,20 +27,18 @@ let promisedGet = url => {
 const findLocalReps = address => {
   return promisedGet(
     `${localBaseUri}=${googleKey}&address=${address}&levels=country`
-  )
-    .then(data => {
-      const district = Object.keys(data.divisions).reduce((acc, div) => {
-        const pieces = div.split('/');
-        const piece = pieces[pieces.length - 1];
-        return piece.slice(0, 3) === 'cd:' ? piece.slice(3) : acc;
-      });
-      const state = data.normalizedInput.state;
-      return {
-        state: state,
-        district: district
-      };
-    })
-    .catch(error => console.error(error));
+  ).then(data => {
+    const district = Object.keys(data.divisions).reduce((acc, div) => {
+      const pieces = div.split('/');
+      const piece = pieces[pieces.length - 1];
+      return piece.slice(0, 3) === 'cd:' ? piece.slice(3) : acc;
+    });
+    const state = data.normalizedInput.state;
+    return {
+      state: state,
+      district: district
+    };
+  });
 };
 
 let findRepIds = obj => {
@@ -77,19 +75,19 @@ const populateRep = (localReps, obj) => {
 };
 
 let memberVotes = obj => {
-  let id = obj[0].id;
-  console.log(id);
-  return promisedGet(`${congressBaseUri}/members/${id}/votes.json`).then(
-    data =>
-      (obj[0].votes = data.results[0].votes.map(val => new Members.Votes(val)))
-  );
+  const legislator = obj.Senate.length ? obj.Senate[0] : obj.House[0];
+  return promisedGet(
+    `${congressBaseUri}/members/${legislator.id}/votes.json`
+  ).then(data => {
+    legislator.votes = data.results[0].votes.map(val => new Members.Votes(val));
+    return legislator;
+  });
 };
 
 const RepGenerator = id => {
-  memberLookup(id)
-    .then(obj => populateReps(obj, soloRep))
-    .then(memberVotes)
-    .then(data => console.log(data));
+  return memberLookup(id)
+    .then(populateReps)
+    .then(memberVotes);
 };
 
 const LocalRepsGenerator = address => {

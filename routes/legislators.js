@@ -12,12 +12,22 @@ const Reps = require('../index.js');
 
 router.get('/', () => console.log('Request received'));
 
-router.get('/:address', (req, res) => {
+router.get('/address', (req, res) => {
   console.log('address received');
-  let address = req.query.address;
-  Reps.LocalRepsGenerator(address)
-    .then(console.log)
-    .then(reps => res.render('../views/locals.hbs', { reps: reps }))
+  // let address = req.query.address;
+  Reps.LocalRepsGenerator(req.query.address)
+    .then(reps => {
+      console.log(reps);
+      return res.render('../views/locals.hbs', { reps });
+    })
+    .catch(err => res.render('../views/error.hbs', { err }));
+});
+
+router.get('/id/:id', (req, res) => {
+  console.log('Rep ID received');
+  // let id = [req.params.id];
+  Reps.RepGenerator([req.params.id])
+    .then(rep => res.render('../views/profile.hbs', { rep }))
     .catch(err => res.render('../views/error.hbs', { err }));
 });
 

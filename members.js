@@ -14,6 +14,8 @@ class HouseMember {
     this.id = member.member_id;
     this.phone = member.roles[0].phone;
     this.website = member.url;
+    this.photo = `/images/${member.member_id}.jpg`;
+    this.soloUrl = `/legislators/id/${member.member_id}`;
   }
 }
 
@@ -30,6 +32,8 @@ class SenateMember {
     this.id = member.member_id;
     this.phone = member.roles[0].phone;
     this.website = member.url;
+    this.photo = `/images/${member.member_id}.jpg`;
+    this.soloUrl = `/legislators/id/${member.member_id}`;
   }
 }
 
@@ -37,6 +41,7 @@ class Votes {
   constructor(data) {
     this.title = data.bill.title;
     this.bill_id = data.bill.bill_id;
+    this.bill_url = data.bill.bill_uri;
     this.description = data.description;
     this.position = data.position;
     this.result = data.result;
