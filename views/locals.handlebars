@@ -1,0 +1,39 @@
+
+
+
+<div class='main'>
+  <h1 class='highlighted'>What Have You Done?</h1>
+  <div class="container">
+    <h1 class='grayed'>Senate</h1>
+    {{#each reps.Senate as |rep|}}
+    <div class="rep focus" id={{rep.id}}>
+      <div class='image'>
+        <a href={{rep.soloUrl}}>
+          <img src={{rep.photo}}>
+        </a>
+      </div>
+      <section>
+        <h2 class="grayed">{{rep.name}}</h2>
+        <h3 class="grayed">{{rep.party}} Congressperson</h3>
+      </section>
+    </div>
+    {{/each}}
+  </div>
+
+    <div class="container">
+      <h1 class='grayed'>House</h1>
+      {{#each reps.House as |rep|}}
+      <div class="rep focus" id={{rep.id}}>
+        <div class='image'>
+          <a href={{rep.soloUrl}}>
+            <img src={{rep.photo}}>
+          </a>
+        </div>
+        <section>
+          <h2 class='grayed'>{{rep.name}}</h2>
+          <h3 class='grayed'>{{rep.party}} Congressperson</h3>
+        </section>
+      </div>
+      {{/each}}
+    </div>
+  </div>

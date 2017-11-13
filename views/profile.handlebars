@@ -1,0 +1,54 @@
+
+
+<div class='container'>
+<section class="container main">
+  <h1 class='highlighted'>What Have You Done?</h1>
+  <img src={{rep.photo}}>
+
+  <h2>{{rep.party}} Congressperson</h2>
+
+  <h1 class='highlighted'>{{rep.name}}</h1>
+</section>
+
+
+<section class="container focus">
+  <h3>Contact Info</h3>
+  <div>
+    <h4>Phone Number</h4>
+    <p>{{rep.phone}}</p>
+    <br>
+    <h4>Website</h4>
+    <p>{{rep.website}}</p>
+  </div>
+</section>
+</div>
+
+<div class='container main'>
+<section>
+  <h3>Recent Votes</h3>
+</section>
+<section id='example'>
+  <p>Bill passed - <div class='passed' id='submit'></div></p>
+</section>
+  {{#each rep.votes as |vote|}}
+    {{#if vote.result}}
+    <article class='passed focus'>
+    {{else}}
+    <article class='failed focus'>
+    {{/if}}
+      {{#if vote.num}}
+      <a href={{vote.bill_url}}>
+        <h2>{{vote.bill_id}}</h2>
+      </a>
+      {{else}}
+        <h2>{{vote.bill_id}}</h2>
+      {{/if}}
+      <h3>{{vote.title}}</h3>
+      <br>
+      <p>{{vote.description}}</p>
+      <br>
+      <p>Voted: {{vote.position}}</p>
+    </article>
+  {{/each}}
+</section>
+</div>

@@ -1,0 +1,100 @@
+#form-box {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; }
+
+#subhead {
+  font-weight: 400; }
+
+#submit {
+  width: 75px;
+  height: 30px;
+  border-radius: 3px; }
+
+#address {
+  margin: 20px;
+  width: auto;
+  height: 75px;
+  font-size: 2em; }
+
+#example {
+  display: flex;
+  flex-direction: row; }
+
+.container {
+  width: 75%;
+  display: flex;
+  flex-direction: column; }
+
+.rep {
+  display: flex;
+  margin: 15px;
+  border-radius: 5px; }
+
+.image {
+  flex: 1;
+  border-radius: 100px; }
+
+.main {
+  margin: 100px auto 50px auto;
+  width: 75%;
+  display: flex;
+  flex-direction: column; }
+
+.focus {
+  background: #f7f1e3; }
+
+.grayed {
+  color: grey;
+  text-align: center; }
+
+.highlighted {
+  background: yellow;
+  text-align: center;
+  border-radius: 3px; }
+
+.passed {
+  border: 2px solid green; }
+
+.failed {
+  border: 2px solid red; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e0dfdb; }
+
+h1 {
+  text-align: center; }
+
+span {
+  font-weight: 700; }
+
+label {
+  font-size: 1.5em;
+  margin: auto; }
+
+section {
+  flex: 3;
+  margin: 15px; }
+  section h2 {
+    margin-top: auto; }
+  section div {
+    margin-left: 10px; }
+
+h2 {
+  text-align: center; }
+
+article {
+  margin: 20px; }
+
+img {
+  align-self: center;
+  width: 250px;
+  height: auto; }
+
+/*# sourceMappingURL=styles.css.map */
