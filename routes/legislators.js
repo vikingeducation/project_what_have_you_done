@@ -3,8 +3,8 @@
 const express = require('express');
 const request = require('request');
 const router = express.Router();
-const dotenv = require('dotenv').config();
-const env = require('../.env');
+// const dotenv = require('dotenv').config();
+// const env = require('../.env');
 const Members = require('../members.js');
 const Reps = require('../index.js');
 
