@@ -3,6 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const exphbs = require('express-handlebars');
 const request = require('request');
+const favicon = require('serve-favicon');
 const Express = require('express');
 const router = Express.Router();
 const app = Express();
