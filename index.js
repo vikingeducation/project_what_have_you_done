@@ -4,15 +4,20 @@ const express = require('express');
 const app = express();
 const request = require('request');
 const rp = require('request-promise');
-const dotenv = require('dotenv').config();
-const env = require('./.env');
+// const dotenv = require('dotenv').config();
+// const env = require('./.env');
 const Members = require('./members.js');
 
 const options = {
   uri: '',
-  headers: { 'X-API-Key': `${congressKey}` },
+  headers: { 'X-API-Key': `${keys.congressKey}` },
   json: true
 };
+
+const keys = {
+  googleKey = process.env.GOOGLE_KEY,
+  congressKey = process.env.CONGRESS_KEY;
+}
 
 const localBaseUri =
   'https://www.googleapis.com/civicinfo/v2/representatives?key';
@@ -26,7 +31,7 @@ let promisedGet = url => {
 
 const findLocalReps = address => {
   return promisedGet(
-    `${localBaseUri}=${googleKey}&address=${address}&levels=country`
+    `${localBaseUri}=${keys.googleKey}&address=${address}&levels=country`
   ).then(data => {
     const district = Object.keys(data.divisions).reduce((acc, div) => {
       const pieces = div.split('/');
