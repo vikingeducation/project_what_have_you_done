@@ -8,7 +8,7 @@ const router = Express.Router();
 const app = Express();
 const legislators = require('./routes/legislators.js');
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 const host = 'localhost';
 
 const hbs = exphbs.create({
