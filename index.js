@@ -16,7 +16,7 @@ const options = {
 
 const keys = {
   googleKey = process.env.GOOGLE_KEY,
-  congressKey = process.env.CONGRESS_KEY;
+  congressKey = process.env.CONGRESS_KEY
 }
 
 const localBaseUri =
