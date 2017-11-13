@@ -8,15 +8,15 @@ const rp = require('request-promise');
 // const env = require('./.env');
 const Members = require('./members.js');
 
+const keys = {
+  googleKey: process.env.GOOGLE_KEY,
+  congressKey: process.env.CONGRESS_KEY
+};
+
 const options = {
   uri: '',
   headers: { 'X-API-Key': `${keys.congressKey}` },
   json: true
-};
-
-const keys = {
-  googleKey: process.env.GOOGLE_KEY,
-  congressKey: process.env.CONGRESS_KEY
 };
 
 const localBaseUri =
