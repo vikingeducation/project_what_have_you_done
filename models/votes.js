@@ -16,6 +16,3 @@ class Vote {
 module.exports = {
   Vote
 }
-
-
-// Pass in constructor: obj

@@ -1,6 +1,23 @@
 <h1>Response Parameters</h1>
 
-{{ googleResults[0].name }}
-{{ googleResults[0].party }}
-{{ googleResults[0].siteURL }}
-{{ googleResults[0].photoURL }}
+{{#each officialArray}}
+{{this.name}}
+{{this.party}}
+{{this.siteURL}}
+{{this.photoURL}}
+{{this.bioID}}
+{{/each}}
+
+
+{{#each votes as |vote|}}
+  {{vote.billNumber}}
+  {{vote.description}}
+  {{vote.question}}
+  {{vote.result}}
+  {{vote.date}}
+  {{vote.time}}
+  {{vote.totalYes}}
+  {{vote.totalNo}}
+  {{vote.notVoting}}
+  {{vote.position}}
+{{/each}}
