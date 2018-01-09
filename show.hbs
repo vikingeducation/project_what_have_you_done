@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sunlight</title>
+</head>
+
+<body>
+  <h1>What Have You Done</h1>
+    <div class="rep">
+      <div class="rep-pic">
+        <a href="/reps/{{rep.pic}}">
+           {{rep.pic}}
+         </a>
+      </div>
+
+      <div class="rep-party">
+        <a href="/reps/{{rep.party}}">
+           {{rep.party}}
+         </a>
+      </div>
+
+      <div class="rep-name">
+        <a href="/reps/{{rep.name}}">
+           {{rep.name}}
+         </a>
+      </div>
+
+      <div class="rep-info">
+        <a href="/reps/{{rep.info}}">
+          {{rep.info}}
+        </a>
+      </div>
+    </div>
+
+    {{#each votes as |vote|}}
+      <div class="vote">
+        <a href="/votes/{{rep.vote}}">
+           {{rep.vote}}
+         </a>
+      </div>
+    {{/each}}
+
+</body>
+
+</html>
