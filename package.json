@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AnnAllan/project_what_have_you_done#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "hbs": "^4.0.1"
   }
 }
