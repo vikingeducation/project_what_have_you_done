@@ -1,7 +1,8 @@
 var request = require("request");
 var keys = require("C:/Users/Jared/Modules/Cles/items");
 
-
+// Retrieves basic information about 
+// Necessary because part of original API shut down
 var executeGoogleRequest = (line1, city, state, zip, callback) => {
 
   var address = `${line1} ${city} ${state} ${zip}`;
@@ -33,20 +34,25 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
     if (response.statusCode !== 200 ) {
       APIerr = `Invalid API Response: ${body}`;
       callback(error, APIerr, null);
-    } else {
 
+    } else {
+      // Parse response 
       var obj = JSON.parse(body);
+
       // For each INDEX in obj.offices - unknown quantity
       var i = 0;
+      
       while (i < (obj.offices.length)) {
         // If the rep is in the Senate or House, add them to
         // their respective arrays
         if(obj['offices'][i]['name'] === "United States Senate") {
           senateIndices = obj['offices'][i]['officialIndices'];
           i++;
+
         } else if (obj['offices'][i]['name'].substring(0, 19) === "United States House") {
           houseIndices = obj['offices'][i]['officialIndices'];
           i++;
+
         } else {
           i++;
         }
@@ -64,7 +70,7 @@ var executeGoogleRequest = (line1, city, state, zip, callback) => {
         }
 
 
-
+        // Parse social media elsewhere?
         // Get Twitter info if available, otherwise get FB info
         var i;
         for(i = 0; i < officialInfo.channels.length; i++) {

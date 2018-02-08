@@ -7,7 +7,7 @@ var keys = require("C:/Users/Jared/Modules/Cles/items");
 var executeProPubRequest = (officials, callback) => {
   // could also put executeProPubRequest inside loop for each official
   async.forEachOf(officials, function(official, i, callbackTwo) {
-    console.log(i);
+    
     var options = {
       method: 'GET',
       url: "https://api.propublica.org/congress/v1/members/" + officials[i].bioID + "/votes.json",
@@ -28,7 +28,7 @@ var executeProPubRequest = (officials, callback) => {
         // because it's just a big wrapper
         officials[i]['chamber'] = obj.results[0].votes[0].chamber;
         officials[i]['votes']= [];
-        console.log(officials);
+  
         // IIFE to push votes into votes array
         let j;
         for(j = 0; j <= 4; j++) {

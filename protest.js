@@ -1,84 +1,102 @@
 var request = require("request");
 var votes = require("./models/votes");
 var keys = require("C:/Users/Jared/Modules/Cles/items");
+var async = require('async');
 
 // officials is the object the other two apis have dealt with
-var executeProPubRequest = (officials, callback) => {
-
-  // for each official, execute the request and collect information
-  let i;
-  for(i = 0; i <= (officials.length - 1); i++) {
-    // IIFE
-    (function(i) {
+// Retreive votes from Propublica API
+var executeProPubRequest = (officials, indexCallback) => {
+  async.map(officials,
+    
+    // For each official, retrieve chamber and votes 
+    // Results returned to second callback 
+    function(official, doneCallback) {
       var options = {
         method: 'GET',
-        url: "https://api.propublica.org/congress/v1/members/" + officials[i].bioID + "/votes.json",
-        headers: { 'x-api-key': keys.proPub },
+        url: "https://api.propublica.org/congress/v1/members/" + official.bioID + "/votes.json",
+        headers: { 'x-api-key': keys.proPub }
       };
 
+      // Actual API request
       request(options, function(error, response, body) {
         if (error) throw new Error(error);
-
         var APIerr = null;
+        // callback
         if (response.statusCode !== 200 ) {
-          APIerr = `Invalid API Response: ${body}`;
-          callback(error, APIerr, null);
+          APIerr = `Invalid API Response: ${response}`;
+          // fix
+          //callback(error, APIerr, null);
         } else {
+          var obj = JSON.parse(body);
 
-            var obj = JSON.parse(body);
+          // assign chamber and init votes array 
+          // results[0] requires bracketed index
+          // because it's just a big wrapper
+          official['chamber'] = obj.results[0].votes[0].chamber;
+          official['votes']= [];
 
-            // results[0] requires bracketed index
-            // because it's just a big wrapper
-            officials[i]['chamber'] = obj.results[0].votes[0].chamber;
-            officials[i]['votes']= [];
+          // specifically pushing 5 votes
+          let j;
+            for(j = 0; j <= 4; j++) {
+              (function(j) {
+                let newVote = new votes.Vote(obj, j);
+                official['votes'].push(newVote);
+              })(j);
+            }
+        // closes else
+        }
+        
+        // return completed official item
+        return doneCallback(null, official);
+      // closes request
+      });
+    // closes iterator callback
+    },
+  
+    // callback once each item has finished
+    function(err, results) {
+      if(err) { console.log(err); }
+      indexCallback(results);
+    }
+  
+  // closes async.map
+  );
 
-                let j;
-                for(j = 0; j <= 4; j++) {
-                  (function(j) {
-                    let newVote = new votes.Vote(obj, j);
-                    officials[i]['votes'].push(newVote);
-                  })(j);
-                }
 
-                //var returnArray = [APIerr, officials];
-                //return returnArray;
-                callback(error, APIerr, officials);
-              }});
-            })(i);
-          }
+// closes executeProPubRequest
 };
 
 
-var MEofficials = [
-  { name: 'Susan M. Collins',
-    party: 'Republican',
-    siteURL: [ 'https://www.collins.senate.gov/' ],
-    photoURL: 'http://bioguide.congress.gov/bioguide/photo/C/C001035.jpg',
-    twitter: 'SenatorCollins',
-    bioID: "C001035" },
-  { name: 'Angus S. King Jr.',
-    party: 'Independent',
-    siteURL: [ 'http://www.king.senate.gov/' ],
-    photoURL: 'http://king.senate.gov/imo/media/image/Senator-King-Official-thumb.png',
-    twitter: 'SenAngusKing',
-    bioID: "K000383" },
-  { name: 'Chellie Pingree',
-    party: 'Democratic',
-    siteURL: [ 'http://pingree.house.gov/' ],
-    photoURL: 'http://bioguide.congress.gov/bioguide/photo/P/P000597.jpg',
-    twitter: 'chelliepingree',
-    bioID: 'P000597' }
-];
+// var MEofficials = [ 
+// { name: 'Susan M. Collins',
+// party: 'Republican',
+// siteURL: [ 'https://www.collins.senate.gov/' ],
+// photoURL: 'http://bioguide.congress.gov/bioguide/photo/C/C001035.jpg',
+// facebook: 'susancollins',
+// twitter: 'senatorcollins',
+// youtube: 'senatorsusancollins',
+// bioID: 'C001035' },
+// { name: 'Angus S. King Jr.',
+// party: 'Independent',
+// siteURL: [ 'http://www.king.senate.gov/' ],
+// photoURL: 'http://king.senate.gov/imo/media/image/Senator-King-Official-thumb.png',
+// facebook: 'senatorangusskingjr',
+// twitter: 'senangusking',
+// youtube: 'senatorangusking',
+// bioID: 'K000383' },
+// { name: 'Chellie Pingree',
+// party: 'Democratic',
+// siteURL: [ 'http://pingree.house.gov/' ],
+// photoURL: 'http://bioguide.congress.gov/bioguide/photo/P/P000597.jpg',
+// facebook: 'chelliepingree',
+// twitter: 'chelliepingree',
+// youtube: 'congresswomanpingree',
+// bioID: 'P000597' } ];
 
-executeProPubRequest(MEofficials, (error, APIerr, officialArray) => {
-  if (error) {throw err;}
-  if (APIerr) {
-    console.log(APIerr);
-  } else {
-    console.log(officialArray);
-  }
-});
+// executeProPubRequest(MEofficials, (officialArray) => {
+//     console.log(officialArray);
+// });
 
 module.exports = {
   executeProPubRequest
-}
+};

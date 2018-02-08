@@ -3,7 +3,7 @@ var cookieParser = require('cookie-parser');
 var router = express.Router();
 var google = require('../models/google');
 var usIDs = require('../models/usgithub');
-var propub = require('../models/propub');
+var propub = require('../protest');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,12 +29,12 @@ router.get('/results', function(req, res, next) {
         } else {
 
           // CALL THIRD API HERE
-          propub.executeProPubRequest(officialArray, function(error, APIerr, officialArray) {
+          propub.executeProPubRequest(officialArray, function(officialArray) {
             if (error) { throw error; }
             else if (APIerr) {
               console.log(APIerr);
             } else {
-              console.log(officialArray);
+              console.dir(officialArray);
               res.render('results', { officialArray: officialArray });
             }
           });

@@ -1,10 +1,5 @@
 var request = require("request");
 
-// officials parameter is array of information from last request 
-// This API call retrieves each representative's bioID based
-// on social media account information. This info is checked 
-// through three possible social media routes - currently
-// all representatives have one of the three
 var executeUSGithubRequest = function(officials, callback) {
 
   var options = {
@@ -53,6 +48,40 @@ var executeUSGithubRequest = function(officials, callback) {
     });
 
 };
+
+
+var MEofficials = [ { name: 'Susan M. Collins',
+    party: 'Republican',
+    siteURL: [ 'https://www.collins.senate.gov/' ],
+    photoURL: 'http://bioguide.congress.gov/bioguide/photo/C/C001035.jpg',
+    facebook: 'susancollins',
+    twitter: 'senatorcollins',
+    youtube: 'senatorsusancollins' },
+  { name: 'Angus S. King Jr.',
+    party: 'Independent',
+    siteURL: [ 'http://www.king.senate.gov/' ],
+    photoURL: 'http://king.senate.gov/imo/media/image/Senator-King-Official-thumb.png',
+    facebook: 'senatorangusskingjr',
+    twitter: 'senangusking',
+    youtube: 'senatorangusking' },
+  { name: 'Chellie Pingree',
+    party: 'Democratic',
+    siteURL: [ 'http://pingree.house.gov/' ],
+    photoURL: 'http://bioguide.congress.gov/bioguide/photo/P/P000597.jpg',
+    facebook: 'chelliepingree',
+    twitter: 'chelliepingree',
+    youtube: 'congresswomanpingree' } ]
+
+
+executeUSGithubRequest(MEofficials, (error, APIerr, officialArray) => {
+  if (error) {throw err;}
+  if (APIerr) {
+    console.log(APIerr);
+  } else {
+    console.log(officialArray);
+  }
+});
+
 
 module.exports = {
   executeUSGithubRequest
