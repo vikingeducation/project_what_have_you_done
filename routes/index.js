@@ -7,7 +7,7 @@ var propub = require('../protest');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Find Your Representative' });
+  res.render('home', { title: 'Find Your Representative' });
 });
 
 
@@ -34,7 +34,7 @@ router.get('/results', function(req, res, next) {
             else if (APIerr) {
               console.log(APIerr);
             } else {
-              console.dir(officialArray);
+              // console.dir(officialArray[0].votes);
               res.render('results', { officialArray: officialArray });
             }
           });

@@ -5,18 +5,36 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var expressValidator = require('express-validator');
+var exphbs = require('express-handlebars');
+// var helpers = require('./helpers/helpers');
 
-// Requiring each route
+// Require each route
 var index = require("./routes/index");
 
-// Requiring keys
+// Require keys
 var keys = require("../../../Modules/Cles/items.js");
 
 var app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main', 
+  helpers: {
+    reps: function(items, options) {
+      var out = "<ul>";
+
+      for(var i = 0; i <= (reps.length -1); i++) {
+        out = out + "<li>" + options.fn(items[i]) + "</li>";
+      }
+
+      return out + "</ul>";
+    },
+    foo: function(){
+      return 'foo';
+    }
+  }
+}));
+app.set("view engine", "handlebars");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
