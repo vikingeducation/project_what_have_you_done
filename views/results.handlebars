@@ -1,0 +1,29 @@
+<h1>Your Representatives</h1>
+<!-- for address -->
+
+{{#each officialArray}}
+  {{this.name}}
+  {{this.party}}
+  {{this.siteURL}}
+  {{this.photoURL}}
+  {{this.bioID}}
+{{/each}}
+<br>
+{{!-- {{#reps officialArray}}
+  {{name}}
+{{/reps}} --}}
+
+{{foo}}
+
+{{#each votes as |vote|}}
+  {{vote.billNumber}}
+  {{vote.description}}
+  {{vote.question}}
+  {{vote.result}}
+  {{vote.date}}
+  {{vote.time}}
+  {{vote.totalYes}}
+  {{vote.totalNo}}
+  {{vote.notVoting}}
+  {{vote.position}}
+{{/each}}

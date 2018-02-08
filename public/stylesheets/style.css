@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
+.greeting-text {
+  background-color: #054e81;
+  color: ivory;
+  box-shadow: 0px 2px gray;
+}
+
+.container {
+  box-shadow: 0px 0px 1px 1px gray;
+}
+
+.form-box {
+  background-color: #066cb3;
+  color: ivory;
+}
+
+form {
+  height: 350px;
+}
+
+.form-control {
+  background-color: ivory;
+}
