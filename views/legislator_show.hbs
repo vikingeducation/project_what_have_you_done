@@ -1,0 +1,47 @@
+<section class="legislator-bio">
+  <section class="pic-holder">
+    <img src="{{legislator.imageUrl}}">
+  </section>
+  <h3>member of the {{legislator.chamber}}</h3>
+  <h1>{{legislator.name}}</h1>
+</section>
+
+
+<section class="contact">
+  <h3>Contact Info</h3>
+  <div class="contact-info-box small-box">
+    <h4>Phone Number</h4>
+    <p>{{legislator.phone}}</p>
+    <h4>Website</h4>
+    <p><a href="{{legislator.website}}" target="_blank" alt="{{legislator.name}}'s Website" title="{{legislator.name}}'s Website">{{legislator.website}}</a></p>
+  </div> <!-- contact-info-box -->
+
+</section>
+
+<section class="votes">
+  <h3>Recent Votes</h3>
+  {{#each votes as |vote|}}
+  <article class="vote">
+    <header>
+      <div class="result-container">
+        <strong>Bill:</strong><br>
+        {{vote.result}}
+      </div> <!-- result-container -->
+      <div class="result-container">
+        <strong>{{../legislator.name}}<br>
+        Voted:</strong> {{vote.legislatorVote}}
+      </div> <!-- result-container -->
+
+      <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress}}/{{bill.number}}" target="_blank" alt="bill" title="bill"><strong>{{vote.billId}}:</strong> Bill Title Coming </a></h2>
+    </header>
+    <p>Description Coming</p>
+  </article>
+  {{/each}} <!-- vote -->
+
+  <!-- <article class="vote">
+    <i class="material-icons"></i>
+    <h2><a href="https://www.govtrack.us/congress/bills/{{bill.congress_number}}/{{bill.number}}" target="_blank" alt="{{bill.name}}" title="{{bill.name}}">{{bill.name}}</a></h2>
+    <p>{{bill.description}}</p>
+  </article> -->
+
+</section>

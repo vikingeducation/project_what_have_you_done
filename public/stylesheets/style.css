@@ -1,0 +1,277 @@
+:root {
+  --background: #F5F5F5;
+  --content-box: #FEFFF8;
+  --highlight: #EBFF00;
+  --border: #CCC;
+  --green: #54C77A;
+  --lightgreen: #E4FFED;
+  --red: #C7546B;
+  --lightred: #FDE5EA;
+  --blue: #317BE1;
+  --lightblue: #00B7FF;
+  --lightgray: #EEEEEE;
+}
+
+
+/* Site-wide Layout */
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--background);
+  position: relative;
+}
+
+.container {
+  padding: 50px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--lightblue);
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+header.site-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header.site-header h1 {
+  background-color: var(--highlight);
+  padding: 10px;
+  display: inline-block;
+  margin: 0;
+}
+
+header.site-header h1 a {
+  text-decoration: none;
+  color: black;
+}
+
+footer {
+  text-align: center;
+  font-style: italic;
+  color: var(--background);
+  background-color: gray;
+  padding: 10px 0px;
+  margin: 0;
+  display: block;
+  width: 100%;
+}
+
+.small-box {
+  background-color: var(--content-box);
+  border: 1px solid var(--border);
+  padding: 15px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.pic-holder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  overflow: hidden;
+  position: relative;
+}
+
+.pic-holder img {
+  width: 100%;
+  position: absolute;
+  top: -10px;
+}
+
+/* Index Page */
+.home {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home h2 {font-weight: normal;}
+
+.enter-zip h2 {
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 0;
+  clear: both;
+}
+
+.digit-holder {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+
+}
+
+.zip-digit-box {
+  text-align: center;
+  font-size: 30px;
+  height: 52px;
+  width: 42px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: var(--highlight);
+}
+
+.enter-zip form input[type=submit] {
+  margin-top: 10px;
+}
+
+/* Legislators by Zip */
+.display-zip {
+  text-align: center;
+}
+
+.display-zip span {
+  font-size: 20px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: white;
+}
+
+h1.chamber {
+  color: gray;
+  margin-top: 50px;
+}
+
+.profile {
+  background-color: var(--content-box);
+  border-bottom: 1px solid var(--border);
+  border-radius: 50px 0px 0px 50px;
+  margin: 20px 0px;
+  clear: both;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+}
+
+.profile .pic-holder {
+  float: left;
+  margin-right: 30px;
+}
+
+.profile .details h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  font-weight: normal;
+}
+.profile .details a {
+  color: black;
+  text-decoration: none;
+}
+.profile .details a:hover {
+  background-color: var(--highlight);
+}
+
+.profile .details h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5em;
+  font-weight: normal;
+  text-align: left;
+}
+
+/* Legislator Show Page */
+.legislator-bio .pic-holder {
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.legislator-bio h1 {
+  font-size: 2.5em;
+  margin: 0px 0px 40px 0px;
+}
+
+.legislator-bio h3 {
+  font-size: 1.25em;
+  font-weight: normal;
+  margin: 10px 0px;
+  color: gray;
+  font-style: italic;
+}
+
+.contact-info-box {
+  background-color: white;
+  border: 1px solid var(--border);
+  padding: 15px;
+}
+
+.contact-info-box h4 {
+  text-align: left;
+  margin: 15px 0px 0px 0px;
+}
+
+.contact-info-box h4:first-child {
+  margin: 0px;
+}
+
+.contact-info-box p {
+  margin: 0px;
+}
+
+article.vote {
+  background-color: white;
+  border: 1px solid var(--border);
+  margin: 20px 0px;
+}
+
+article.vote header .material-icons {
+  float: right;
+  margin: 10px 10px 0px 0px;
+  color: white;
+}
+
+article.vote header {
+  background-color: var(--lightgray);
+  margin: 0;
+  padding: 0;
+  color: gray;
+  text-align: center;
+  overflow: auto;
+}
+
+article.voted-yes header {
+  background-color: var(--green);
+  color: white;
+}
+
+article.voted-no header {
+  background-color: var(--red);
+  color: white;
+}
+
+article.vote header h2 {
+  text-align: left;
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+article.vote header h2 a {
+  color: black;
+  text-decoration: none;
+}
+
+article.vote header h2 a:hover {
+  text-decoration: underline;
+}
+
+article.vote header .result-container {
+  font-size: 0.85em;
+  float: right;
+  color: black;
+  padding: 10px;
+}
+
+article.vote p {
+  padding: 0px 10px 10px 10px;
+}
