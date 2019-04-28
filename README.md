@@ -6,5 +6,6 @@ This build is not 100% complete as it lacks bill info integration.
 by Anne Richardson
 
 Hosted on heroku: https://frozen-brushlands-61850.herokuapp.com
+
 _App is currently turned off_
 
